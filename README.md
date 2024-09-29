@@ -588,3 +588,29 @@ The following are the interfaces and the functions they will contain.
 ##### abstract Iterator<E> iterator()
     Returns:
         an iterator over the elements contained in this Collection
+##### boolean remove(Object o)
+    Variables:
+        Object o:
+            the Object to remove if the first occurrence of it is found
+    Throws:
+        NullPointerException() if no Object is provided
+    Returns:
+        True if this Collection has been modified, False otherwise
+    Functionality:
+        If no Object is provided, the Collection throws a NullPointerException().
+        Otherwise, the function will iterate through this Collection until the provided Object is found using a counter.
+        Once the loop exits, the function will check if the counter is still in range.
+        If not, the Object was not found, so the function returns false.
+        Otherwise, the function will proceed to remove that first occurrence, and then return true so that the function does not keep removing values infinitely.
+##### boolean removeAll(Collection<?> c)
+    Variables:
+        Collection<?> c:
+            Collection of values to remove if found in this Collection
+    Throws:
+        NullPointerException() if no Object is provided or the provided variable is null
+    Returns:
+        True if this Collection has been modified, False otherwise
+    Functionality:
+        If no Collection is provided, the function will throw a NullPointerException().
+        If a value in the provided Collection is found in this Collection, the function will proceed and remove it.
+        In the end, after iterating to the end of this Collection, if this Collection has been changed, the function returns true.
