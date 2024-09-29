@@ -35,4 +35,10 @@ public interface ListIterator<E> extends Iterator<E>
      * @return the index of the element that would be returned by a subsequent call to next()
      */
     int nextIndex();
+
+    /**
+     * @return the previous element in the list
+     * @code Returns the previous element in the list and moves the cursor position backwards.
+     */
+    E previous();
 }
