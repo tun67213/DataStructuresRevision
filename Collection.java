@@ -1,9 +1,8 @@
-
 /**
  * @author arvindhvelrajan
  * @param <E> Generic variable for this interface
  */
-public interface ListIterator<E>
+public interface Collection<E>
 {
 
 }
