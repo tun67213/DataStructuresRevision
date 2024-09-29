@@ -537,3 +537,8 @@ The following are the interfaces and the functions they will contain.
 
 ## Classes
 ### abstract class AbstractCollection<E> extends Object implements Collection<E>
+#### Constructors
+##### protected AbstractCollection()
+    Functionality:
+        Sole constructor.
+
