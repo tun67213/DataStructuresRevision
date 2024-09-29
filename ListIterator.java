@@ -46,4 +46,10 @@ public interface ListIterator<E> extends Iterator<E>
      * @return the index of the element that would be returned by a subsequent call to previous()
      */
     int previousIndex();
+
+    /**
+     * @code Removes from the list the last element that was returned by next() or previous().
+     */
+    @Override
+    void remove();
 }
