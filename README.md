@@ -37,3 +37,51 @@ The following are the interfaces and the functions they will contain.
         an iterator over a set of elements of type T
 
 
+### ListIterator.java extends Iterator<E>
+#### Functions
+##### void add(E e)
+    Variables:
+        E e:
+            Variable to be added into the list
+    Throws:
+        NullPointerException() if no value is provided
+    Functionality:
+        If no value is provided, throws a NullPointerException().
+        Otherwise, adds the value to this ListIterator.
+##### boolean hasNext()
+    Returns:
+        true if this list iterator has more elements when traversing the list in the forward direction, false otherwise
+##### boolean hasPrevious()
+    Returns:
+        true if this list iterator has more elements when traversing the list in the reverse direction, false otherwise
+##### E next()
+    Throws:
+        NoSuchElementException() if hasNext() returns false
+    Returns:
+        the next value in the iteration
+##### int nextIndex()
+    Returns:
+        the index of the value that would be returned by a subsequent call to next() 
+##### E previous()
+    Throws:
+        NoSuchElementException() if hasPrevious() returns false
+    Returns:
+        the previous value in the iteration
+##### int previousIndex()
+    Returns:
+        the index of the value that would be returned by a subsequent call to previous()
+##### void remove()
+    Throws:
+        NoSuchElementException() if no values are pointed to right now
+    Functionality:
+        Removes from the list the last element that was returned by next() or previous().
+##### void set(E e)
+    Variables:
+        E e:
+            The value to be set to the index currently pointed to by this ListIterator
+    Throws:
+        NullPointerException() if no value is provided
+    Functionality:
+        Sets the value returned by next() or previous() to the provided value e
+
+
