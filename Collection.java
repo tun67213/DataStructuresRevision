@@ -51,4 +51,9 @@ public interface Collection<E> extends Iterable<E>
      */
     @Override
     int hashCode();
+
+    /**
+     * @return true if this collection contains no elements, false otherwise
+     */
+    boolean isEmpty();
 }
