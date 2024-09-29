@@ -85,3 +85,119 @@ The following are the interfaces and the functions they will contain.
         Sets the value returned by next() or previous() to the provided value e
 
 
+### Collection.java extends Iterable<E>
+
+#### Functions
+##### boolean add(E e)
+    Variables:
+        E e:
+            the Object to be added to this collection
+    Throws:
+        NullPointerException() if no value is provided or the provided value is null
+    Returns:
+        true if the value has successfully been added to this Collection
+    Functionality:
+        Ensures that this collection contains the specified element.
+##### boolean addAll(Collection<? extends E> c)
+    Variables:
+        Collection<? extends E> c:
+            Collection of values to add to the end of this Collection
+    Throws:
+        NullPointerException() if no Collection is provided or any value inside the input Collection c is null
+    Returns:
+        true if this Collection has been modified, false if the provided Collection is empty
+    Functionality:
+        If no Collection is provided, the fucntion throws a NullPointerException().
+##### void clear()
+    Functionality:
+        Removes all the elements from this collection.
+##### boolean contains(Object o)
+    Variables: 
+        Object o:
+            the Object to find the existence of in this Collection
+    Throws:
+        NullPointerException() if no Object is provided
+    Returns:
+        True if the provided Object is found in this Collection, false otherwise
+##### boolean containsAll(Collection<?> c)
+    Variables:
+        Collection<?> c:
+            Collection of values to find the existence of in this Collection
+    Throws:
+        NullPointerException() if no Collection variable is provided or the provided Collection variable is 'null'
+    Returns:
+        False immediately if one value is not found, True if all values are found
+##### boolean equals(Object o)
+    Variables:
+        Object o:
+            The Object to compare with this Collection for equality
+    Throws:
+        NullPointerException() if no Object is provided
+        ClassCastException() if the provided Object is not a Collection
+    Returns:
+        True if all values match exactly
+        False if the sizes are different or a value does not match
+##### int hashCode()
+    Returns:
+        the hash code value for this Collection
+##### boolean isEmpty()
+    Returns:
+        True if this Collection contains no elements, False otherwise
+##### Iterator<E> iterator()
+    Returns:
+        an iterator over the elements in this collection
+##### boolean remove(Object o)
+    Variables:
+        Object o:
+            the value to remove the first occurrence of if found
+    Throws:
+        NullPointerException() if no Object is provided or the provided variable is 'null'
+    Returns:
+        True if this Collection has been modified, False otherwise
+    Functionality:
+        If no value is provided or the provided value is 'null', the function throws a NullPointerException().
+        Otherwise, the function will search for the provided value.
+            If the first occurrence of the value is found, the function will remove it.
+            Otherwise, if it reaches the end of this Collection, it will return false, meaning the Collection hasn't changed.
+##### boolean removeAll(Collection<?> c)
+    Variables:
+        Collection<?> c:
+            Collection of values to remove if found
+    Throws:
+        NullPointerException() if no Collection is provided
+    Returns:
+        True if this Collection has been modified, false otherwise
+    Functionality:
+        If no Collection was provided, the function throws a NullPointerException().
+        If the provided Collection is empty, the function returns true immediately.
+        If a value in the provided Collection is in this Collection, the function will remove it.
+        In the end, if the Collection was modified in any way, the function returns true, otherwise it returns false.
+##### boolean retainAll(Collection<?> c)
+    Variables:
+        Collection<?> c:
+            Collection of values to keep if found
+    Throws:
+        NullPointerException() if no Collection is provided
+    Returns:
+        True if this Collection has been modified, false otherwise
+    Functionality:
+        If no Collection is provided, the function throws a NullPointerException().
+        Otherwise, if a value in this Collection is not in the provided Collection, the function will remove it.
+##### int size()
+    Returns:
+        the number of elements in this Collection
+##### Object[] toArray()
+    Returns:
+        an array containing all the elements in this Collection
+##### <T> T[] toArray(T[] a)
+    Variables:
+        T[] a:
+            Array into which to copy values in this Collection
+    Throws:
+        NullPointerException() if no array is provided
+    Returns:
+        the array a with values from this Collection
+    Functionality:
+        Returns an array containing all of the elements in this collection; the runtime type of the returned array is that of the specified array.
+
+
