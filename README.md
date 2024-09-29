@@ -316,7 +316,7 @@ The following are the interfaces and the functions they will contain.
     Functionality:
         Returns an array containing all of the elements in this collection; the runtime type of the returned array is that of the specified array.
 
-        
+
 ### List.java extends Collection<E>
 
 #### Functions
@@ -533,3 +533,7 @@ The following are the interfaces and the functions they will contain.
 ##### String toString()
     Returns:
         a String representation of this List that is readable by the user
+
+
+## Classes
+### abstract class AbstractCollection<E> extends Object implements Collection<E>
