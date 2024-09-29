@@ -564,3 +564,21 @@ The following are the interfaces and the functions they will contain.
 ##### void clear()
     Functionality:
         Removes all the elements from this collection
+##### boolean contains(Object o)
+    Variables:
+        Object o:
+            The value to find the existence of in this Collection
+    Throws:
+        NullPointerException() if no Object is provided
+    Returns:
+        true if the Object is found
+        false otherwise
+##### boolean containsAll(Collection<?> c)
+    Variables:
+        Collection<?> c:
+            Collection of values to find the existence of in this Collection
+    Throws:
+        NullPointerException() if no Collection is provided
+    Returns:
+        False if a value in the provided Collection is null or not found in this Collection
+        True otherwise
