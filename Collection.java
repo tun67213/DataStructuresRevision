@@ -37,4 +37,12 @@ public interface Collection<E> extends Iterable<E>
      * @return true if the provided Collection is empty or all the values in the provided Collection were found, false otherwise
      */
     boolean containsAll(Collection<?> c);
+
+    /**
+     * @param o the Object to compare with this Collection
+     * @throws NullPointerException if no Object was provided, or the provided Object variable was null
+     * @return true if the provided Object matches this Collection exactly, false otherwise
+     */
+    @Override
+    boolean equals(Object o);
 }
