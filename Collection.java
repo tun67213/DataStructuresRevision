@@ -56,4 +56,10 @@ public interface Collection<E> extends Iterable<E>
      * @return true if this collection contains no elements, false otherwise
      */
     boolean isEmpty();
+
+    /**
+     * @return an iterator over the elements in this collection
+     */
+    @Override
+    Iterator<E> iterator();
 }
