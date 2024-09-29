@@ -582,3 +582,6 @@ The following are the interfaces and the functions they will contain.
     Returns:
         False if a value in the provided Collection is null or not found in this Collection
         True otherwise
+##### boolean isEmpty()
+    Returns:
+        True if this Collection contains no elements, False otherwise
