@@ -18,9 +18,4 @@ public interface ListIterator<E> extends Iterator<E>
      */
     @Override
     boolean hasNext();
-
-    /**
-     * @return the index of the element that would be returned by a subsequent call to next()
-     */
-    int nextIndex();
 }
