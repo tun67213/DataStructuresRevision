@@ -23,4 +23,11 @@ public interface ListIterator<E> extends Iterator<E>
      * @return true if this list iterator has more elements when traversing in the backward direction
      */
     boolean hasPrevious();
+
+    /**
+     * @return the next element in the list
+     * @code Returns the next element in the list and advances the cursor position.
+     */
+    @Override
+    E next();
 }
