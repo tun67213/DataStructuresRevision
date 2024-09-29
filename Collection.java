@@ -2,7 +2,7 @@
  * @author arvindhvelrajan
  * @param <E> Generic variable for this interface
  */
-public interface Collection<E>
+public interface Collection<E> extends Iterable<E>
 {
 
 }
