@@ -585,3 +585,6 @@ The following are the interfaces and the functions they will contain.
 ##### boolean isEmpty()
     Returns:
         True if this Collection contains no elements, False otherwise
+##### abstract Iterator<E> iterator()
+    Returns:
+        an iterator over the elements contained in this Collection
