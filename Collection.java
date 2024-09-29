@@ -45,4 +45,10 @@ public interface Collection<E> extends Iterable<E>
      */
     @Override
     boolean equals(Object o);
+
+    /**
+     * @return the hash code value for this collection
+     */
+    @Override
+    int hashCode();
 }
