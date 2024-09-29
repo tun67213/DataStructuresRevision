@@ -23,4 +23,18 @@ public interface Collection<E> extends Iterable<E>
      * @code Removes all the elements from this collection.
      */
     void clear();
+
+    /**
+     * @param o the Object to find the existence of in this Collection
+     * @throws NullPointerException if no Object is provided
+     * @return true if the provided Object is found, false otherwise
+     */
+    boolean contains(Object o);
+
+    /**
+     * @param c Collection of values to find the existence of in this Collection
+     * @throws NullPointerException if no Collection is provided, or the provided Collection variable is defined as 'null'
+     * @return true if the provided Collection is empty or all the values in the provided Collection were found, false otherwise
+     */
+    boolean containsAll(Collection<?> c);
 }
