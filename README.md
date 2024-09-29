@@ -561,4 +561,6 @@ The following are the interfaces and the functions they will contain.
         true if all the values were added successfully
     Functionality:
         If no Collection was provided, the provided variable was null, or a value in the provided collection is null, the function.
-        
+##### void clear()
+    Functionality:
+        Removes all the elements from this collection
