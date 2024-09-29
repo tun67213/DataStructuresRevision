@@ -29,3 +29,11 @@ The following are the interfaces and the functions they will contain.
         After removal, sets current to null to prevent consecutive calls to remove().
 
 
+### Iterable.java
+
+#### Functions
+##### Iterator<T> iterator()
+    Returns:
+        an iterator over a set of elements of type T
+
+
