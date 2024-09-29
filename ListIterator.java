@@ -18,4 +18,9 @@ public interface ListIterator<E> extends Iterator<E>
      */
     @Override
     boolean hasNext();
+
+    /**
+     * @return true if this list iterator has more elements when traversing in the backward direction
+     */
+    boolean hasPrevious();
 }
