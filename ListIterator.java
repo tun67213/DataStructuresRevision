@@ -52,4 +52,11 @@ public interface ListIterator<E> extends Iterator<E>
      */
     @Override
     void remove();
+
+    /**
+     * @param e value to replace the current value
+     * @throws NullPointerException if no value is provided
+     * @code Replaces the last element returned by next() or previous() with the specified element.
+     */
+    void set(E e);
 }
