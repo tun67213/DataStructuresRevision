@@ -542,3 +542,23 @@ The following are the interfaces and the functions they will contain.
     Functionality:
         Sole constructor.
 
+#### Functions
+##### boolean add(E e)
+    Variables:
+        E e:
+            the value to be added to the end of this Collection
+    Throws:
+        NullPointerException() if no value is provided
+    Returns:
+        true if adding the value is successful (false is never included because it would have thrown an exception by then)
+##### boolean addAll(Collection<? extends E> c)
+    Variables:
+        Collection<? extends E> c:
+            Collection of values to add to the end of this Collection
+    Throws:
+        NullPointerException() if no Collection is provided, the Collection variable is null, or a value in the Collection is null
+    Returns:
+        true if all the values were added successfully
+    Functionality:
+        If no Collection was provided, the provided variable was null, or a value in the provided collection is null, the function.
+        
