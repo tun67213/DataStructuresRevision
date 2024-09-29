@@ -18,4 +18,9 @@ public interface Collection<E> extends Iterable<E>
      * @return false if the provided Collection is empty, true if all the values have been added to the end of this Collection, in the order returned by this Collection's iterator
      */
     boolean addAll(Collection<? extends E> c);
+
+    /**
+     * @code Removes all the elements from this collection.
+     */
+    void clear();
 }
