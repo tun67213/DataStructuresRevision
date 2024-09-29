@@ -11,4 +11,10 @@ public interface ListIterator<E> extends Iterator<E>
      * @code Inserts the specified element into the list.
      */
     void add(E e);
+
+    /**
+     * @return true if this list iterator has more elements when traversing in the forward direction
+     */
+    @Override
+    boolean hasNext();
 }
