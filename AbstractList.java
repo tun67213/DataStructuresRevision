@@ -114,4 +114,15 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
     {
         throw new UnsupportedOperationException();
     }
+
+    /**
+     * @param o the Object to find the location of the last occurrence of
+     * @throws NullPointerException if the provided Object is null
+     * @return the location of the last occurrence of the provided Object
+     */
+    @Override
+    public int lastIndexOf(Object o)
+    {
+        throw new UnsupportedOperationException();
+    }
 }
