@@ -141,4 +141,15 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    /**
+     * @param o the Object to find the location of the first occurrence of
+     * @throws NullPointerException if the provided index is out of bounds
+     * @return the location of the first occurrence of the provided index
+     */
+    @Override
+    public int indexOf(Object o)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
