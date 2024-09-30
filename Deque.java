@@ -185,4 +185,10 @@ public interface Deque<E> extends Queue<E>
      * @code If no Object is provided, the function throws a NullPointerException(). Otherwise, if the last occurrence is found, the function removes the first occurrence of it and returns true. False is returned if not found.
      */
     boolean removeLastOccurrence(Object o);
+
+    /**
+     * @return the number of elements in this deque
+     */
+    @Override
+    int size();
 }
