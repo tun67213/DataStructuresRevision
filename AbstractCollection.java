@@ -117,4 +117,13 @@ public abstract class AbstractCollection<E> implements Collection<E>
     {
         throw new UnsupportedOperationException();
     }
+
+    /**
+     * @return the number of elements in this Collection
+     */
+    @Override
+    public int  size()
+    {
+        throw new UnsupportedOperationException();
+    }
 }
