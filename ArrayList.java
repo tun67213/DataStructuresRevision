@@ -108,4 +108,26 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    /**
+     * @param o the Object to find the existence of in this Arraylist
+     * @throws NullPointerException if the provided element is 'null'
+     * @return true if this list contains the specified element, false otherwise
+     */
+    @Override
+    public boolean contains(Object o)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    /**
+     * @param c Collection of values to find the existence of in this ArrayList
+     * @throws NullPointerException if no Collection variable is provided or the provided Collection variable is null
+     * @return false if a value in the provided Collection is 'null' or could not be found in this Arraylist, true if all values were found
+     */
+    @Override
+    public boolean containsAll(Collection<?> c)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
