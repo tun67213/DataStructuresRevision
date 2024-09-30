@@ -126,4 +126,24 @@ public abstract class AbstractCollection<E> implements Collection<E>
     {
         throw new UnsupportedOperationException();
     }
+
+    /**
+     * @return an array containing all the elements in this collection
+     */
+    @Override
+    public Object[] toArray()
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * @param a array into which to copy values from this Collection into
+     * @throws NullPointerException if the provided array variable is null
+     * @return the provided array with values from this Collection allotted into it
+     */
+    @Override
+    public <T> T[] toArray(T[] a)
+    {
+        throw new UnsupportedOperationException();
+    }
 }
