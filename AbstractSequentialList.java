@@ -6,4 +6,12 @@
 public abstract class AbstractSequentialList<E> extends AbstractList<E>
 {
     private int modCount;
+
+    /**
+     * @code Sole constructor.
+     */
+    protected AbstractSequentialList()
+    {
+        
+    }
 }
