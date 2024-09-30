@@ -79,4 +79,10 @@ public interface List<E> extends Collection<E>
      * @code If the provided index is out of bounds, the function throws an IndexOutOfBoundsException(). Otherwise, the function returns the value at the specified index in this List.
      */
     E get(int index);
+
+    /**
+     * @return the hash code value for this List
+     */
+    @Override
+    int hashCode();
 }
