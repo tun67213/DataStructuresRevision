@@ -105,4 +105,16 @@ public abstract class AbstractCollection<E> implements Collection<E>
     {
         throw new UnsupportedOperationException();
     }
+
+    /**
+     * @param c Collection of values to keep if found
+     * @throws NullPointerException if no Collection is provided or the provided Collection variable is null
+     * @return true if this Collection has been modified, false otherwise
+     * @code If no Collection is provided or the provided Collection is defined as 'null', the function throws a NullPointerException(). Otherwise, if a value in this Collection is NOT in the provided Collection, remove it. Finally, return true if this Collection has been modified.
+     */
+    @Override
+    public boolean retainAll(Collection<?> c)
+    {
+        throw new UnsupportedOperationException();
+    }
 }
