@@ -149,4 +149,13 @@ public interface List<E> extends Collection<E>
      */
     @Override
     boolean removeAll(Collection<?> c);
+
+    /**
+     * @param c Collection of values to keep if found
+     * @throws NullPointerException if no Collection variable is provided or the provided Collection variable is null
+     * @return true if this List has been modified, false otherwise
+     * @code If no Collection variable is provided or the provided Collection variable is defined as 'null', the function throws a NullPointerException(). If the provided Collection variable is empty, the function will reset this List to default and return true. Otherwise, if a value in this List isn't contained in the specified Collection, the value will be removed from this List. The function returns true if this List has gone through changes, false otherwise.
+     */
+    @Override
+    boolean retainAll(Collection<?> c);
 }
