@@ -46,4 +46,20 @@ public interface List<E> extends Collection<E>
      */
     @Override
     void clear();
+
+    /**
+     * @param o the Object to find the existence of in this List
+     * @throws NullPointerException if no Object is provided or the provided Object is null
+     * @return true if the provided Object exists in this List, false otherwise
+     */
+    @Override
+    boolean contains(Object o);
+
+    /**
+     * @param c Collection of values to find the existence of in this List
+     * @throws NullPointerException if no Collection variable is provided or the provided Collection variable is null
+     * @return true if the provided Collection is empty or all the values in the provided Collection are found, false if any value is null or not found
+     */
+    @Override
+    boolean containsAll(Collection<?> c);
 }
