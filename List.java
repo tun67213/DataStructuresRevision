@@ -168,4 +168,13 @@ public interface List<E> extends Collection<E>
      * @code Replaces the element at the specified position in this list with the specified element.
      */
     E set(int index, E element);
+
+    /**
+     * @param fromIndex the starting index to create this mini List from
+     * @param toIndex the end index (exclusive of which) to create this mini List until
+     * @throws IndexOutOfBoundsException if either of those indices is out of bounds
+     * @throws IllegalArgumentException if fromIndex is greater than toIndex
+     * @return a view of the portion of this list between the specified fromIndex, inclusive, and toIndex, exclusive
+     */
+    List<E> subList(int fromIndex, int toIndex);
 }
