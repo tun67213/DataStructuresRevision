@@ -47,4 +47,29 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    /**
+     * @param c Collection of values to add to the end of this LinkedList in the order returned by the collection's iterator
+     * @throws NullPointerException if no Collection variable is provided, the provided Collection variable is null, or the Collection variable contains null values
+     * @return true if all the values were successfully added, false if the provided Collection is empty
+     * @code Appends all the elements in the specified collection to the end of this list, in the order that they are returned by the specified collection's iterator.
+     */
+    @Override
+    public boolean addAll(Collection<? extends E> c)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    /**
+     * @param index the location at which to start adding values from this Collection
+     * @param c Collection of values to add to this LinkedList starting at the specified index
+     * @throws NullPointerException if no Collection is provided, the provided Collection variable is null, or any value in the provided Collection is null
+     * @return true if all the values were successfully added, false if the provided Collection is empty
+     * @code Inserts all the elements in the specified collection into this list, starting at the specified position.
+     */
+    @Override
+    public boolean addAll(int index, Collection<? extends E> c)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
