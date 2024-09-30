@@ -51,4 +51,13 @@ public abstract class AbstractSequentialList<E> extends AbstractList<E>
     {
         throw new UnsupportedOperationException();
     }
+
+    /**
+     * @return an iterator over the elements in this list
+     */
+    @Override
+    public Iterator<E> iterator()
+    {
+        throw new UnsupportedOperationException();
+    }
 }
