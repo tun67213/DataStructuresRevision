@@ -125,4 +125,24 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
     {
         throw new UnsupportedOperationException();
     }
+
+    /**
+     * @return a list iterator over the elements in this list (in proper sequence)
+     */
+    @Override
+    public ListIterator<E> listIterator()
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * @param index the location at which to start this list iterator from
+     * @throws IndexOutOfBoundsException if the provided index is out of bounds
+     * @return a list iterator over the elements in this list (in proper sequence), starting at the specified index
+     */
+    @Override
+    public ListIterator<E> listIterator(int index)
+    {
+        throw new UnsupportedOperationException();
+    }
 }
