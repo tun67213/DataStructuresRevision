@@ -104,4 +104,11 @@ public interface List<E> extends Collection<E>
      */
     @Override
     Iterator<E> iterator();
+
+    /**
+     * @param o the Object ot find the location of the last occurrence of
+     * @throws NullPointerException if no Object is provided or the provided Object is null
+     * @return the location of the last occurrence of the provided Object
+     */
+    int lastIndexOf(Object o);
 }
