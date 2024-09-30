@@ -73,9 +73,9 @@ public interface Collection<E> extends Iterable<E>
 
     /**
      * @param c Collection of values to remove if found
-     * @throws NullPointerException if no Collection of values is provided, or the provided Collection is defined as 'null'
+     * @throws NullPointerException if no Collection variable is provided, or the provided Collection is defined as 'null'
      * @return true if this Collection has been modified, false otherwise
-     * @code If no Collection variable is provided or the provided Collection variable is defined as null, the function throws a NullPointerException(). Otherwise, the function will cross-check every element in this Collection and see if it is contained in the provided Collection c. If contained, the function will remove it. In the end, if this Collection is not the same as it started, the function will return true. Otherwise, it will return false.
+     * @code If no Collection variable is provided or the provided Collection variable is defined as null, the function throws a NullPointerException(). If the provided Collection is empty, the function returns false immediately. Otherwise, the function will cross-check every element in this Collection and see if it is contained in the provided Collection c. If contained, the function will remove it. In the end, if this Collection is not the same as it started, the function will return true. Otherwise, it will return false.
      */
     boolean removeAll(Collection<?> c);
 }
