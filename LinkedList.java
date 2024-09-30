@@ -195,4 +195,13 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    /**
+     * @return true if this LinkedList contains no values, false otherwise
+     */
+    @Override
+    public boolean isEmpty()
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
