@@ -92,4 +92,10 @@ public interface List<E> extends Collection<E>
      * @return the location of the first occurrence of the provided Object
      */
     int indexOf(Object o);
+
+    /**
+     * @return true if this List contains no elements, false otherwise
+     */
+    @Override
+    boolean isEmpty();
 }
