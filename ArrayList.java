@@ -201,4 +201,40 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    /**
+     * @param index the location at which to remove a value from
+     * @throws IndexOutOfBoundsException if the provided index is out of bounds
+     * @return the value at the specified index prior to removal
+     * @code If the provided index is out of bounds, the function throws an IndexOutOfBoundsException(). Otherwise, the function saves the value at the specified index, removes it, and then returns that removed value back to the user.
+     */
+    @Override
+    public E remove(int index)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    /**
+     * @param o the Object to find and remove the first occurrence of
+     * @throws NullPointerException if the provided index is out of bounds
+     * @return true if this ArrayList has been modified, false otherwise
+     * @code If no Object is provided or the provided Object is 'null' the function throws a NullPointerException(). Otherwise, if the provided Object is found, it removes the first occurrence of it from this List and returns true.
+     */
+    @Override
+    public boolean remove(Object o)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    /**
+     * @param c Collection of values to remove if located in this ArrayList
+     * @throws NullPointerException if no Collection is provided or the provided Collection variable is null.
+     * @return true if this ArrayList has been modified, false otherwise.
+     * @code If no Collection variable is provided, the function throws a NullPointerException(). Otherwise, the function runs through the values in the order returned by its iterator, and if a value is found in this List, the function will remove it from this ArrayList. In the end, if this ArrayList has been structurally modified, the function returns true.
+     */
+    @Override
+    public boolean removeAll(Collection<?> c)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
