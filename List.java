@@ -98,4 +98,10 @@ public interface List<E> extends Collection<E>
      */
     @Override
     boolean isEmpty();
+
+    /**
+     * @return an iterator over the elements in this List in proper sequence
+     */
+    @Override
+    Iterator<E> iterator();
 }
