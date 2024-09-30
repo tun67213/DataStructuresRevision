@@ -123,4 +123,30 @@ public interface List<E> extends Collection<E>
      * @return a list iterator over the elements in this list (in proper sequence), starting at the specified index
      */
     ListIterator<E> listIterator(int index);
+
+    /**
+     * @param index the location at which to remove a value from
+     * @throws IndexOutOfBoundsException if the provided index is out of bounds
+     * @return the value at the provided index before removal
+     * @code Removes the element at the specified position in this list.
+     */
+    E remove(int index);
+
+    /**
+     * @param o the Object to find and remove the first occurrence of if found
+     * @throws NullPointerException if no Object is provided or the provided Object is null
+     * @return true if this List has been modified, false otherwise
+     * @code If no Object is provided, the function throws a NullPointerException(). Otherwise, the function will search for the provided Object. If found, it will remove that index from this List. Finally, if a change WAS made to this List, the function returns true. Otherwise, it returns false.
+     */
+    @Override
+    boolean remove(Object o);
+
+    /**
+     * @param c Collection of values to remove if found
+     * @throws NullPointerException if no Collection variable is provided or the provided Collection variable is null
+     * @return true if this List has been modified, false otherwise
+     * @code If any value in the provided Collection is found in this List, the function will proceed and remove that function from this List. In the end, if this List has been modified, the function will return true. Otherwise, it will return false.
+     */
+    @Override
+    boolean removeAll(Collection<?> c);
 }
