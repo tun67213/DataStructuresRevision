@@ -81,4 +81,28 @@ public abstract class AbstractCollection<E> implements Collection<E>
      */
     @Override
     public abstract Iterator<E> iterator();
+
+    /**
+     * @param o the Object to remove the first occurrence of
+     * @throws NullPointerException if no Object is provided or the provided Object is 'null'
+     * @return true if this Collection has been modified, false otherwise
+     * @code If no Object is provided or the provided Object is null, the function throws a NullPointerException(). Otherwise, the function iterates through this Collection, and if the provided Object is found, the function will remove it and return true. Otherwise, the function will return false.
+     */
+    @Override
+    public boolean remove(Object o)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * @param c Collection of values to remove if found
+     * @throws NullPointerException if no Collection is provided or the provided Collection variable is null
+     * @return true if this Collection has been modified, false otherwise
+     * @code If no Collection is provided or the provided Collection is defined as 'null', the function throws a NullPointerException(). Otherwise, if a value in this Collection is in the provided Collection, remove it. Finally, return true if this Collection has been modified.
+     */
+    @Override
+    public boolean removeAll(Collection<?> c)
+    {
+        throw new UnsupportedOperationException();
+    }
 }
