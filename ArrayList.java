@@ -90,4 +90,13 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    /**
+     * @code Removes all the elements from this list.
+     */
+    @Override
+    public void clear()
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
