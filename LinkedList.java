@@ -213,4 +213,15 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    /**
+     * @param o the Object to find the location of the last occurrence of
+     * @throws NullPointerException if no Object is provided or the provided Object is null
+     * @return the index of the last occurrence of the specified element in this list or -1 if not found
+     */
+    @Override
+    public int lastIndexOf(Object o)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
