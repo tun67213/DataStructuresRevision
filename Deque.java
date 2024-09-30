@@ -107,4 +107,23 @@ public interface Deque<E> extends Queue<E>
      * @code Retrieves, but does not remove, the last element of this deque, or returns null if this deque is empty.
      */
     E peekLast();
+
+    /**
+     * @return the value at the Node previously head or null if head is null
+     * @code Retrieves and removes the head of the queue represented by this deque or null if this deque is empty.
+     */
+    @Override
+    E poll();
+
+    /**
+     * @return the first element of this deque or null if this deque is empty
+     * @code Retrieves and removes the first element of this deque, or returns null if this deque is empty.
+     */
+    E pollFirst();
+
+    /**
+     * @return the last element of this deque or null if this deque is empty
+     * @code Retrieves and removes the last element of this deque, or returns null if this deque is empty.
+     */
+    E pollLast();
 }
