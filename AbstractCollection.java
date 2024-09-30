@@ -66,4 +66,13 @@ public abstract class AbstractCollection<E> implements Collection<E>
     {
         throw new UnsupportedOperationException();
     }
+
+    /**
+     * @return true if this Collection contains no elements, false otherwise
+     */
+    @Override
+    public boolean isEmpty()
+    {
+        throw new UnsupportedOperationException();
+    }
 }
