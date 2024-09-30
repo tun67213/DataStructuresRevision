@@ -63,4 +63,29 @@ public interface Deque<E> extends Queue<E>
      */
     @Override
     Iterator<E> iterator();
+
+    /**
+     * @param e the value to be offered to this deque
+     * @throws NullPointerException if no value is provided or the provided value is 'null'
+     * @return true if successfully added
+     * @code If no value is provided, the function throws a NullPointerException(). Otherwise, the function inserts the value as the tail at the end of this deque.
+     */
+    @Override
+    boolean offer(E e);
+
+    /**
+     * @param e the value to be offered to this deque
+     * @throws NullPointerException if no value is provided or the provided value is 'null'
+     * @return true if successfully added
+     * @code If no value is provided, the function throws a NullPointerException(). Otherwise, the function inserts the value as the head at the beginning of this deque.
+     */
+    boolean offerFirst(E e);
+
+    /**
+     * @param e the value to be offered to this deque
+     * @throws NullPointerException if no value is provided or the provided value is 'null'
+     * @return true if successfully added
+     * @code If no value is provided, the function throws a NullPointerException(). Otherwise, the function inserts the value as the tail at the end of this deque.
+     */
+    boolean offerLast(E e);
 }
