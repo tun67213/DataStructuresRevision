@@ -21,6 +21,30 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
      */
     public LinkedList(Collection<? extends E> c)
     {
-        
+
+    }
+
+    /**
+     * @param e the value to add to the end of this LinkedList
+     * @throws NullPointerException if no value is provided or the provided value is null
+     * @return true if the value has been added successfully
+     * @code Appends the specified element to the end of this list.
+     */
+    @Override
+    public boolean add(E e)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    /**
+     * @param index the location at which to add the specified element in this LinkedList
+     * @param element the value to add at the specified location in this list
+     * @throws NullPointerException if no element is provided or the provided element is null
+     * @code Inserts the specified element at the specified position in this list.
+     */
+    @Override
+    public void add(int index, E element)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }
