@@ -85,4 +85,11 @@ public interface List<E> extends Collection<E>
      */
     @Override
     int hashCode();
+
+    /**
+     * @param o the Object to find the location of the first occurrence of
+     * @throws NullPointerException if no Object is provided or the provided Object is null
+     * @return the location of the first occurrence of the provided Object
+     */
+    int indexOf(Object o);
 }
