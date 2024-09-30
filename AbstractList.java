@@ -76,4 +76,13 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
     {
         throw new UnsupportedOperationException();
     }
+
+    /**
+     * @param index the location at which to retrieve a value from
+     * @throws IndexOutOfBoundsException if the provided index is out of bounds
+     * @return the value at the provided index
+     * @code Returns the element at the specified position in this list.
+     */
+    @Override
+    public abstract E get(int index);
 }
