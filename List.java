@@ -145,7 +145,7 @@ public interface List<E> extends Collection<E>
      * @param c Collection of values to remove if found
      * @throws NullPointerException if no Collection variable is provided or the provided Collection variable is null
      * @return true if this List has been modified, false otherwise
-     * @code If any value in the provided Collection is found in this List, the function will proceed and remove that function from this List. In the end, if this List has been modified, the function will return true. Otherwise, it will return false.
+     * @code If no Collection variable is provided or the provided Collection variable is defined as 'null', the function throws a NullPointerException(). If the provided Collection variable is empty, the function returns false immediately. If any value in the provided Collection is found in this List, the function will proceed and remove that function from this List. In the end, if this List has been modified, the function will return true. Otherwise, it will return false.
      */
     @Override
     boolean removeAll(Collection<?> c);
