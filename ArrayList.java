@@ -298,4 +298,24 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    /**
+     * @return an array containing all the elements in this list in proper sequence (from first to last element)
+     */
+    @Override
+    public Object[] toArray()
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    /**
+     * @param a array into which to copy values from this ArrayList
+     * @throws NullPointerException if no array variable is provided or the provided variable is null
+     * @return the provided array with values from this List accommodated into it
+     */
+    @Override
+    public <T> T[] toArray(T[] a)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
