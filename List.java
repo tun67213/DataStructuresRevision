@@ -3,7 +3,7 @@
  * @author arvindhvelrajan
  * @param <E> Generic variable for this interface
  */
-public interface List<E>
+public interface List<E> extends Collection<E>
 {
     
 }
