@@ -26,4 +26,10 @@ public interface Queue<E> extends Collection<E>
      * @return true if the value was added successfully
      */
     boolean offer(E e);
+
+    /**
+     * @return the head of this queue
+     * @code Retrieves, but does not remove, the head of this queue.
+     */
+    E peek();
 }
