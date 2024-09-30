@@ -39,4 +39,10 @@ public interface Deque<E> extends Queue<E>
      * @return an iterator over the elements in this deque in reverse sequential order
      */
     Iterator<E> descendingIterator();
+
+    /**
+     * @return the head of the queue represented by this deque
+     */
+    @Override
+    E element();
 }
