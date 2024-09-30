@@ -19,4 +19,11 @@ public interface Queue<E> extends Collection<E>
      * @code Retrieves, but does not remove, the head of this queue.
      */
     E element();
+
+    /**
+     * @param e the value to offer to this Queue
+     * @throws NullPointerException if no Object is provided or the provided Object is null
+     * @return true if the value was added successfully
+     */
+    boolean offer(E e);
 }
