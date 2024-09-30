@@ -62,6 +62,18 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
     @Override
     public void clear()
     {
-        
+
+    }
+
+    /**
+     * @param o the Object to compare with this List
+     * @throws NullPointerException if no Object is provided
+     * @throws ClassCastException if the provided Object is not an AbstractList
+     * @return true if the Object is an exact match, false otherwise
+     */
+    @Override
+    public boolean equals(Object o)
+    {
+        throw new UnsupportedOperationException();
     }
 }
