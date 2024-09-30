@@ -44,4 +44,26 @@ public abstract class AbstractCollection<E> implements Collection<E>
     {
         throw new UnsupportedOperationException();
     }
+
+    /**
+     * @param o the Object to find the existence of in this Collection
+     * @throws NullPointerException if the provided Object is null
+     * @return true if the provided value is contained in this Collection, false otherwise
+     */
+    @Override
+    public boolean contains(Object o)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * @param c Collection of values to find the existence of in this AbstractCollection
+     * @throws NullPointerException if no Collection variable is provided or the provided Collection variable is null
+     * @return true if all the values in the provided Collection are found, false if a value is null or not found in this AbstractCollection
+     */
+    @Override
+    public boolean containsAll(Collection<?> c)
+    {
+        throw new UnsupportedOperationException();
+    }
 }
