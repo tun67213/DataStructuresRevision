@@ -55,4 +55,13 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
     {
         throw new UnsupportedOperationException();
     }
+
+    /**
+     * @code Removes all the elements from this list.
+     */
+    @Override
+    public void clear()
+    {
+        
+    }
 }
