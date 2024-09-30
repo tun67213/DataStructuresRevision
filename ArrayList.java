@@ -65,4 +65,29 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    /**
+     * @param c Collection of values to add to the end of this ArrayList
+     * @throws NullPointerException if no Collection variable is provided, the provided Collection variable is defined as 'null', or any value in the provided Collection variable is 'null'
+     * @return true if values have been added to this ArrayList, modifying it, false if the provided Collection is empty
+     * @code If no Collection variable is provided, the provided Collection variable is defined as 'null' or the provided Collection variable contains 'null' values, the function throws a NullPointerException(). Otherwise, the function adds the values in the provided Collection in the order returned by the Collection's iterator to the end of this ArrayList, calling ensureCapacity() each time.
+     */
+    @Override
+    public boolean addAll(Collection<? extends E> c)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    /**
+     * @param index the location at which the FIRST value of this Collection must go
+     * @param c Collection of values to add to the specified index in this ArrayList
+     * @throws NullPointerException if no Collection variable is provided, the provided Collection variable is 'null' or the provided Collection variable contains values that are 'null'
+     * @throws IndexOutOfBoundsException if the provided index is out of bounds
+     * @return true if this ArrayList has been modified, false if the provided Collection is empty
+     */
+    @Override
+    public boolean addAll(int index, Collection<? extends E> c)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
