@@ -5,5 +5,11 @@
  */
 public abstract class AbstractCollection<E> implements Collection<E>
 {
-    
+    /**
+     * @code Sole constructor
+     */
+    protected AbstractCollection()
+    {
+
+    }
 }
