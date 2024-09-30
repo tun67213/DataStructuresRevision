@@ -169,4 +169,17 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
     {
         throw new UnsupportedOperationException();
     }
+
+    /**
+     * @param index the location at which to replace a value
+     * @param element the replacement value
+     * @throws NullPointerException if no element is provided
+     * @throws IndexOutOfBoundsException if the provided index is out of bounds
+     * @return the value previously at the specified index
+     */
+    @Override
+    public E set(int index, E element)
+    {
+        throw new UnsupportedOperationException();
+    }
 }
