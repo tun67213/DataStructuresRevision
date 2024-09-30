@@ -140,4 +140,48 @@ public interface Deque<E> extends Queue<E>
      * @code Pushes an element onto the stack represented by this deque (in other words, at the head of this deque) if it is possible to do so immediately without violating capacity restrictions, returning true upon success and throwing an IllegalStateException if no space is currently available.
      */
     void push(E e);
+
+    /**
+     * @return the value previously at the head of the queue represented by this deque
+     * @throws NoSuchElementException if this deque is empty
+     * @code Retrieves and removes the head of the queue represented by this deque (in other words, the first element of this deque).
+     */
+    @Override
+    E remove();
+
+    /**
+     * @param o the Object to find and remove the first occurrence of
+     * @throws NullPointerException if the provided element is 'null'
+     * @return true if the provided Object has been removed successfully, false if the provided Object is not found
+     */
+    @Override
+    boolean remove(Object o);
+
+    /**
+     * @return the first element of this deque
+     * @code Retrieves and removes the first element of this deque.
+     */
+    E removeFirst();
+
+    /**
+     * @param o the Object to remove the first occurrence of
+     * @throws NullPointerException if no Object is provided or the provided Object is null
+     * @return true if this Deque has been modified, false otherwise
+     * @code If no Object is provided, the function throws a NullPointerException(). Otherwise, if the first occurrence is found, the function removes the first occurrence of it and returns true. False is returned if not found.
+     */
+    boolean removeFirstOccurrence(Object o);
+
+    /**
+     * @return the last element of this deque
+     * @code Retrieves and removes the last element of this deque.
+     */
+    E removeLast();
+
+    /**
+     * @param o the Object to remove the last occurrence of
+     * @throws NullPointerException if no Object is provided or the provided Object is null
+     * @return true if this Deque has been modified, false otherwise
+     * @code If no Object is provided, the function throws a NullPointerException(). Otherwise, if the last occurrence is found, the function removes the first occurrence of it and returns true. False is returned if not found.
+     */
+    boolean removeLastOccurrence(Object o);
 }
