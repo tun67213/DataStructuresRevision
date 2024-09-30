@@ -13,4 +13,11 @@ public interface Queue<E>
      */
     @Override
     boolean add(E e);
+
+    /**
+     * @return the head of this queue
+     * @code Retrieves, but does not remove, the head of this queue.
+     */
+    @Override
+    E element();
 }
