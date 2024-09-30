@@ -1,3 +1,5 @@
+import java.util.NoSuchElementException;
+
 /**
  * @author arvindhvelrajan
  * @param <E> Generic variable for this class
@@ -140,6 +142,16 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
      */
     @Override
     public Iterator<E> descendingIterator()
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    /**
+     * @throws NoSuchElementException if this List is empty
+     * @return the value at the head (first element)
+     */
+    @Override
+    public E element()
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
