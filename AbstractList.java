@@ -182,4 +182,17 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
     {
         throw new UnsupportedOperationException();
     }
+
+    /**
+     * @param fromIndex the starting index to create this subList from
+     * @param toIndex the ending index (exclusive of which), to create this subList until
+     * @throws IndexOutOfBoundsException if either is out of bounds
+     * @throws IllegalArgumentException if fromIndex is greater than toIndex
+     * @return a view of the portion of this list between the specified fromIndex, inclusive, and toIndex, exclusive.
+     */
+    @Override
+    public List<E> subList(int fromIndex, int toIndex)
+    {
+        throw new UnsupportedOperationException();
+    }
 }
