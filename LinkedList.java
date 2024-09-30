@@ -94,4 +94,13 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    /**
+     * @code Removes all the elements from this list.
+     */
+    @Override
+    public void clear()
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
