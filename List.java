@@ -191,4 +191,10 @@ public interface List<E> extends Collection<E>
      */
     @Override
     <T> T[] toArray(T[] a);
+
+    /**
+     * @return a String representation of this List that is readable to the user
+     */
+    @Override
+    String toString();
 }
