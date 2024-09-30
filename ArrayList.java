@@ -181,4 +181,24 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    /**
+     * @return a list iterator over the elements in this list (in proper sequence)
+     */
+    @Override
+    public ListIterator<E> listIterator()
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    /**
+     * @param index the location at which to start this List Iterator from
+     * @throws IndexOutOfBoundsException if the provided index is out of bounds
+     * @return a list iterator over the elements in this list (in proper sequence), starting at the specified position in this list
+     */
+    @Override
+    public ListIterator<E> listIterator(int index)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
