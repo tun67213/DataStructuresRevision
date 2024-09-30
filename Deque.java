@@ -26,4 +26,12 @@ public interface Deque<E> extends Queue<E>
      * @code Inserts the specified element at the end of this deque if it is possible to do so immediately without violating capacity restrictions
      */
     void addLast(E e);
+
+    /**
+     * @param o the Object to find the existence of in this deque
+     * @throws NullPointerException if no Object is provided or the provided Object is null
+     * @return true if the provided Object is found in this deque, false otherwise
+     */
+    @Override
+    boolean contains(Object o);
 }
