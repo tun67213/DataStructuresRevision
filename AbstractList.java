@@ -94,4 +94,15 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
     {
         throw new UnsupportedOperationException();
     }
+
+    /**
+     * @param o the Object to find the location of the first occurrence of
+     * @throws NullPointerException if the provided Object is null
+     * @return the location of the first occurrence of the provided Object, or -1 if not found
+     */
+    @Override
+    public int indexOf(Object o)
+    {
+        throw new UnsupportedOperationException();
+    }
 }
