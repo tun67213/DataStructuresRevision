@@ -20,5 +20,5 @@ public interface List<E> extends Collection<E>
      * @throws IndexOutOfBoundsException if the provided index is out of bounds
      * @code Inserts the specified element at the specified position in this list.
      */
-    boolean add(int index, E element);
+    void add(int index, E element);
 }
