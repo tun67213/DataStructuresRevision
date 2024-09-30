@@ -146,4 +146,13 @@ public abstract class AbstractCollection<E> implements Collection<E>
     {
         throw new UnsupportedOperationException();
     }
+
+    /**
+     * @return a string representation of this Collection
+     */
+    @Override
+    public String toString()
+    {
+        throw new UnsupportedOperationException();
+    }
 }
