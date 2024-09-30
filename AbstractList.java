@@ -105,4 +105,13 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
     {
         throw new UnsupportedOperationException();
     }
+
+    /**
+     * @return an iterator over the elements in this list in proper sequence
+     */
+    @Override
+    public Iterator<E> iterator()
+    {
+        throw new UnsupportedOperationException();
+    }
 }
