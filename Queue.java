@@ -38,4 +38,10 @@ public interface Queue<E> extends Collection<E>
      * @code Retrieves and removes the head of this queue, or returns null if this queue is empty.
      */
     E poll();
+
+    /**
+     * @return the value previous at head in this queue
+     * @code Retrieves and removes the head of this queue.
+     */
+    E remove();
 }
