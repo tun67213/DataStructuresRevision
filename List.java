@@ -158,4 +158,14 @@ public interface List<E> extends Collection<E>
      */
     @Override
     boolean retainAll(Collection<?> c);
+
+    /**
+     * @param index the location at which to switch values
+     * @param element the replacement value for the specified index
+     * @throws NullPointerException if no element was provided or the provided element was 'null'
+     * @throws IndexOutOfBoundsException if the provided index is out of bounds
+     * @return the value previously at the specified index
+     * @code Replaces the element at the specified position in this list with the specified element.
+     */
+    E set(int index, E element);
 }
