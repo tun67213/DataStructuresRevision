@@ -75,4 +75,10 @@ public abstract class AbstractCollection<E> implements Collection<E>
     {
         throw new UnsupportedOperationException();
     }
+
+    /**
+     * @return an iterator over the elements contained in this Collection
+     */
+    @Override
+    public abstract Iterator<E> iterator();
 }
