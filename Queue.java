@@ -3,7 +3,7 @@
  * @author arvindhvelrajan
  * @param <E> Generic variable for this Queue
  */
-public interface Queue<E>
+public interface Queue<E> extends Collection<E>
 {
     /**
      * @param e value to add into this Queue
@@ -18,6 +18,5 @@ public interface Queue<E>
      * @return the head of this queue
      * @code Retrieves, but does not remove, the head of this queue.
      */
-    @Override
     E element();
 }
