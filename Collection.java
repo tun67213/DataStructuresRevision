@@ -91,4 +91,16 @@ public interface Collection<E> extends Iterable<E>
      * @return the number of elements in this collection
      */
     int size();
+
+    /**
+     * @return an array containing all the elements in this Collection
+     */
+    Object[] toArray();
+
+    /**
+     * @param a an array of type T to copy the values of this Collection into
+     * @throws NullPointerException if no array variable is provided or the provided array variable is defined as 'null'
+     * @return the provided array 'a' of type T with values from this Collection copied into it
+     */
+    <T> T[] toArray(T[] a);
 }
