@@ -80,4 +80,18 @@ public abstract class AbstractSequentialList<E> extends AbstractList<E>
     {
         throw new UnsupportedOperationException();
     }
+
+    /**
+     * @param index the location at which to switch value
+     * @param element the value to switch with at the specified index
+     * @throws NullPointerException if no element is provided or the provided element is 'null'
+     * @throws IndexOutOfBoundsException if the provided index is out of bounds
+     * @return the value previously at the specified index
+     * @code Replaces the element at the specified position in this list with the specified element.
+     */
+    @Override
+    public E set(int index, E element)
+    {
+        throw new UnsupportedOperationException();
+    }
 }
