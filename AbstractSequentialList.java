@@ -68,4 +68,16 @@ public abstract class AbstractSequentialList<E> extends AbstractList<E>
      */
     @Override
     public abstract ListIterator<E> listIterator(int index);
+
+    /**
+     * @param index the location at which to remove a value from
+     * @throws IndexOutOfBoundsException if the provided index is out of bounds
+     * @return the value previously at the specified index
+     * @code Removes the element at the specified position in this list.
+     */
+    @Override
+    public E remove(int index)
+    {
+        throw new UnsupportedOperationException();
+    }
 }
