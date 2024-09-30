@@ -86,4 +86,9 @@ public interface Collection<E> extends Iterable<E>
      * @code If no Collection variable is provided or the provided Collection variable is defined as null, the function throws a NullPointerException(). If the provided Collection is empty, the function resets this Collection and returns true. Otherwise, any value that isn't a part of the provided Collection is removed from this Collection. In the end, the function returns true if this Collection has been modified in any way (i.e. at least ONE value was removed), false otherwise.
      */
     boolean retainAll(Collection<?> c);
+
+    /**
+     * @return the number of elements in this collection
+     */
+    int size();
 }
