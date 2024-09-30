@@ -45,4 +45,16 @@ public interface Deque<E> extends Queue<E>
      */
     @Override
     E element();
+
+    /**
+     * @return the first element of this deque
+     * @code Retrieves, but does not remove, the first element of this deque.
+     */
+    E getFirst();
+
+    /**
+     * @return the last element of this deque
+     * @code Retrieves, but does not remove, the last element of this deque.
+     */
+    E getLast();
 }
