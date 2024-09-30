@@ -177,4 +177,18 @@ public interface List<E> extends Collection<E>
      * @return a view of the portion of this list between the specified fromIndex, inclusive, and toIndex, exclusive
      */
     List<E> subList(int fromIndex, int toIndex);
+
+    /**
+     * @return an array containing all the elements in this list in proper sequence (from first to last element)
+     */
+    @Override
+    Object[] toArray();
+
+    /**
+     * @param a array into which to copy values from this List into
+     * @throws NullPointerException if no array is provided or the provided array variable is null
+     * @return the provided array with enough space such that it has allocated all the values from this List
+     */
+    @Override
+    <T> T[] toArray(T[] a);
 }
