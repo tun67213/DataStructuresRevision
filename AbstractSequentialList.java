@@ -60,4 +60,12 @@ public abstract class AbstractSequentialList<E> extends AbstractList<E>
     {
         throw new UnsupportedOperationException();
     }
+
+    /**
+     * @param index the location at which to create this list iterator from
+     * @throws IndexOutOfBoundsException if the provided index is out of bounds
+     * @return a list iterator over the elements in this List, starting at the specified index
+     */
+    @Override
+    public abstract ListIterator<E> listIterator(int index);
 }
