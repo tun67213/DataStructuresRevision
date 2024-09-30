@@ -237,4 +237,17 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    /**
+     * @param fromIndex the index, inclusive of which, to start removing from
+     * @param toIndex the index, exclusive of which, to remove values until
+     * @throws IndexOutOfBoundsException if either index is out of bounds
+     * @throws IllegalArgumentException if the provided fromIndex is greater than the provided toIndex
+     * @code Removes from this list all of the elements whose index is between fromIndex, inclusive, and toIndex, exclusive.
+     */
+    @Override
+    protected void removeRange(int fromIndex, int toIndex)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
