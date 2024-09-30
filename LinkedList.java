@@ -112,4 +112,26 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    /**
+     * @param o the Object to find the existence of in this LinkedList
+     * @throws NullPointerException if no Object is provided or the provided Object is null
+     * @return true if the provided Object has been found, false otherwise
+     */
+    @Override
+    public boolean contains(Object o)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    /**
+     * @param c Collection of values to find the existence of in this LinkedList
+     * @throws NullPointerException if no Collection is provided or the Collection variable provided is null
+     * @return false if any value in the provided Collection is null or cannot be found in this LinkedList, true otherwise
+     */
+    @Override
+    public boolean containsAll(Collection<?> c)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
