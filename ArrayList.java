@@ -4,5 +4,7 @@
  */
 public class ArrayList<E>
 {
-
+    private int size;
+    private int capacity;
+    private E[] values;
 }
