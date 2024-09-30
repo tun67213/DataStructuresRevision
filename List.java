@@ -111,4 +111,16 @@ public interface List<E> extends Collection<E>
      * @return the location of the last occurrence of the provided Object
      */
     int lastIndexOf(Object o);
+
+    /**
+     * @return a list iterator over the elements in this list (in proper sequence)
+     */
+    ListIterator<E> listIterator();
+
+    /**
+     * @param index the location at which to start in this List
+     * @throws IndexOutOfBoundsException if the provided index is out of bounds
+     * @return a list iterator over the elements in this list (in proper sequence), starting at the specified index
+     */
+    ListIterator<E> listIterator(int index);
 }
