@@ -32,6 +32,14 @@ public class ArrayList<E>
      */
     public ArrayList(int initialCapacity)
     {
+
+    }
+
+    /**
+     * @code This function makes sure that the array representing this ArrayList has enough space to hold the provided value, and if not, reallocate to a new array.
+     */
+    private void ensureCapacity()
+    {
         
     }
 }
