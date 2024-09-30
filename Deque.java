@@ -57,4 +57,10 @@ public interface Deque<E> extends Queue<E>
      * @code Retrieves, but does not remove, the last element of this deque.
      */
     E getLast();
+
+    /**
+     * @return an iterator over the elements in this deque in proper sequence
+     */
+    @Override
+    Iterator<E> iterator();
 }
