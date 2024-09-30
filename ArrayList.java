@@ -145,7 +145,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
     /**
      * @param o the Object to find the location of the first occurrence of
      * @throws NullPointerException if the provided index is out of bounds
-     * @return the location of the first occurrence of the provided index
+     * @return the location of the first occurrence of the provided index or -1 if not found
      */
     @Override
     public int indexOf(Object o)
