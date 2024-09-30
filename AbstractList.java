@@ -85,4 +85,13 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
      */
     @Override
     public abstract E get(int index);
+
+    /**
+     * @return the hash code value for this list
+     */
+    @Override
+    public int hashCode()
+    {
+        throw new UnsupportedOperationException();
+    }
 }
