@@ -34,4 +34,9 @@ public interface Deque<E> extends Queue<E>
      */
     @Override
     boolean contains(Object o);
+
+    /**
+     * @return an iterator over the elements in this deque in reverse sequential order
+     */
+    Iterator<E> descendingIterator();
 }
