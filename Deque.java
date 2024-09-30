@@ -126,4 +126,18 @@ public interface Deque<E> extends Queue<E>
      * @code Retrieves and removes the last element of this deque, or returns null if this deque is empty.
      */
     E pollLast();
+
+    /**
+     * @return the value at the top of the stack represented by this deque
+     * @code Pops an element from the stack represented by this deque.
+     */
+    E pop();
+
+    /**
+     * @param e the value to be added to the top of ths tack represented by this deque
+     * @throws IllegalStateException if no space is currently available
+     * @throws NullPointerException if no value is provided or the provided value is null
+     * @code Pushes an element onto the stack represented by this deque (in other words, at the head of this deque) if it is possible to do so immediately without violating capacity restrictions, returning true upon success and throwing an IllegalStateException if no space is currently available.
+     */
+    void push(E e);
 }
