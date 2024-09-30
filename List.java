@@ -62,4 +62,13 @@ public interface List<E> extends Collection<E>
      */
     @Override
     boolean containsAll(Collection<?> c);
+
+    /**
+     * @param o the Object to compare with this List
+     * @throws NullPointerException if no Object is provided or the provided Object is null
+     * @return true if the provided Object is the same length as this List and contains the exact same values as this list, false otherwise
+     * @code Compares the specified object with this list for equality.
+     */
+    @Override
+    boolean equals(Object o);
 }
