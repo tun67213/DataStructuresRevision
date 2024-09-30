@@ -145,4 +145,28 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
     {
         throw new UnsupportedOperationException();
     }
+
+    /**
+     * @param index the location at which to remove a value from
+     * @throws IndexOutOfBoundsException if the provided index is out of bounds
+     * @return the value previously at the provided index
+     * @code Removes the element at the specified position in this list.
+     */
+    @Override
+    public E remove(int index)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * @param fromIndex the starting index to remove from
+     * @param toIndex the ending index to remove until
+     * @throws IndexOutOfBoundsException if either of them are out of bounds
+     * @throws IllegalArgumentException if fromIndex is greater than toIndex
+     * @code Removes from this list all of the elements whose index is between fromIndex, inclusive, and toIndex, exclusive.
+     */
+    protected void removeRange(int fromIndex, int toIndex)
+    {
+        throw new UnsupportedOperationException();
+    }
 }
