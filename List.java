@@ -40,4 +40,10 @@ public interface List<E> extends Collection<E>
      * @code If no Collection variable is provided, the provided Collection variable is defined as 'null', or any value IN the provided Collection is null, the function throws a NullPointerException(). Otherwise, the function adds the values in the provided Collection to this List, starting at the specified index in this List, in the order returned by the Collection's iterator.
      */
     boolean addAll(int index, Collection<? extends E> c);
+
+    /**
+     * @code Removes all the elements from this list.
+     */
+    @Override
+    void clear();
 }
