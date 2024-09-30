@@ -35,4 +35,13 @@ public abstract class AbstractCollection<E> implements Collection<E>
     {
         throw new UnsupportedOperationException();
     }
+
+    /**
+     * @code Removes all the elements from this Collection.
+     */
+    @Override
+    public void clear()
+    {
+        throw new UnsupportedOperationException();
+    }
 }
