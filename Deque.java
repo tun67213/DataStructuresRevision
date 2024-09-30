@@ -88,4 +88,23 @@ public interface Deque<E> extends Queue<E>
      * @code If no value is provided, the function throws a NullPointerException(). Otherwise, the function inserts the value as the tail at the end of this deque.
      */
     boolean offerLast(E e);
+
+    /**
+     * @return the value at the head of this deque or null if this deque is empty
+     * @code Retrieves, but does not remove, the head of the queue represented by this deque (in other words, the first element of this deque), or returns null if this deque is empty.
+     */
+    @Override
+    E peek();
+
+    /**
+     * @return the value at the head of this deque or null if this deque is empty
+     * @code Retrieves, but does not remove, the first element of this deque, or returns null if this deque is empty.
+     */
+    E peekFirst();
+
+    /**
+     * @return the value at the tail of this deque or null if this deque is empty
+     * @code Retrieves, but does not remove, the last element of this deque, or returns null if this deque is empty.
+     */
+    E peekLast();
 }
