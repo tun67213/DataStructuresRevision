@@ -40,4 +40,15 @@ public abstract class AbstractSequentialList<E> extends AbstractList<E>
     {
         throw new UnsupportedOperationException();
     }
+
+    /**
+     * @param index the location at which to retrieve a value from
+     * @throws IndexOutOfBoundsException if the provided index is out of bounds
+     * @return the element at the specified position in this list
+     */
+    @Override
+    public E get(int index)
+    {
+        throw new UnsupportedOperationException();
+    }
 }
