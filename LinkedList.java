@@ -511,4 +511,13 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    /**
+     * @return a String representation of this LinkedList that is easier for the user to understand
+     */
+    @Override
+    public String toString()
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
