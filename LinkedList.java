@@ -467,4 +467,18 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    /**
+     * @param index the location at which to replace a value
+     * @param element the replacement value for the specified index
+     * @throws NullPointerException if no replacement value is provided
+     * @throws IndexOutOfBoundsException if the provided index is out of bounds
+     * @return the value at the specified index BEFORE replacement
+     * @code Replaces the element at the specified position in this list with the specified element.
+     */
+    @Override
+    public E set(int index, E element)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
