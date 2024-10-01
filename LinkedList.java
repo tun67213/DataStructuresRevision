@@ -342,4 +342,25 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    /**
+     * @return the value at the top of the stack represented by this list
+     * @code Pops an element from the stack represented by this list.
+     */
+    @Override
+    public E pop()
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    /**
+     * @param e the value to be added onto the stack represented by this list
+     * @throws NullPointerException if no value is provided
+     * @code Pushes an element onto the stack represented by this list.
+     */
+    @Override
+    public void push(E e)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
