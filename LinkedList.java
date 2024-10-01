@@ -341,5 +341,5 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
     public E pollLast()
     {
         throw new UnsupportedOperationException("Not supported yet.");
-    }I
+    }
 }
