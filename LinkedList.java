@@ -311,4 +311,35 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    /**
+     * @throws NoSuchElementException if this List is empty
+     * @return the value in the Node previously at head
+     * @code Retrieves and removes the head (first element) of this list.
+     */
+    @Override
+    public E poll()
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    /**
+     * @return the value in the Node previously at head or null if this List is empty
+     * @code Retrieves and removes the first element of this list, or returns null if this list is empty.
+     */
+    @Override
+    public E pollFirst()
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    /**
+     * @return the value in the Node previously at tail or null if this List is empty
+     * @code Retrieves and removes the last element of this list, or returns null if this list is empty.
+     */
+    @Override
+    public E pollLast()
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }I
 }
