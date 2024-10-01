@@ -490,4 +490,25 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    /**
+     * @return an array containing all the elements in this list in proper sequence (from first to last element)
+     */
+    @Override
+    public Object[] toArray()
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    /**
+     * @param a an array of type T into which to copy values from this LinkedList into
+     * @throws NullPointerException if no array of type T is provided
+     * @throws ClassCastException if T is not of the same type as E
+     * @return an array containing all the elements in this list in proper sequence (from first to last element); the runtime of the returned array is that of the specified array
+     */
+    @Override
+    public <T> T[] toArray(T[] a)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
