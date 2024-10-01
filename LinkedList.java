@@ -448,7 +448,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
      * @param c Collection of values to remove if found in this List
      * @throws NullPointerException if no Collection is provided or the provided Collection is 'null'
      * @return true if this List has been modified, false otherwise
-     * @code if no Collection is provided, the function throws a NullPointerException(). Otherwise, if any function in this List is found in the provided Collection, the function removes it from this List. In the end, if the List has been changed in any way, the function returns true.
+     * @code If no Collection is provided, the function throws a NullPointerException(). Otherwise, if any function in this List is found in the provided Collection, the function removes it from this List. In the end, if the List has been changed in any way, the function returns true.
      */
     @Override
     public boolean removeAll(Collection<?> c)
