@@ -363,4 +363,96 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    /**
+     * @return the value in the Node previously at head
+     * @code Retrieves and removes the head (first element) of this list.
+     */
+    @Override
+    public E remove()
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    /**
+     * @param index the location at which to remove a value from
+     * @throws IndexOutOfBoundsException if the provided index is out of bounds
+     * @return the value previously at the provided index
+     * @code Removes the element at the specified position in this list.
+     */
+    @Override
+    public E remove(int index)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    /**
+     * @param o the Object to find and remove the first occurrence of
+     * @throws NullPointerException if no Object is provided or the provided Object is 'null'
+     * @return true if this LinkedList has been modified, false otherwise
+     * @code Removes the first occurrence of the specified element from this list, if it is present.
+     */
+    @Override
+    public boolean remove(Object o)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    /**
+     * @return the first element from this list
+     * @throws NoSuchElementException if this List is empty
+     * @code Removes and returns the first element from this list.
+     */
+    @Override
+    public E removeFirst()
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    /**
+     * @param o the Object to find and remove the first occurrence of
+     * @throws NullPointerException if no Object is provided or the provided Object is 'null'
+     * @return true if this List has been modified, false otherwise
+     * @code Removes the first occurrence of the specified element in this list (when traversing the list from head to tail).
+     */
+    @Override
+    public boolean removeFirstOccurrence(Object o)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    /**
+     * @return the last element from this list
+     * @throws NoSuchElementException if this List is empty
+     * @code Removes and returns the last element from this list.
+     */
+    @Override
+    public E removeLast()
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    /**
+     * @param o the Object to find and remove the last occurrence of
+     * @throws NullPointerException if no Object is provided or the provided Object is 'null'
+     * @return true if this List has been modified, false otherwise
+     * @code Removes the last occurrence of the specified element in this list (when traversing the list from head to tail).
+     */
+    @Override
+    public boolean removeLastOccurrence(Object o)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    /**
+     * @param c Collection of values to remove if found in this List
+     * @throws NullPointerException if no Collection is provided or the provided Collection is 'null'
+     * @return true if this List has been modified, false otherwise
+     * @code if no Collection is provided, the function throws a NullPointerException(). Otherwise, if any function in this List is found in the provided Collection, the function removes it from this List. In the end, if the List has been changed in any way, the function returns true.
+     */
+    @Override
+    public boolean removeAll(Collection<?> c)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
