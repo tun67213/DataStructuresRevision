@@ -481,4 +481,13 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    /**
+     * @return the number of elements in this list
+     */
+    @Override
+    public int size()
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
