@@ -455,4 +455,16 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    /**
+     * @param c Collection of values to keep if found in this List
+     * @throws NullPointerException if no Collection is provided
+     * @return true if this List has been modified, false otherwise
+     * @code If no Collection is provided, the function throws a NullPointerException(). Otherwise, if any value in this List is not found in the provided Collection, the function removes it from this List. In the end, if the list has been changed in any way, the function returns true.
+     */
+    @Override
+    public boolean retainAll(Collection<?> c)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
