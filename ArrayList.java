@@ -13,6 +13,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
     /**
      * @code Default constructor for this class
      */
+    @SuppressWarnings("unchecked")
     public ArrayList()
     {
         this.modCount = 0;
@@ -26,6 +27,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
      * @throws NullPointerException if no Collection variable is provided, the provided Collection variable is null, or any variable in the provided Collection is null
      * @code This constructor creates a new ArrayList and initializes it with values from this Collection, in the order returned by this Collection's iterator.
      */
+    @SuppressWarnings("unchecked")
     public ArrayList(Collection<? extends E> c)
     {
         if(c == null)
@@ -52,6 +54,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
      * @throws IllegalArgumentException if the provided index is less than or equal to 0
      * @code This constructor will initialize this ArrayList with an initialCapacity number of values allocated in the array
      */
+    @SuppressWarnings("unchecked")
     public ArrayList(int initialCapacity)
     {
         if(initialCapacity <= 0)
