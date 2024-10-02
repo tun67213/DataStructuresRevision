@@ -6,6 +6,23 @@ import java.util.NoSuchElementException;
  */
 public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>, Deque<E>, Cloneable, Serializable
 {
+    /**
+     * @param <E> Generic parameter for private class
+     */
+    private class Node<E>
+    {
+        private Node<E> head;
+        private E data;
+        private Node<E> tail;
+
+        public Node(E value)
+        {
+            this.head = null;
+            this.data = value;
+            this.tail = null;
+        }
+    }
+    
     private int modCount;   // Counts the number of structural changes that occur to this LinkedList
 
     /**
