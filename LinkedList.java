@@ -22,8 +22,6 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
             this.tail = null;
         }
     }
-    
-    private int modCount;   // Counts the number of structural changes that occur to this LinkedList
 
     /**
      * @code Constructs an empty list.
