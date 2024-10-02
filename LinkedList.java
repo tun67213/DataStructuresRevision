@@ -49,7 +49,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
             throw new NullPointerException("You MUST provide a non-null Collection");
         }
         Iterator<? extends E> iterator = c.iterator();
-        Node<E> newNode = null;
+        Node<E> newNode;
         this.size = 0;
         this.head = null;
         this.tail = null;
@@ -221,8 +221,8 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
             throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
         }
         Iterator<? extends E> iterator = c.iterator();
-        Node<E> current = null;
-        Node<E> newNode = null;
+        Node<E> current;
+        Node<E> newNode;
         E[] values = (E[]) c.toArray();
         if(head == null || index == this.size)
         {
@@ -422,7 +422,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
     @Override
     public Iterator<E> descendingIterator()
     {
-        return new Iterator<E>()
+        return new Iterator<>()
         {
             private Node<E> current;
             private Node<E> lastReturned = null;
