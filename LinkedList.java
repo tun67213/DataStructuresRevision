@@ -23,10 +23,6 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
         }
     }
 
-    private int size;
-    private Node<E> head;
-    private Node<E> tail;
-
     /**
      * @code Constructs an empty list.
      */
