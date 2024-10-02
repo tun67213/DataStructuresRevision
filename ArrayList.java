@@ -857,13 +857,17 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
     /**
      * @code Trims the capacity of this ArrayList instance to be the list's current size.
      */
+    @SuppressWarnings("unchecked")
     public void trimToSize()
     {
         int newCapacity = this.size;
-        E[] newArray = (E[]) new Object[newCapacity];
-        System.arraycopy(this.array, 0, newArray, 0, this.size);
-        this.capacity = newCapacity;
-        this.array = newArray;
+        if(this.capacity != newCapacity)
+        {
+            E[] newArray = (E[]) new Object[newCapacity];
+            System.arraycopy(this.array, 0, newArray, 0, this.size);
+            this.capacity = newCapacity;
+            this.array = newArray;
+        }
     }
 
     /**
