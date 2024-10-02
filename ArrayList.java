@@ -54,7 +54,13 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
      */
     public ArrayList(int initialCapacity)
     {
-
+        if(initialCapacity <= 0)
+        {
+            throw new IllegalArgumentException("You MUST provide a non-zero initial capacity");
+        }
+        this.size = 0;
+        this.capacity = initialCapacity;
+        this.array = (E[]) new Object[this.capacity];
     }
 
     /**
