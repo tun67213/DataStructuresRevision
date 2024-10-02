@@ -809,7 +809,13 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
     @Override
     public List<E> subList(int fromIndex, int toIndex)
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        checkBounds(fromIndex, toIndex);
+        ArrayList<E> list = new ArrayList<>();
+        for(int i = fromIndex; i < toIndex; i++)
+        {
+            list.add(this.array[i]);
+        }
+        return list;
     }
 
     /**
