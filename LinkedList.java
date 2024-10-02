@@ -88,7 +88,24 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
     @Override
     public boolean add(E e)
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(e == null)
+        {
+            throw new NullPointerException("You MUST provide a non-null value to add to the end of this LinkedList");
+        }
+        Node<E> newNode = new Node<>(e);
+        if(tail == null)
+        {
+            head = newNode;
+            tail = newNode;
+        }
+        else
+        {
+            tail.next = newNode;
+            newNode.previous = tail;
+            tail = tail.next;
+        }
+        this.size++;
+        return true;
     }
 
     /**
@@ -101,7 +118,45 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
     @Override
     public void add(int index, E element)
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(element == null)
+        {
+            throw new NullPointerException("You MUST provide a non-null value to add to this LinkedList");
+        }
+        if(index < 0 || index > this.size)
+        {
+            throw new IndexOutOfBoundsException("Index out of bounds");
+        }
+        Node<E> newNode = new Node<>(element);
+        if(head == null)
+        {
+            head = newNode;
+            tail = newNode;
+        }
+        else if(index == 0)
+        {
+            head.previous = newNode;
+            newNode.next = head;
+            head = head.previous;
+        }
+        else if(index == this.size)
+        {
+            tail.next = newNode;
+            newNode.previous = tail;
+            tail = tail.next;
+        }
+        else
+        {
+            Node<E> current = head;
+            for(int i = 0; i < index - 1; i++)
+            {
+                current = current.next;
+            }
+            newNode.next = current.next;
+            newNode.previous = current;
+            current.next.previous = newNode;
+            current.next = newNode;
+        }
+        this.size++;
     }
 
     /**
