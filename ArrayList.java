@@ -1,3 +1,4 @@
+import java.util.NoSuchElementException;
 
 /**
  * @author arvindhvelrajan
@@ -321,7 +322,46 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
     @Override
     public Iterator<E> iterator()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return new Iterator<E>()
+        {
+            private int currentIndex = 0;
+            private int lastCalled = -1;
+
+            @Override
+            public boolean hasNext()
+            {
+                return currentIndex < size;
+            }
+
+            @Override
+            public E next()
+            {
+                if(!hasNext())
+                {
+                    throw new NoSuchElementException("This iterator has reached the end of this ArrayList");
+                }
+                E value = array[this.currentIndex];
+                lastCalled = this.currentIndex;
+                this.currentIndex++;
+                return value;
+            }
+
+            @Override
+            public void remove()
+            {
+                if(lastCalled == -1)
+                {
+                    throw new IllegalStateException("You MUST call next() before performing a removal");
+                }
+                for(int i = lastCalled; i < size - 1; i++)
+                {
+                    array[i] = array[i + 1];
+                }
+                size--;
+                currentIndex = lastCalled;
+                lastCalled = -1;
+            }
+        };
     }
 
     /**
