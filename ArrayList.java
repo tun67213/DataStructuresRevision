@@ -84,6 +84,32 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
     }
 
     /**
+     * @code Helper function to check bounds and throw exceptions if necessary
+     */
+    private void checkBounds(int index)
+    {
+        if(index < 0 || index >= this.size)
+        {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + this.size);
+        }
+    }
+    private void checkBounds(int fromIndex, int toIndex)
+    {
+        if(fromIndex < 0 && toIndex > this.size)
+        {
+            throw new IndexOutOfBoundsException("Indices " + fromIndex + " and " + toIndex + " are out of bounds");
+        }
+        if(fromIndex < 0)
+        {
+            throw new IndexOutOfBoundsException("Index " + fromIndex + " is out of bounds");
+        }
+        if(toIndex > this.size)
+        {
+            throw new IndexOutOfBoundsException("Index " + toIndex + " is out of bounds");
+        }
+    }
+
+    /**
      * @param e the value to be added to the end of this ArrayList
      * @throws NullPointerException if no Object is provided or the provided Object is null
      * @return true if this value has been added successfully
