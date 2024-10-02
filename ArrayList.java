@@ -142,10 +142,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
         {
             throw new NullPointerException("You MUST provide a value to add to this ArrayList");
         }
-        if(index < 0 || index > this.size)
-        {
-            throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
-        }
+        checkBounds(index);
         ensureCapacity();
         for(int i = this.size; i > index; i--)
         {
@@ -201,10 +198,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
         {
             throw new NullPointerException("You MUST provide a Collection of values to add to this ArrayList");
         }
-        if(index < 0 || index > this.size)
-        {
-            throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
-        }
+        checkBounds(index);
         if(c.isEmpty())
         {
             return false;
@@ -306,10 +300,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
     @Override
     public E get(int index)
     {
-        if(index < 0 || index >= this.size)
-        {
-            throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
-        }
+        checkBounds(index);
         return this.array[index];
     }
 
@@ -527,10 +518,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
     @Override
     public ListIterator<E> listIterator(int index)
     {
-        if(index < 0 || index > this.size)
-        {
-            throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
-        }
+        checkBounds(index);
         return new ListIterator<E>()
         {
             private int currentIndex = index;
@@ -643,10 +631,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
     @Override
     public E remove(int index)
     {
-        if(index < 0 || index >= this.size)
-        {
-            throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
-        }
+        checkBounds(index);
         E removingValue = this.array[index];
         for(int i = index; i < this.size - 1; i++)
         {
@@ -729,18 +714,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
     @Override
     protected void removeRange(int fromIndex, int toIndex)
     {
-        if(fromIndex < 0 && toIndex > this.size)
-        {
-            throw new IndexOutOfBoundsException("Indices " + fromIndex + " and " + toIndex + " are out of bounds");
-        }
-        if(fromIndex < 0)
-        {
-            throw new IndexOutOfBoundsException("Index " + fromIndex + " is out of bounds");
-        }
-        if(toIndex > this.size)
-        {
-            throw new IndexOutOfBoundsException("Index " + toIndex + " is out of bounds");
-        }
+        checkBounds(fromIndex, toIndex);
         for(int i = fromIndex; i < toIndex; i++)
         {
             for(int j = fromIndex; j < this.size - 1; j++)
@@ -806,10 +780,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
         {
             throw new NullPointerException("You MUST provide a replacement value");
         }
-        if(index < 0 || index >= this.size)
-        {
-            throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
-        }
+        checkBounds(index);
         E value = this.array[index];
         this.array[index] = element;
         return value;
