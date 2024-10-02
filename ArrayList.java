@@ -731,6 +731,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
      * @return true if this ArrayList has been modified, false otherwise
      * @code If no Collection is provided or the variable provided is defined as 'null' the function throws a NullPointerException(). Otherwise, if a value in this ArrayList isn't contained in the provided Collection, the function removes it. In the end, if at least one value was removed, the function returns true. Otherwise, the function returns false.
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean retainAll(Collection<?> c)
     {
