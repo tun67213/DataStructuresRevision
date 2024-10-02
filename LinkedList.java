@@ -11,15 +11,15 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
      */
     private class Node<E>
     {
-        private Node<E> head;
+        private Node<E> previous;
         private E data;
-        private Node<E> tail;
+        private Node<E> next;
 
         public Node(E value)
         {
-            this.head = null;
+            this.previous = null;
             this.data = value;
-            this.tail = null;
+            this.next = null;
         }
     }
 
