@@ -107,6 +107,10 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
         {
             throw new IndexOutOfBoundsException("Index " + toIndex + " is out of bounds");
         }
+        if(fromIndex >= toIndex)
+        {
+            throw new IllegalArgumentException("Index " + fromIndex + " cannot be greater than or equal to Index " + toIndex);
+        }
     }
 
     /**
