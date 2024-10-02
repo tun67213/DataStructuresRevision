@@ -6,7 +6,6 @@ import java.util.NoSuchElementException;
  */
 public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAccess, Cloneable, Serializable
 {
-    private int modCount;   // Counts the number of structural changes that occur to this ArrayList
     private int size;
     private int capacity;
     private E[] array;
@@ -17,7 +16,6 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
     @SuppressWarnings("unchecked")
     public ArrayList()
     {
-        this.modCount = 0;
         this.size = 0;
         this.capacity = 10;
         this.array = (E[]) new Object[this.capacity];
@@ -686,7 +684,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
     {
         if(c == null)
         {
-            throw new NullPointerException("You MUST provide a collection of values to remove from this ARrayList");
+            throw new NullPointerException("You MUST provide a collection of values to remove from this ArrayList");
         }
         int i = 0;
         boolean modified = false;
@@ -713,7 +711,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
      * @param toIndex the index, exclusive of which, to remove values until
      * @throws IndexOutOfBoundsException if either index is out of bounds
      * @throws IllegalArgumentException if the provided fromIndex is greater than the provided toIndex
-     * @code Removes from this list all of the elements whose index is between fromIndex, inclusive, and toIndex, exclusive.
+     * @code Removes from this list all the elements whose index is between fromIndex, inclusive, and toIndex, exclusive.
      */
     @Override
     protected void removeRange(int fromIndex, int toIndex)
