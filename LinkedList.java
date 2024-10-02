@@ -1134,6 +1134,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 
     /**
      * @return the value at the top of the stack represented by this list
+     * @throws EmptyStackException if the stack represented by this list is empty
      * @code Pops an element from the top stack represented by this list. The removed element is essentially the Node at head.
      */
     @Override
@@ -1166,7 +1167,23 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
     @Override
     public void push(E e)
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(e == null)
+        {
+            throw new NullPointerException("You MUST provide a value to push to this LinkedList");
+        }
+        Node<E> newNode = new Node<>(e);
+        if(head == null)
+        {
+            head = newNode;
+            tail = newNode;
+        }
+        else
+        {
+            head.previous = newNode;
+            newNode.next = head;
+            head = head.previous;
+        }
+        this.size++;
     }
 
     /**
