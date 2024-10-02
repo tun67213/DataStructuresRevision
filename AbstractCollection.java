@@ -122,10 +122,7 @@ public abstract class AbstractCollection<E> implements Collection<E>
      * @return the number of elements in this Collection
      */
     @Override
-    public int size()
-    {
-        throw new UnsupportedOperationException();
-    }
+    public abstract int size();
 
     /**
      * @return an array containing all the elements in this collection
