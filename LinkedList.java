@@ -422,7 +422,69 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
     @Override
     public Iterator<E> descendingIterator()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return new Iterator<E>()
+        {
+            private Node<E> current;
+            private Node<E> lastReturned = null;
+
+            {
+                this.current = tail;
+            }
+
+            @Override
+            public boolean hasNext()
+            {
+                return current != null;
+            }
+
+            @Override
+            public E next()
+            {
+                if(!hasNext())
+                {
+                    throw new NoSuchElementException("Iterator has reached the end of its iteration");
+                }
+                lastReturned = current;
+                current = current.previous;
+                return lastReturned.data;
+            }
+
+            @Override
+            public void remove()
+            {
+                if(lastReturned == null)
+                {
+                    throw new IllegalStateException("You MUST call next() before calling remove");
+                }
+                else if(lastReturned.previous == null && lastReturned.next == null)
+                {
+                    head = null;
+                    tail = null;
+                    current = null;
+                }
+                else if(lastReturned.previous == null)
+                {
+                    head = head.next;
+                    lastReturned.next = null;
+                    head.previous = null;
+                }
+                else if(lastReturned.next == null)
+                {
+                    tail = tail.previous;
+                    lastReturned.previous = null;
+                    tail.next = null;
+                }
+                else
+                {
+                    lastReturned.previous.next = lastReturned.next;
+                    lastReturned.next.previous = lastReturned.previous;
+                    lastReturned.previous = null;
+                    lastReturned.next = null;
+                }
+                size--;
+                lastReturned = null;
+            }
+        };
     }
 
     /**
