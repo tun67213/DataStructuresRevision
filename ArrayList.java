@@ -821,6 +821,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
     /**
      * @return an array containing all the elements in this list in proper sequence (from first to last element)
      */
+    @SuppressWarnings("unchecked")
     @Override
     public Object[] toArray()
     {
@@ -834,6 +835,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
      * @throws NullPointerException if no array variable is provided or the provided variable is null
      * @return the provided array with values from this List accommodated into it
      */
+    @SuppressWarnings("unchecked")
     @Override
     public <T> T[] toArray(T[] a)
     {
