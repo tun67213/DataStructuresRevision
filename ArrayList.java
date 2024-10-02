@@ -69,6 +69,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
     /**
      * @code Makes sure that the array representing this ArrayList has enough capacity, and if not, expands the storage.
      */
+    @SuppressWarnings("unchecked")
     private void ensureCapacity()
     {
 
