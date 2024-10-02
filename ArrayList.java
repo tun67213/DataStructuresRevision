@@ -214,7 +214,12 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
     @Override
     public Object clone()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        ArrayList<E> list = new ArrayList<>();
+        for(int i = 0; i < this.size; i++)
+        {
+            list.add(this.array[i]);
+        }
+        return list;
     }
 
     /**
