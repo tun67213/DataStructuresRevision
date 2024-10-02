@@ -1,3 +1,4 @@
+import java.util.EmptyStackException;
 import java.util.NoSuchElementException;
 
 /**
@@ -1133,12 +1134,28 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 
     /**
      * @return the value at the top of the stack represented by this list
-     * @code Pops an element from the stack represented by this list.
+     * @code Pops an element from the top stack represented by this list. The removed element is essentially the Node at head.
      */
     @Override
     public E pop()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(head == null)
+        {
+            throw new EmptyStackException();
+        }
+        Node<E> removingNode = head;
+        head = head.next;
+        if(head == null)
+        {
+            tail = null;
+        }
+        else
+        {
+            removingNode.next = null;
+            head.previous = null;
+        }
+        this.size--;
+        return removingNode.data;
     }
 
     /**
