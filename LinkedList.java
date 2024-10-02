@@ -9,7 +9,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
     /**
      * @param <E> Generic parameter for private class
      */
-    private class Node<E>
+    private static class Node<E>
     {
         private Node<E> previous;
         private E data;
