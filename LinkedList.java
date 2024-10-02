@@ -95,6 +95,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
      * @param index the location at which to add the specified element in this LinkedList
      * @param element the value to add at the specified location in this list
      * @throws NullPointerException if no element is provided or the provided element is null
+     * @throws IndexOutOfBoundsException if the provided index is out of bounds
      * @code Inserts the specified element at the specified position in this list.
      */
     @Override
