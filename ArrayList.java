@@ -6,6 +6,9 @@
 public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAccess, Cloneable, Serializable
 {
     private int modCount;   // Counts the number of structural changes that occur to this ArrayList
+    private int size;
+    private int capacity;
+    private E[] array;
 
     /**
      * @code Default constructor for this class
