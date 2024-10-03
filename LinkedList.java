@@ -680,7 +680,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
         {
             private int currentIndex;
             private Node<E> current;
-            private Node<E> lastReturned = null;
+            private Node<E> lastReturned;
 
             {
                 currentIndex = 0;
@@ -812,7 +812,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
         {
             private int currentIndex;
             private Node<E> current;
-            private Node<E> lastReturned = null;
+            private Node<E> lastReturned;
 
             {
                 currentIndex = index;
