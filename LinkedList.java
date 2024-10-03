@@ -1593,7 +1593,22 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
     @Override
     public E set(int index, E element)
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(element == null)
+        {
+            throw new NullPointerException("You MUST provide a replacement value");
+        }
+        if(index < 0 || index >= this.size)
+        {
+            throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+        }
+        Node<E> current = head;
+        for(int i = 0; i < index; i++)
+        {
+            current = current.next;
+        }
+        E value = current.data;
+        current.data = element;
+        return value;
     }
 
     /**
