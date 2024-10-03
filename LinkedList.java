@@ -1527,7 +1527,59 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
     @Override
     public boolean retainAll(Collection<?> c)
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(c == null)
+        {
+            throw new NullPointerException("You MUST provide a collection of values to retain in this LinkedList");
+        }
+        if(c.isEmpty())
+        {
+            this.size = 0;
+            this.head = null;
+            this.tail = null;
+            return true;
+        }
+        Node<E> current = head;
+        boolean modified = false;
+        while(current != null)
+        {
+            if(!c.contains(current.data))
+            {
+                if(current.previous == null && current.next == null)
+                {
+                    this.size = 0;
+                    head = null;
+                    tail = null;
+                    return true;
+                }
+                else if(current.previous == null)
+                {
+                    head = head.next;
+                    current.next = null;
+                    head.previous = null;
+                    current = head;
+                }
+                else if(current.next == null)
+                {
+                    tail = tail.previous;
+                    current.previous = null;
+                    tail.next = null;
+                    current = tail;
+                }
+                else
+                {
+                    Node<E> removingNode = current;
+                    current = current.previous;
+                    removingNode.previous.next = removingNode.next;
+                    removingNode.next.previous = removingNode.previous;
+                    removingNode.previous = null;
+                    removingNode.next = null;
+                }
+                this.size--;
+                modified = true;
+            }
+            current = current.next;
+        }
+        return modified;
     }
 
     /**
