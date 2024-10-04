@@ -1,8 +1,8 @@
 # DataStructuresRevision
 ## Table of Contents
-[Description] (#description)
-[Interfaces] (#interfaces)
-[Classes] (#classes)
+[Description] ([#description](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#description))
+[Interfaces] ([#interfaces](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#description))
+[Classes] ([(#classes)](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#classes))
 
 
 ## Description
