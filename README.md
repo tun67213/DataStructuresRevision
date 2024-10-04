@@ -1,4 +1,9 @@
 # DataStructuresRevision
+## Description
+    This project is designed to demonstrate the linking between various data structures, and their usage.
+    The project will focus on covering the functions for interfaces, and then the functions for the classes themselves.
+
+    
 ## Table of Contents
 [Description] ([#description](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#description)) <br>
 [Interfaces] ([#interfaces](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#description)) <br>
@@ -14,9 +19,7 @@
 - [ArrayList] ([#arraylist](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#arraylist-extends-abstractlist-implements-list-randomaccess-cloneable-serializable))
 - [LinkedList] ([#linkedlist](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#linkedlist-extends-abstractsequentiallist-implements-list-deque-cloneable-serializable))
 
-## Description
-    This project is designed to demonstrate the linking between various data structures, and their usage.
-    The project will focus on covering the functions for interfaces, and then the functions for the classes themselves.
+
 ## Interfaces
 The following are the interfaces and the functions they will contain.
 
