@@ -27,6 +27,8 @@ The following are the interfaces and the functions they will contain.
 ### RandomAccess.java, Serializable.java, Cloneable.java
     The three interfaces mentioned above are all empty interfaces, i.e., they contain no functions.
 
+[Return to Table of Contents] ([#table_of_contents](https://github.com/tun67213/DataStructuresRevision/blob/main/README.md#table-of-contents))
+
 ### Iterator.java
 
 #### Functions
@@ -46,6 +48,7 @@ The following are the interfaces and the functions they will contain.
         If current is null, the function throws NoSuchElementException().
         Otherwise, removes the value pointed to by current and adjusts the iterator's state.
         After removal, sets current to null to prevent consecutive calls to remove().
+[Return to Table of Contents] ([#table_of_contents](https://github.com/tun67213/DataStructuresRevision/blob/main/README.md#table-of-contents))
 
 
 ### Iterable.java
@@ -54,6 +57,7 @@ The following are the interfaces and the functions they will contain.
 ##### Iterator<T> iterator()
     Returns:
         an iterator over a set of elements of type T
+[Return to Table of Contents] ([#table_of_contents](https://github.com/tun67213/DataStructuresRevision/blob/main/README.md#table-of-contents))
 
 
 ### ListIterator.java extends Iterator<E>
@@ -102,6 +106,7 @@ The following are the interfaces and the functions they will contain.
         NullPointerException() if no value is provided
     Functionality:
         Sets the value returned by next() or previous() to the provided value e
+[Return to Table of Contents] ([#table_of_contents](https://github.com/tun67213/DataStructuresRevision/blob/main/README.md#table-of-contents))
 
 
 ### Collection.java extends Iterable<E>
@@ -218,6 +223,7 @@ The following are the interfaces and the functions they will contain.
         the array a with values from this Collection
     Functionality:
         Returns an array containing all of the elements in this collection; the runtime type of the returned array is that of the specified array.
+[Return to Table of Contents] ([#table_of_contents](https://github.com/tun67213/DataStructuresRevision/blob/main/README.md#table-of-contents))
 
 
 ### List.java extends Collection<E>
@@ -436,6 +442,7 @@ The following are the interfaces and the functions they will contain.
 ##### String toString()
     Returns:
         a String representation of this List that is readable by the user
+[Return to Table of Contents] ([#table_of_contents](https://github.com/tun67213/DataStructuresRevision/blob/main/README.md#table-of-contents))
 
 
 ## Classes
@@ -546,6 +553,7 @@ The following are the interfaces and the functions they will contain.
 ##### String toString()
     Returns:
         a String representation of this Collection
+[Return to Table of Contents] ([#table_of_contents](https://github.com/tun67213/DataStructuresRevision/blob/main/README.md#table-of-contents))
 
 
 ### abstract class AbstractList<E> extends AbstractCollection<E> implements List<E>
@@ -693,6 +701,7 @@ The following are the interfaces and the functions they will contain.
         IllegalArgumentException() if fromIndex is greater than toIndex
     Returns:
         a view of the portion of this ist between the specified fromIndex, inclusive, and toIndex, exclusive
+[Return to Table of Contents] ([#table_of_contents](https://github.com/tun67213/DataStructuresRevision/blob/main/README.md#table-of-contents))
 
 
 ### abstract class AbstractSequentialList<E> extends AbstractList<E>
@@ -766,6 +775,7 @@ The following are the interfaces and the functions they will contain.
         If the provided index is out of bounds, the function throws an IntextOutOfBOundsException().
         Otherwise, it uses a variable to save the value currently at the specified index, and then replaces that existing value with the new element provided.
         Then, it returns the value previously at the specified index.
+[Return to Table of Contents] ([#table_of_contents](https://github.com/tun67213/DataStructuresRevision/blob/main/README.md#table-of-contents))
 
 
 ### ArrayList<E> extends AbstractList<E> implements List<E>, RandomAccess, Cloneable, Serializable
@@ -1036,6 +1046,7 @@ The following are the interfaces and the functions they will contain.
 ##### String toString()
     Returns:
         a String representation of this ArrayList to output to the command line
+[Return to Table of Contents] ([#table_of_contents](https://github.com/tun67213/DataStructuresRevision/blob/main/README.md#table-of-contents))
 
 
 ### LinkedList<E> extends AbstractSequentialList<E> implements List<E>, Deque<E>, Cloneable, Serializable
@@ -1450,3 +1461,4 @@ The following are the interfaces and the functions they will contain.
 ##### String toString()
     Returns:
         a String implementation of this LinkedList
+[Return to Table of Contents] ([#table_of_contents](https://github.com/tun67213/DataStructuresRevision/blob/main/README.md#table-of-contents))
