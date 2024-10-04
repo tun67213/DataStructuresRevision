@@ -6,7 +6,7 @@
 - [Iterator] ([#iterator](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#iteratorjava)) <br>
 - [Iterable] ([#iterable](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#iterablejava))
 - [ListIterator] ([#listIterator](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#listiteratorjava-extends-iterator))
-- [Collection] ([#collection] (https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#collectionjava-extends-iterable))
+- [Collection] ([#collection](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#collectionjava-extends-iterable))
 - 
 
 
