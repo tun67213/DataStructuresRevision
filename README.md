@@ -6,7 +6,7 @@
     
 ## Table of Contents
 [Interfaces] ([#interfaces](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#description)) <br>
-- [RandomAccess] [Serializable] [Cloneable] ([#randomAccess] [#serializable] [#cloneable] (https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#description)) <br>
+- [RandomAccess] [Serializable] [Cloneable] ([#randomAccess] [#serializable] [#cloneable] ()) <br>
 - [Iterator] ([#iterator](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#iteratorjava)) <br>
 - [Iterable] ([#iterable](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#iterablejava))
 - [ListIterator] ([#listIterator](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#listiteratorjava-extends-iterator))
