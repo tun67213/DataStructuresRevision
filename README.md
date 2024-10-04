@@ -7,11 +7,13 @@
 - [Iterable] ([#iterable](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#iterablejava))
 - [ListIterator] ([#listIterator](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#listiteratorjava-extends-iterator))
 - [Collection] ([#collection](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#collectionjava-extends-iterable))
-- 
+- [List] ([#list](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#listjava-extends-collection))
 
 
 [Classes] ([(#classes)](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#classes))
 - [ArrayList] ([#arraylist](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#arraylist-extends-abstractlist-implements-list-randomaccess-cloneable-serializable))
+- [LinkedList] ([#linkedlist](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#linkedlist-extends-abstractsequentiallist-implements-list-deque-cloneable-serializable))
+
 ## Description
     This project is designed to demonstrate the linking between various data structures, and their usage.
     The project will focus on covering the functions for interfaces, and then the functions for the classes themselves.
