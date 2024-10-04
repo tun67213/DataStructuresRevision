@@ -1067,8 +1067,6 @@ The following are the interfaces and the functions they will contain.
         Node variable to keep track of the start of this LinkedList
     private Node<E> tail:
         Node variable to keep track of the end of this LinkedList
-#### Variables inherited from AbstractList
-    modCount: number of times this AbstractSequentialList has been structurally modified
 #### Constructors
 ##### public LinkedList()
     Default constructor that initializes size to 0, head to null, and tail to null
