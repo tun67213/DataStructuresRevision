@@ -5,7 +5,7 @@
 
     
 ## Table of Contents
-[Interfaces] ([#interfaces](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#description)) <br>
+[Interfaces] ([#interfaces](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#interfaces)) <br>
 - [RandomAccess] ([#random_access](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#randomaccessjava-serializablejava-cloneablejava))
   - [Open File] ([#random_access_file](https://github.com/tun67213/DataStructuresRevision/blob/main/src/RandomAccess.java))
 - [Serializable] ([#serializable](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#randomaccessjava-serializablejava-cloneablejava))
