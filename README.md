@@ -24,7 +24,7 @@
   - [Open File] ([#list_file](https://github.com/tun67213/DataStructuresRevision/blob/main/src/List.java))
 
 
-[Classes] ([(#classes)](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#classes))
+[Classes] ([(#classes)](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#classes)) <br>
 - [ArrayList] ([#arraylist](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#arraylist-extends-abstractlist-implements-list-randomaccess-cloneable-serializable))
   - [Open File] ([#arraylist_file](https://github.com/tun67213/DataStructuresRevision/blob/main/src/ArrayList.java))
 - [LinkedList] ([#linkedlist](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#linkedlist-extends-abstractsequentiallist-implements-list-deque-cloneable-serializable))
