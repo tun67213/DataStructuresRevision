@@ -32,7 +32,7 @@
 
 
 ## Interfaces
-The following are the interfaces and the functions they will contain
+The following are the interfaces and the functions they will contain.
 
 ### RandomAccess.java, Serializable.java, Cloneable.java
     The three interfaces mentioned above are all empty interfaces, i.e., they contain no functions.
