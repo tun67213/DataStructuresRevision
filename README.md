@@ -31,9 +31,6 @@
   - [Open File] ([#arraylist_file](https://github.com/tun67213/DataStructuresRevision/blob/main/src/ArrayList.java))
 
 
-
-
-
 ## Interfaces
 The following are the interfaces and the functions they will contain.
 
