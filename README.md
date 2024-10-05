@@ -3,6 +3,8 @@
     This project is designed to demonstrate the linking between various data structures, and their usage.
     The project will focus on covering the functions for interfaces, and then the functions for the classes themselves.
 
+## Instructions for Usage
+    If you are interested in bringing this project to the next level, you must clone a copy on your local GitHub account and use that for expanding this class. This repository has been made public so that all can use it to improve the functionality as the Java module keeps expanding.
     
 ## Table of Contents
 [Interfaces] ([#interfaces](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#interfaces)) <br>
