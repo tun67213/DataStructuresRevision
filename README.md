@@ -45,15 +45,15 @@ The following are the interfaces and the functions they will contain.
 
 #### Functions
 
-##### boolean hasNext()
+##### boolean hasNext() ([#hasNext()](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Iterator.java#L13))
     Returns:
         true if the iteration has more elements, false otherwise
-##### E next()
+##### E next() ([#next()](https://github.com/tun67213/DataStructuresRevision/blob/e79b3cba03db1a051efd565e5e7c0fb9eecab392/src/Iterator.java#L18))
     Throws:
         NoSuchElementException() if hasNext() returns false
     Returns:
         The next element in the iterator
-##### void remove()
+##### void remove() ([#remove()](https://github.com/tun67213/DataStructuresRevision/blob/e79b3cba03db1a051efd565e5e7c0fb9eecab392/src/Iterator.java#L23))
     Throws:
         NoSuchElementException() if current is null
     Functionality:
@@ -66,7 +66,7 @@ The following are the interfaces and the functions they will contain.
 ### Iterable.java
 
 #### Functions
-##### Iterator<T> iterator()
+##### Iterator<T> iterator() ([#iterator()](https://github.com/tun67213/DataStructuresRevision/blob/e79b3cba03db1a051efd565e5e7c0fb9eecab392/src/Iterable.java#L13))
     Returns:
         an iterator over a set of elements of type T
 [Return to Table of Contents] ([#table_of_contents](https://github.com/tun67213/DataStructuresRevision/blob/main/README.md#table-of-contents))
