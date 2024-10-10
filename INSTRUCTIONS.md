@@ -10,3 +10,5 @@
                 * ArrayList<Integer> list = new ArrayList<>();
         3) Once done with that, you would simply do "list.'functionName'" to call the function of your liking.
             - As soon as you do 'list.' the compiler will suggest the functions that are available.
+        4) After completing all those steps, simply run Main.java.
+            - Advice: If you really want to test out THIS repository, do NOT import modules for files that exist here, as they will ignore the implementation in this repository.
