@@ -1858,6 +1858,6 @@ Array 'a' with values from this LinkedList copied into it in the order returned 
 
 ##### static void main(String[] args)
 
-	Functionality:
+	Functionality: This function gives the user a chance to play around with the functions available to them.
 
 [Return to Table of Contents] ([#table_of_contents](https://github.com/tun67213/DataStructuresRevision/blob/main/README.md#table-of-contents))
