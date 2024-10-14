@@ -7,10 +7,7 @@ The project will focus on covering the functions for interfaces, and then the fu
 
 ## Instructions for Usage
 
-If you are interested in bringing this project to the next level, you must clone a copy on your local GitHub account and
-use that project to implement functions that you may find in other newer standard editions of Java. This repository has
-been made public so that all can use it to improve the functionality as the Java module keeps expanding. This could
-include attempting to implement any edition past SE 7, based on functions found on the Oracle website.
+If you are interested in bringing this project to the next level, you must clone a copy on your local GitHub account and use that project to implement functions that you may find in other newer standard editions of Java. This repository has been made public so that all can use it to improve the functionality as the Java module keeps expanding. This could include attempting to implement any edition past SE 7, based on functions found on the Oracle website.
 
 ## Table of Contents
 
