@@ -1842,10 +1842,10 @@ The three interfaces mentioned above are all empty interfaces, i.e., they contai
 		T[] a:
 			Generic array with elements of type T to copy values into
 
-Throws:
-NullPointerException() if no array variable is provided or the provided array variable is null
-Returns:
-Array 'a' with values from this LinkedList copied into it in the order returned by this LinkedList's iterator
+    Throws:
+      NullPointerException() if no array variable is provided or the provided array variable is null
+    Returns:
+      Array 'a' with values from this LinkedList copied into it in the order returned by this LinkedList's iterator
 
 ##### String toString()
 
