@@ -1,7 +1,7 @@
 # DataStructuresRevision 
     This project is designed in a way as to allow users try using the data structures created, and modify them to their preferences.
     By doing so, they will get the chance to test it.
-[Main.java] ([#main](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Main.java)
+[Main.java] ([#main](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Main.java))
     To run it:
         1) Open main.java (as in the link below) and create a copy of it.
         2) Then, add a statement based on what class you would like to run.
