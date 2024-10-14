@@ -40,7 +40,7 @@ include attempting to implement any edition past SE 7, based on functions found 
 - [LinkedList] ([#linkedlist](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#linkedlist-extends-abstractsequentiallist-implements-list-deque-cloneable-serializable))
     - [Open File] ([#linkedlist_file](https://github.com/tun67213/DataStructuresRevision/blob/main/src/LinkedList.java))
 - [Main] ([#main](https://github.com/tun67213/DataStructuresRevision/tree/main#mainjava))
-    - [Open File] ([#main_file] (https://github.com/tun67213/DataStructuresRevision/blob/main/src/Main.java))
+    - [Open File] ([#main_file](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Main.java))
 
 ## Interfaces
 
