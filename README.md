@@ -6,14 +6,18 @@ This project is designed to demonstrate the linking between various data structu
 The project will focus on covering the functions for interfaces, and then the functions for the classes themselves.
 
 ## Instructions for Usage
-
 If you are interested in bringing this project to the next level, these are the rules:
-  1. This repository has been made public so that all can use it to improve the functionality as the Java module keeps expanding.
-  2. Therefore, changes can not be pushed or merged into this repository to change it, so please do not try to do so.
-  3. Instead, follow these steps:
-     1. Click on the green button that says "<> Code".
-     2. Once there, copy the link based on what you are using for your code management.
-     3. Then, go to your corresponding software and paste it there. If you are using GitHub Desktop (which is what I use), then 
+1. This repository has been made public so that all can use it to improve the functionality as the Java module keeps expanding.
+2. Therefore, changes can not be pushed or merged into this repository to change it, so please do not try to do so.
+3. Instead, follow these steps:
+   1. Click on the green button that says "<> Code". 
+   2. Once there, copy the link based on what you are using for your code management. 
+   3. Then, go to your corresponding software and paste it there. If you are using GitHub Desktop (which is what I use), then, once you have navigated to the appropriate repository, select 'File' --> 'Clone Repository' and provide the URL copied there.
+   4. Once this step is complete, all code should be cloned into your local computer.
+4. In order to test any of the functions in this class, specifically those of ArrayList and LinkedList, you would do the following:
+   1. Open the Main.java file with the main function implemented.
+   2. In there, write List<'datatype'> list = new ArrayList<>(); or List<'datatype'> list = new LinkedList<>();
+   3. Then, you would write 'list.' to find the options available to you to appear and can call and test using that.
 
 ## Table of Contents
 
