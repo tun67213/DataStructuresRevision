@@ -13,3 +13,5 @@
             - As soon as you do 'list.' the compiler will suggest the functions that are available.
         5) After completing all those steps, simply run Main.java.
             - Advice: If you really want to test out THIS repository, do NOT import modules for files that exist here, as they will ignore the implementation in this repository.
+
+Access to README.md: [README.md] ([#readme](https://github.com/tun67213/DataStructuresRevision/blob/main/INSTRUCTIONS.md))
