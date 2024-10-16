@@ -25,7 +25,7 @@ This repository has been made public for reference and educational purposes only
         List<'datatype'> list = new ArrayList<>();
         or
         List<'datatype'> list = new LinkedList<>();
-        Call functions on the list using list. and explore the available methods.
+        Call functions on the list using list.'functionName' and explore the available methods.
 
 ## Table of Contents
 
