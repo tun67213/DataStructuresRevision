@@ -3,7 +3,7 @@
     By doing so, they will get the chance to test it.
 [Main.java] ([#main](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Main.java))
     To run it:
-        1) From the original repository, i.e. DataStructuresRevision, select the button "Code" and follow instructions based on your method for accessing GitHub.
+        1) From the original repository on GitHub, i.e. DataStructuresRevision, select the button "Code" and follow instructions based on your method for accessing GitHub.
         2) Open Main.java
         3) Then, add a statement based on what class you would like to run.
             - i.e. if you want to create an ArrayList of type int, you could do one of the following:
