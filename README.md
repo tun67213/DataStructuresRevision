@@ -12,11 +12,8 @@ This repository has been made public for reference and educational purposes only
     No Contributions or Changes:
     This repository is not open for contributions. Please do not attempt to push, pull, or request changes. The repository is provided as-is, and no updates or external changes will be accepted.
 
-    Cloning the Repository:
-    If you'd like to explore the code:
-        Click the green "<> Code" button.
-        Copy the repository URL for your preferred Git tool.
-        In your Git client (e.g., GitHub Desktop), select 'File' → 'Clone Repository' and paste the URL to clone the repository to your local machine.
+    Instructions to get access to the files can be found below:
+[HERE] ([#instructions](https://github.com/tun67213/DataStructuresRevision/blob/main/INSTRUCTIONS.md))
 
     Testing the Code:
     To test the data structures (such as ArrayList and LinkedList):
