@@ -19,9 +19,14 @@ Instructions to get access to the files can be found below:
     To test the data structures (such as ArrayList and LinkedList):
         Open the Main.java file, which contains the main function.
         Instantiate the data structures by writing:
-        List<'datatype'> list = new ArrayList<>();
-        or
-        List<'datatype'> list = new LinkedList<>();
+            List<'datatype'> list = new ArrayList<>();
+            or
+            List<'datatype'> list = new LinkedList<>();
+            or
+            ArrayList<'datatype'> list = new ArrayList<>();
+            or
+            LinkedList<'datatype'> list = new LinkedList<>();
+        Use the last 2 if you desire to test functions specifically dedicated to ArrayList or LinkedList, but are not common.
         Call functions on the list using list.'functionName' and explore the available methods.
 
 ## Table of Contents
