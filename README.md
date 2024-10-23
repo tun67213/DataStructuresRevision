@@ -1031,57 +1031,57 @@ The three interfaces mentioned above are all empty interfaces, i.e., they contai
 
 ##### private int size
 
-	Functionality:
-		Keeps track of the number of elements in this ArrayList
+###### Functionality:
+    Keeps track of the number of elements in this ArrayList
 
 ##### private int capacity
 
-	Functionality:
-		Keeps track of the number of elements the current array can hold
+###### Functionality:
+    Keeps track of the number of elements the current array can hold
 
 ##### private E[] array
 
-	Functionality:
-		Keeps track of the actual elements that are added to this ArrayList using an actual array
+###### Functionality:
+    Keeps track of the actual elements that are added to this ArrayList using an actual array
 
 #### Constructors
 
 ##### public ArrayList()
 
-	Functionality:
-		Default constructor for this class that initializes size to 0, capacity to 10, and the array representing this ArrayList to be a new array with capacity 10.
+###### Functionality:
+    Default constructor for this class that initializes size to 0, capacity to 10, and the array representing this ArrayList to be a new array with capacity 10.
 
 ##### public ArrayList(Collection<? extends E> c)
 
-	Variables: 
-		Collection<? extends E> c:
-			Collection of values to initialize this ArrayList with
-	Throws:
-		NullPointerException() if no Collection is provided, the provided Collection variable is null, or any value in the provided Collection is null
-	Functionality:
-		If no Collection is provided, or the provided Collection variable is null, or a value IN the provided Collection variable is null, the constructor throws a NullPointerException().
-		Otherwise it does the following:
-			1) Set size to 0, capacity to 10, and array to be a new array that holds 'capacity' elements.
-			2) If the provided Collection isn't empty, the constructor will initialize the ArrayList with values from the provided Collection, incrementing the size for each value added. However, if at any point, there is a null value in the Collection, the constructor will throw a NullPointerException().
+###### Variables: 
+    Collection<? extends E> c:
+        Collection of values to initialize this ArrayList with
+###### Throws:
+    NullPointerException() if no Collection is provided, the provided Collection variable is null, or any value in the provided Collection is null
+###### Functionality:
+    If no Collection is provided, or the provided Collection variable is null, or a value IN the provided Collection variable is null, the constructor throws a NullPointerException().
+    Otherwise it does the following:
+        1) Set size to 0, capacity to 10, and array to be a new array that holds 'capacity' elements.
+        2) If the provided Collection isn't empty, the constructor will initialize the ArrayList with values from the provided Collection, incrementing the size for each value added. However, if at any point, there is a null value in the Collection, the constructor will throw a NullPointerException().
 
 ##### public ArrayList(int initialCapacity)
 
-	Variables:
-		int initialCapacity:
-			the capacity to initialize this ArrayList with
-	Throws:
-		IllegalArgumentException() if the provided capacity is less than or equal to 0
-	Functionality:
-		If the provided initial capacity is less than or equal to 0, the function throws an IllegalArgumentException().
-		Otherwise, the function will initialize the array that manages with this ArrayList with the provided capacity of elements.
+###### Variables:
+    int initialCapacity:
+        the capacity to initialize this ArrayList with
+###### Throws:
+    IllegalArgumentException() if the provided capacity is less than or equal to 0
+###### Functionality:
+    If the provided initial capacity is less than or equal to 0, the function throws an IllegalArgumentException().
+    Otherwise, the function will initialize the array that manages with this ArrayList with the provided capacity of elements.
 
 #### Functions
 
 ##### private void ensureCapacity()
 
-	Functionality:
-		If the variable size equals the variable capacity (i.e. the current array is filled), this function will create a new array that is 1.5 times the current size, and relocate all values in the existing array.
-		Then, it will reassign the new array to the private array managing this ArrayList, allowing for more values to be easily added.
+###### Functionality:
+    If the variable size equals the variable capacity (i.e. the current array is filled), this function will create a new array that is 1.5 times the current size, and relocate all values in the existing array.
+    Then, it will reassign the new array to the private array managing this ArrayList, allowing for more values to be easily added.
 
 ##### boolean add(E e)
 
