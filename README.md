@@ -1025,6 +1025,7 @@ The three interfaces mentioned above are all empty interfaces, i.e., they contai
 #### Variables inherited from AbstractList
 
 	modCount: number of times this AbstractSequentialList has been structurally modified
+      NOTE: This is NOT implemented in this code, but is optional to implement if desired
 
 #### Other Variables
 
@@ -1041,7 +1042,7 @@ The three interfaces mentioned above are all empty interfaces, i.e., they contai
 ##### private E[] array
 
 	Functionality:
-		the Array that holds all the values in this ArrayList
+		Keeps track of the actual elements that are added to this ArrayList using an actual array
 
 #### Constructors
 
