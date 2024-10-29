@@ -128,7 +128,7 @@ The three interfaces mentioned above are all empty interfaces, i.e., they contai
 
 #### Functions
 
-##### void add(E e)
+##### void add(E e) ([#add()](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#void-adde-e))
 
 ###### Variables
     E e:
@@ -1904,6 +1904,7 @@ The three interfaces mentioned above are all empty interfaces, i.e., they contai
 
 ##### static void main(String[] args)
 
-###### Functionality This function gives the user a chance to play around with the functions available to them.
+###### Functionality 
+    This function gives the user a chance to play around with the functions available to them.
 
 [Return to Table of Contents] ([#table_of_contents](https://github.com/tun67213/DataStructuresRevision/blob/main/README.md#table-of-contents))
