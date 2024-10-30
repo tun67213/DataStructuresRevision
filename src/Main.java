@@ -11,6 +11,15 @@ public class Main
      */
     public static void main(String[] args)
     {
-
+        /*
+            In order to test ArrayList with functions in the List<> interface of type integer, write the following:
+                List<Integer> list = new ArrayList<>();
+                list.functionName();
+         */
+        /*
+            In order to test ArrayList with functions specifically for the ArrayList<> class of type integer, write the following:
+                ArrayList<Integer> list = new ArrayList<>();
+                list.functionName();
+         */
     }
 }
