@@ -11,6 +11,7 @@ This repository has been made public for reference and educational purposes only
 
     No Contributions or Changes:
     This repository is not open for contributions. Please do not attempt to push, pull, or request changes. The repository is provided as-is, and no updates or external changes will be accepted.
+    Anybody that desires to make changes must follow the instructions by accessing the file below.
 
 Instructions to get access to the files can be found [HERE] ([#instructions](https://github.com/tun67213/DataStructuresRevision/blob/main/INSTRUCTIONS.md))
 
