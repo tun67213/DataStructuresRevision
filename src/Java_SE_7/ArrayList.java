@@ -1,4 +1,4 @@
-package src;
+package src.Java_SE_7;
 
 import java.util.NoSuchElementException;
 
