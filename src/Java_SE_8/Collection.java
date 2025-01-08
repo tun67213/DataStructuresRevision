@@ -5,7 +5,7 @@ package src.Java_SE_8;
  * @param <E> Generic variable for this interface
  * @code Interface that implements a Collection
  */
-public interface Collection<E>
+public interface Collection<E> extends Iterable<E>
 {
 
 }
