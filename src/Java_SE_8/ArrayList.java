@@ -943,6 +943,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	 * @return the array containing all the elements in this list in proper sequence (from first to last element)
 	 * @code Returns an array containing all of the elements in this list in proper sequence (from first to last element); the runtime type of the returned array is that of the specified array.
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public <T> T[] toArray(T[] a)
 	{
