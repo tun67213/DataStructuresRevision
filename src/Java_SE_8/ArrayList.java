@@ -22,7 +22,9 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	 */
 	public ArrayList()
 	{
-
+		this.size = 0;
+		this.capacity = 10;
+		this.array = (E[]) new Object[this.capacity];
 	}
 
 	/**
@@ -32,7 +34,26 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	 */
 	public ArrayList(Collection<? extends E> c)
 	{
-
+		if(c == null)
+		{
+			throw new NullPointerException("You MUST provide a Collection of values to initialize this ArrayList with");
+		}
+		this.size = 0;
+		this.capacity = 10;
+		if(!c.isEmpty())
+		{
+			this.capacity = c.size() + c.size() / 2;
+		}
+		this.array = (E[]) new Object[this.capacity];
+		if(!c.isEmpty())
+		{
+			Iterator<? extends E> iterator = c.iterator();
+			while(iterator.hasNext())
+			{
+				this.array[this.size] = iterator.next();
+				this.size++;
+			}
+		}
 	}
 
 	/**
@@ -41,7 +62,9 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	 */
 	public ArrayList(int initialCapacity)
 	{
-
+		this.size = 0;
+		this.capacity = initialCapacity;
+		this.array = (E[]) new Object[this.capacity];
 	}
 
 	/**
