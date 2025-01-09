@@ -1,6 +1,7 @@
 package src.Java_SE_8;
 
 import java.util.Comparator;
+import java.util.NoSuchElementException;
 import java.util.Spliterator;
 import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
@@ -354,7 +355,46 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public Iterator<E> iterator()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		return new Iterator<E>()
+		{
+			private int index = 0;
+			private boolean canRemove = false;
+
+			@Override
+			public boolean hasNext()
+			{
+				return this.index < size;
+			}
+
+			@Override
+			public E next()
+			{
+				if(!hasNext())
+				{
+					throw new NoSuchElementException("Iterator has reached the end of this list");
+				}
+				E value = array[index];
+				index++;
+				canRemove = true;
+				return value;
+			}
+
+			@Override
+			public void remove()
+			{
+				if(!canRemove)
+				{
+					throw new IllegalStateException("You cannot remove an element before calling next() or after removing an element");
+				}
+				for(int i = index - 1; i < size - 1; i++)
+				{
+					array[i] = array[i + 1];
+				}
+				size--;
+				index--;
+				canRemove = false;
+			}
+		};
 	}
 
 	/**
