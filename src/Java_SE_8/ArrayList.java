@@ -897,7 +897,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public Spliterator<E> spliterator()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		return Spliterators.spliterator(this.array, 0, this.size, Spliterator.ORDERED);
 	}
 
 	/**
