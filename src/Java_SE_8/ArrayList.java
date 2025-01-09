@@ -325,7 +325,18 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public int indexOf(Object o)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(o == null)
+		{
+			throw new NullPointerException("You MUST provide a value to find the location of the first occurrence of");
+		}
+		for(int i = 0; i < this.size; i++)
+		{
+			if(this.array[i].equals(o))
+			{
+				return i;
+			}
+		}
+		return -1;
 	}
 
 	/**
