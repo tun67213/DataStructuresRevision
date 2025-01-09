@@ -95,7 +95,14 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public boolean add(E e)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(e == null)
+		{
+			throw new NullPointerException("You MUST provide a non null element to insert into this ArrayList");
+		}
+		ensureCapacity();
+		this.array[this.size] = e;
+		this.size++;
+		return true;
 	}
 
 	/**
@@ -108,7 +115,21 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public void add(int index, E element)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(element == null)
+		{
+			throw new NullPointerException("You MUST provide a non null element to insert into this ArrayList");
+		}
+		if(index < 0 || index > this.size)
+		{
+			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+		}
+		ensureCapacity();
+		for(int i = this.size; i > index; i++)
+		{
+			this.array[i] = this.array[i - 1];
+		}
+		this.array[index] = element;
+		this.size++;
 	}
 
 	/**
@@ -120,7 +141,27 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public boolean addAll(Collection<? extends E> c)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(c == null)
+		{
+			throw new NullPointerException("You MUST provide a non null collection of values to insert into this ArrayList");
+		}
+		if(c.isEmpty())
+		{
+			return false;
+		}
+		Iterator<? extends E> iterator = c.iterator();
+		while(iterator.hasNext())
+		{
+			E element = iterator.next();
+			if(element == null)
+			{
+				throw new NullPointerException("You MUST provide a non null element to insert into this ArrayList");
+			}
+			ensureCapacity();
+			this.array[this.size] = element;
+			this.size++;
+		}
+		return true;
 	}
 
 	/**
@@ -134,7 +175,37 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public boolean addAll(int index, Collection<? extends E> c)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(c == null)
+		{
+			throw new NullPointerException("You MUST provide a non null collection of values to insert into this ArrayList");
+		}
+		if(index < 0 || index > this.size)
+		{
+			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+		}
+		if(c.isEmpty())
+		{
+			return false;
+		}
+		Iterator<? extends E> iterator = c.iterator();
+		int startingIndex = index;
+		while(iterator.hasNext())
+		{
+			E element = iterator.next();
+			if(element == null)
+			{
+				throw new NullPointerException("You MUST provided a non null value to insert into this ArrayList");
+			}
+			ensureCapacity();
+			for(int i = this.size; i > startingIndex; i--)
+			{
+				this.array[i] = this.array[i - 1];
+			}
+			this.array[startingIndex] = element;
+			this.size++;
+			startingIndex++;
+		}
+		return true;
 	}
 
 	/**
