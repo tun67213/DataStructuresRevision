@@ -423,7 +423,104 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public ListIterator<E> listIterator()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		return new ListIterator<>()
+		{
+			private int currentIndex = 0;
+			private int lastReturnedIndex = -1;
+
+			@Override
+			public boolean hasNext()
+			{
+				return this.currentIndex < size;
+			}
+
+			@Override
+			public E next()
+			{
+				if (!hasNext())
+				{
+					throw new NoSuchElementException("Iterator has reached the end of this list");
+				}
+				E value = array[this.currentIndex];
+				lastReturnedIndex = currentIndex;
+				this.currentIndex++;
+				return value;
+			}
+
+			@Override
+			public boolean hasPrevious()
+			{
+				return this.currentIndex > 0;
+			}
+
+			@Override
+			public E previous()
+			{
+				if (!hasPrevious())
+				{
+					throw new NoSuchElementException("Iterator has reached the end of this list");
+				}
+				this.currentIndex--;
+				lastReturnedIndex = currentIndex;
+				return array[this.currentIndex];
+			}
+
+			@Override
+			public int nextIndex()
+			{
+				return this.currentIndex;
+			}
+
+			@Override
+			public int previousIndex()
+			{
+				return this.currentIndex - 1;
+			}
+
+			@Override
+			public void remove()
+			{
+				if (lastReturnedIndex == -1)
+				{
+					throw new IllegalStateException("You MUST call next() or previous() before calling remove()");
+				}
+
+				for (int i = lastReturnedIndex; i < size - 1; i++)
+				{
+					array[i] = array[i + 1];
+				}
+
+				array[size - 1] = null;
+
+				size--;
+				currentIndex = lastReturnedIndex;
+				lastReturnedIndex = -1;
+			}
+
+			@Override
+			public void set(E e)
+			{
+				if(lastReturnedIndex == -1)
+				{
+					throw new IllegalStateException("You MUST call next() or previous() before calling set()");
+				}
+				array[lastReturnedIndex] = e;
+			}
+
+			@Override
+			public void add(E e)
+			{
+				for(int i = size; i > currentIndex; i--)
+				{
+					array[i] = array[i - 1];
+				}
+
+				array[currentIndex] = e;
+				size++;
+				currentIndex++;
+				lastReturnedIndex = -1;
+			}
+		};
 	}
 
 	/**
@@ -434,7 +531,104 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public ListIterator<E> listIterator(int index)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		return new ListIterator<>()
+		{
+			private int currentIndex = index;
+			private int lastReturnedIndex = -1;
+
+			@Override
+			public boolean hasNext()
+			{
+				return this.currentIndex < size;
+			}
+
+			@Override
+			public E next()
+			{
+				if (!hasNext())
+				{
+					throw new NoSuchElementException("Iterator has reached the end of this list");
+				}
+				E value = array[this.currentIndex];
+				lastReturnedIndex = currentIndex;
+				this.currentIndex++;
+				return value;
+			}
+
+			@Override
+			public boolean hasPrevious()
+			{
+				return this.currentIndex > 0;
+			}
+
+			@Override
+			public E previous()
+			{
+				if (!hasPrevious())
+				{
+					throw new NoSuchElementException("Iterator has reached the end of this list");
+				}
+				this.currentIndex--;
+				lastReturnedIndex = currentIndex;
+				return array[this.currentIndex];
+			}
+
+			@Override
+			public int nextIndex()
+			{
+				return this.currentIndex;
+			}
+
+			@Override
+			public int previousIndex()
+			{
+				return this.currentIndex - 1;
+			}
+
+			@Override
+			public void remove()
+			{
+				if (lastReturnedIndex == -1)
+				{
+					throw new IllegalStateException("You MUST call next() or previous() before calling remove()");
+				}
+
+				for (int i = lastReturnedIndex; i < size - 1; i++)
+				{
+					array[i] = array[i + 1];
+				}
+
+				array[size - 1] = null;
+
+				size--;
+				currentIndex = lastReturnedIndex;
+				lastReturnedIndex = -1;
+			}
+
+			@Override
+			public void set(E e)
+			{
+				if(lastReturnedIndex == -1)
+				{
+					throw new IllegalStateException("You MUST call next() or previous() before calling set()");
+				}
+				array[lastReturnedIndex] = e;
+			}
+
+			@Override
+			public void add(E e)
+			{
+				for(int i = size; i > currentIndex; i--)
+				{
+					array[i] = array[i - 1];
+				}
+
+				array[currentIndex] = e;
+				size++;
+				currentIndex++;
+				lastReturnedIndex = -1;
+			}
+		};
 	}
 
 	/**
