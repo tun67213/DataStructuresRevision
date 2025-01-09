@@ -1,5 +1,11 @@
 package src.Java_SE_8;
 
+import java.util.Comparator;
+import java.util.Spliterator;
+import java.util.function.Predicate;
+import java.util.function.UnaryOperator;
+import java.util.function.Consumer;
+
 /**
  * @author arvindhvelrajan
  * @param <E> Generic variable for this class
