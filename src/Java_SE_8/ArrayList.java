@@ -874,10 +874,20 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	 * @param c the Comparator used to sort this ArrayList
 	 * @code Sorts this list according to the order induced by the specified Comparator.
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void sort(Comparator<? super E> c)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(this.size <= 1)
+		{
+			return;
+		}
+		if(c == null)
+		{
+			c = (Comparator<? super E>) Comparator.naturalOrder();
+		}
+		E[] sortedArray = (E[]) Arrays.copyOf(this.array, this.size);
+		System.arraycopy(sortedArray, 0, this.array, 0, this.size);
 	}
 
 	/**
