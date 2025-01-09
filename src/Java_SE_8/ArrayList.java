@@ -930,6 +930,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	/**
 	 * @return an array containing all the elements in this list in proper sequence (from first to last element)
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public Object[] toArray()
 	{
