@@ -1,9 +1,6 @@
 package src.Java_SE_8;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.NoSuchElementException;
-import java.util.Spliterator;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
 import java.util.function.Consumer;
