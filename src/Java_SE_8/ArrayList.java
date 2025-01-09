@@ -292,7 +292,14 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	 */
 	public void forEach(Consumer<? super E> action)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(action == null)
+		{
+			throw new NullPointerException("The action cannot be null");
+		}
+		for(int i = 0; i < this.size; i++)
+		{
+			action.accept(this.array[i]);
+		}
 	}
 
 	/**
