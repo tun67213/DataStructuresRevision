@@ -640,7 +640,17 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public E remove(int index)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(index < 0 || index >= this.size)
+		{
+			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+		}
+		E removingValue = this.array[index];
+		for(int i = index; i < this.size - 1; i++)
+		{
+			array[i] = array[i + 1];
+		}
+		this.size--;
+		return removingValue;
 	}
 
 	/**
@@ -652,7 +662,25 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public boolean remove(Object o)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(o == null)
+		{
+			throw new NullPointerException("You MUST provide a value to find and remove the first occurrence of");
+		}
+		int removingIndex = 0;
+		while(removingIndex < this.size && !(this.array[removingIndex].equals(o)))
+		{
+			removingIndex++;
+		}
+		if(removingIndex >= this.size)
+		{
+			return false;
+		}
+		for(int i = removingIndex; i < this.size - 1; i++)
+		{
+			array[i] = array[i + 1];
+		}
+		this.size--;
+		return true;
 	}
 
 	/**
@@ -664,7 +692,27 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public boolean removeAll(Collection<?> c)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(c == null)
+		{
+			throw new NullPointerException("You MUST provide a Collection of values to remove if found");
+		}
+		int i = 0;
+		boolean modified = false;
+		while(i < this.size)
+		{
+			if(c.contains(this.array[i]))
+			{
+				for(int j = i; j < this.size - 1; j++)
+				{
+					this.array[j] = this.array[j + 1];
+				}
+				i--;
+				this.size--;
+				modified = true;
+			}
+			i++;
+		}
+		return modified;
 	}
 
 	/**
@@ -675,7 +723,28 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public boolean removeIf(Predicate<? super E> filter)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(filter == null)
+		{
+			throw new NullPointerException("The provided predicate cannot be null");
+		}
+		boolean modified = false;
+		int i = 0;
+
+		while(i < this.size)
+		{
+			if(filter.test(this.array[i]))
+			{
+				for(int j = i; j < this.size - 1; j++)
+				{
+					this.array[j] = this.array[j + 1];
+				}
+				this.size--;
+				modified = true;
+				i--;
+			}
+			i++;
+		}
+		return modified;
 	}
 
 	/**
@@ -688,7 +757,27 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	protected void removeRange(int fromIndex, int toIndex)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(fromIndex < 0 && toIndex > this.size)
+		{
+			throw new IndexOutOfBoundsException("Indices " + fromIndex + " and " + toIndex + " are out of bounds");
+		}
+		else if(fromIndex < 0)
+		{
+			throw new IndexOutOfBoundsException("Index " + fromIndex + " is out of bounds");
+		}
+		else if(toIndex > this.size)
+		{
+			throw new IndexOutOfBoundsException("Index " + toIndex + " is out of bounds");
+		}
+		int numberOfTimesToRemove = toIndex - fromIndex;
+		for(int i = 0; i < numberOfTimesToRemove; i++)
+		{
+			for(int j = fromIndex; j < this.size - 1; j++)
+			{
+				this.array[j] = this.array[j + 1];
+			}
+			this.size--;
+		}
 	}
 
 	/**
