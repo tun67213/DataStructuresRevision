@@ -36,7 +36,9 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	 */
 	public LinkedList()
 	{
-
+		this.size = 0;
+		this.head = null;
+		this.tail = null;
 	}
 
 	/**
@@ -46,7 +48,38 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	 */
 	public LinkedList(Collection<? extends E> c)
 	{
-
+		if(c == null)
+		{
+			throw new NullPointerException("You MUST provide a non null collection of values to initialize this LinkedList with");
+		}
+		this.size = 0;
+		this.head = null;
+		this.tail = null;
+		if(!c.isEmpty())
+		{
+			Iterator<? extends E> iterator = c.iterator();
+			while(iterator.hasNext())
+			{
+				E element = iterator.next();
+				if(element == null)
+				{
+					throw new NullPointerException("You MUST provide a collection with non null elements to initialize this LinkedList with");
+				}
+				Node<E> newNode = new Node<>(element);
+				if(head == null)
+				{
+					head = newNode;
+					tail = newNode;
+				}
+				else
+				{
+					tail.next = newNode;
+					newNode.previous = tail;
+					tail = tail.next;
+				}
+				this.size++;
+			}
+		}
 	}
 
 	/**
