@@ -11,6 +11,23 @@ import java.util.Spliterator;
 public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>, Deque<E>, Cloneable, Serializable
 {
 	/**
+	 * @code This internal class is to enable the class to create Nodes.
+	 */
+	private static class Node<E>
+	{
+		private Node<E> previous;
+		private E element;
+		private Node<E> next;
+
+		private Node(E data)
+		{
+			this.previous = null;
+			this.element = data;
+			this.next = null;
+		}
+	}
+
+	/**
 	 * @code Constructs an empty list.
 	 */
 	public LinkedList()
