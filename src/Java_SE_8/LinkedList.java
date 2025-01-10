@@ -171,7 +171,37 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public boolean addAll(Collection<? extends E> c)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(c == null)
+		{
+			throw new NullPointerException("You MUST provide a non-null collection of non-null elements to add to this LinkedList");
+		}
+		if(c.isEmpty())
+		{
+			return false;
+		}
+		Iterator<? extends E> iterator = c.iterator();
+		while(iterator.hasNext())
+		{
+			E value = iterator.next();
+			if(value == null)
+			{
+				throw new NullPointerException("You MUST provide a non-null collection of non-null elements to add to this LinkedList");
+			}
+			Node<E> newNode = new Node<>(value);
+			if(head == null)
+			{
+				head = newNode;
+				tail = newNode;
+			}
+			else
+			{
+				tail.next = newNode;
+				newNode.previous = tail;
+				tail = tail.next;
+			}
+			this.size++;
+		}
+		return true;
 	}
 
 	/**
@@ -185,7 +215,79 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public boolean addAll(int index, Collection<? extends E> c)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(c == null)
+		{
+			throw new NullPointerException("You MUST provide a non-null collection of non-null elements to add to this LinkedList");
+		}
+		if(index < 0 || index > this.size)
+		{
+			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+		}
+		Iterator<? extends E> iterator = c.iterator();
+		if(index == this.size)
+		{
+			while(iterator.hasNext())
+			{
+				E value = iterator.next();
+				if(value == null)
+				{
+					throw new NullPointerException("You MUST provide a non-null element to add to this LinkedList");
+				}
+				Node<E> newNode = new Node<>(value);
+				if(head == null)
+				{
+					head = newNode;
+					tail = newNode;
+				}
+				else
+				{
+					tail.next = newNode;
+					newNode.previous = tail;
+					tail = tail.next;
+				}
+				this.size++;
+			}
+		}
+		else if(index == 0)
+		{
+			E[] values = (E[]) c.toArray();
+			for(int i = values.length - 1; i >= 0; i--)
+			{
+				E value = values[i];
+				if(value == null)
+				{
+					throw new NullPointerException("You MUST provide a non-null element to add to this LinkedList");
+				}
+				Node<E> newNode = new Node<>(value);
+				head.previous = newNode;
+				newNode.next = head;
+				head = head.previous;
+				this.size++;
+			}
+		}
+		else
+		{
+			Node<E> current = head;
+			for(int i = 0; i < index - 1; i++)
+			{
+				current = current.next;
+			}
+			while(iterator.hasNext())
+			{
+				E value = iterator.next();
+				if(value == null)
+				{
+					throw new NullPointerException("You MUST provide a non-null element to add to this LinkedList");
+				}
+				Node<E> newNode = new Node<>(value);
+				newNode.next = current.next;
+				newNode.previous = current;
+				current.next.previous = newNode;
+				current.next = newNode;
+				this.size++;
+			}
+		}
+		return true;
 	}
 
 	/**
