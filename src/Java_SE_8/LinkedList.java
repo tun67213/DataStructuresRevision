@@ -16,13 +16,13 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	private static class Node<E>
 	{
 		private Node<E> previous;
-		private E element;
+		private E data;
 		private Node<E> next;
 
 		private Node(E data)
 		{
 			this.previous = null;
-			this.element = data;
+			this.data = data;
 			this.next = null;
 		}
 	}
@@ -364,7 +364,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 		LinkedList<E> list = new LinkedList<>();
 		for(Node<E> current = head; current != null; current = current.next)
 		{
-			list.add(current.element);
+			list.add(current.data);
 		}
 		return list;
 	}
