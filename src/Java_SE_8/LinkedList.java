@@ -213,6 +213,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	 * @return true if all the values have been successfully added, false if the provided Collection is empty
 	 * @code Inserts all of the elements in the specified collection into this list, starting at the specified position.
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public boolean addAll(int index, Collection<? extends E> c)
 	{
