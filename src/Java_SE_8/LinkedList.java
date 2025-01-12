@@ -1379,6 +1379,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 
 	/**
 	 * @return the value previously the first value in this list
+	 * @throws NoSuchElementException if this list is empty
 	 * @code Removes and returns the first element from this list.
 	 */
 	@Override
@@ -1401,6 +1402,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 
 	/**
 	 * @return the value in the Node previously at tail
+	 * @throws NoSuchElementException if this list is empty
 	 * @code Removes and returns the last element from this list.
 	 */
 	@Override
