@@ -1494,7 +1494,45 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public boolean removeLastOccurrence(Object o)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(o == null)
+		{
+			return false;
+		}
+		Node<E> removingNode = tail;
+		while(removingNode != null && !(removingNode.data.equals(o)))
+		{
+			removingNode = removingNode.previous;
+		}
+		if(removingNode == null)
+		{
+			return false;
+		}
+		else if(removingNode.previous == null && removingNode.next == null)
+		{
+			head = null;
+			tail = null;
+		}
+		else if(removingNode.previous == null)
+		{
+			head = head.next;
+			removingNode.next = null;
+			head.previous = null;
+		}
+		else if(removingNode.next == null)
+		{
+			tail = tail.previous;
+			removingNode.previous = null;
+			tail.next = null;
+		}
+		else
+		{
+			removingNode.previous.next = removingNode.next;
+			removingNode.next.previous = removingNode.previous;
+			removingNode.previous = null;
+			removingNode.next = null;
+		}
+		this.size--;
+		return true;
 	}
 
 	/**
