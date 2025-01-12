@@ -1409,7 +1409,9 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	 * @param o the Object to find and remove the first occurrence of
 	 * @throws NullPointerException if no Object is provided or the provided Object is null
 	 * @return true if this LinkedList has been modified, false otherwise
-	 * @code Removes the first occurrence of the specified element in this list (when traversing the list from head to tail).
+	 * @code The method searches for the first occurrence of the specified object in the list.
+	 *       If found, it removes the element and updates the list. If the object is not found,
+	 *       the method returns false after searching the entire list.
 	 */
 	@Override
 	public boolean removeFirstOccurrence(Object o)
