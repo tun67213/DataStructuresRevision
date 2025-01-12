@@ -1214,7 +1214,24 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public E pop()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(head == null)
+		{
+			return null;
+		}
+		Node<E> removingNode = head;
+		if(head.next == null)
+		{
+			head = null;
+			tail = null;
+		}
+		else
+		{
+			head = head.next;
+			removingNode.next = null;
+			head.previous = null;
+		}
+		this.size--;
+		return removingNode.data;
 	}
 
 	/**
