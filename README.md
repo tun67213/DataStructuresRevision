@@ -1014,7 +1014,7 @@ The three interfaces mentioned above are all empty interfaces, i.e., they contai
 
 ##### Iterator<E> iterator()
 
-###### ###### Returns
+###### Returns:
 	an iterator over the elements in this list
 
 ##### abstract ListIterator<E> listIterator(int index)
@@ -1124,7 +1124,7 @@ The three interfaces mentioned above are all empty interfaces, i.e., they contai
         the value to be added to the end of this ArrayList
 ###### Throws:
     NullPointerException() if no value is provided
-###### ###### Returns
+###### Returns:
     True if the value was successfully added (NOTE: False is never returned by this function, since if there was a failure, the function would throw an exception)
 ###### Functionality:
     If no value was provided or the provided value was null, the function throws a NullPointerException().
@@ -1158,7 +1158,7 @@ The three interfaces mentioned above are all empty interfaces, i.e., they contai
         Collection of values to add to the end of this ArrayList
 ###### Throws:
     NullPointerException() if no Collection variable is provided, the provided Collection variable is 'null' or the provided Collection contains null elements
-###### ###### Returns
+###### Returns:
     True if this ArrayList has been modified, False otherwise
 ###### Functionality:
     If no Collection variable is provided, the provided Collection variable is null, or the provided Collection variable contains a null value, the function throws a NullPointerException().
@@ -1175,7 +1175,7 @@ The three interfaces mentioned above are all empty interfaces, i.e., they contai
 ###### Throws:
     NullPointerException() if no Collection variable is provided, the provided Collection variable is null or the provided Collection contains null values
     IndexOutOfBoundsException() if the provided index is out of bounds
-###### ###### Returns
+###### Returns:
     False if the provided Collection is empty
     True otherwise
 ###### Functionality:
@@ -1188,7 +1188,7 @@ The three interfaces mentioned above are all empty interfaces, i.e., they contai
 
 ##### Object clone()
 
-###### ###### Returns
+###### Returns:
     a shallow copy of this ArrayList instance
 
 ##### boolean contains(Object o)
@@ -1198,7 +1198,7 @@ The three interfaces mentioned above are all empty interfaces, i.e., they contai
         the Object to find the existence of in this ArrayList
 ###### Throws:
     NullPointerException() if no variable is provided or the provided variable is null
-###### ###### Returns
+###### Returns:
     True if the provided Object is found
     False otherwise
 ###### Functionality:
@@ -1211,7 +1211,7 @@ The three interfaces mentioned above are all empty interfaces, i.e., they contai
         Collection of variables to check for existence in this ArrayList
 ###### Throws:
     NullPointerException() if no Collection is provided or the provided Collection variable is null
-###### ###### Returns
+###### Returns:
     False if any value is null or cannot be found in this ArrayList
     True otherwise
 ###### Functionality:
@@ -1224,7 +1224,7 @@ The three interfaces mentioned above are all empty interfaces, i.e., they contai
         the Object to compare this ArrayList with for equality
 ###### Throws:
     NullPointerException() if no Object is provided or the provided Object variable is null
-###### ###### Returns
+###### Returns:
     True if the Object matches exactly, False otherwise
 ###### Functionality:
     If no Object is provided, the function throws a NullPointerException().
@@ -1239,7 +1239,7 @@ The three interfaces mentioned above are all empty interfaces, i.e., they contai
         the location at which to retrieve a value from
 ###### Throws:
     IndexOutOfBoundsException() if the provided index is out of bounds
-###### ###### Returns
+###### Returns:
     the value at the specified index
 
 ##### int indexOf(Object o)
@@ -1249,17 +1249,17 @@ The three interfaces mentioned above are all empty interfaces, i.e., they contai
         the Object to find the location of the first occurrence of
 ###### Throws:
     NullPointerException() if no Object is provided or the provided Object is 'null'
-###### ###### Returns
+###### Returns:
     the location of the first occurrence of the provided Object
 
 ##### boolean isEmpty()
 
-###### ###### Returns
+###### Returns:
     true if this List contains no elements, false otherwise
 
 ##### Iterator<E> iterator()
 
-###### ###### Returns
+###### Returns:
     an iterator over the elements in this list in proper sequence
 
 ##### int lastIndexOf(Object o)
@@ -1269,12 +1269,12 @@ The three interfaces mentioned above are all empty interfaces, i.e., they contai
         the Object to find the location of the last occurrence of
 ###### Throws:
     NullPointerException() if no Object is provided or the provided Object is 'null'
-###### ###### Returns
+###### Returns:
     the location of the last occurrence of the provided Object
 
 ##### ListIterator<E> listIterator()
 
-###### ###### Returns
+###### Returns:
     a list iterator over the elements in this list
 
 ##### ListIterator<E> listIterator(int index)
@@ -1284,7 +1284,7 @@ The three interfaces mentioned above are all empty interfaces, i.e., they contai
         the location at which to start this list iterator
 ###### Throws:
     IndexOutOfBoundsException() if the provided index is out of bounds
-###### ###### Returns
+###### Returns:
     a list iterator over the elements in this list, starting at the specified index
 
 ##### E remove(int index)
@@ -1294,7 +1294,7 @@ The three interfaces mentioned above are all empty interfaces, i.e., they contai
         the location at which to remove a value from this ArrayList
 ###### Throws:
     IndexOutOfBoundsException() if the provided index is out of bounds
-###### ###### Returns
+###### Returns:
     the value previously at the provided index
 ###### Functionality:
     If the provided index is out of bounds, the function throws an IndexOutOfBoundsExceptino().
@@ -1308,7 +1308,7 @@ The three interfaces mentioned above are all empty interfaces, i.e., they contai
         the Object to find the first occurrence of and remove
 ###### Throws:
     NullPointerException() if no Object is provided or the provided Object variable is defined as 'null'
-###### ###### Returns
+###### Returns:
     True if this ArrayList has been modified, False otherwise
 ###### Functionality:
     Removes the first occurrence of the specified element from this list, if it is present.
@@ -1320,7 +1320,7 @@ The three interfaces mentioned above are all empty interfaces, i.e., they contai
         Collection of values to remove if found in this ArrayList
 ###### Throws:
     NullPointerException() if no Collection is provided or the provided Collection variable is null
-###### ###### Returns
+###### Returns:
     True if this ArrayList has been modified, False otherwise
 ###### Functionality:
     Removes from this list all of its elements that are contained in the specified collection.
@@ -1347,7 +1347,7 @@ The three interfaces mentioned above are all empty interfaces, i.e., they contai
         Collection of values to keep if found in this ArrayList
 ###### Throws:
     NullPointerException() if no Collection is provided or the provided Collection variable is null
-###### ###### Returns
+###### Returns:
     True if this ArrayList has been modified in any way, False otherwise
 ###### Functionality:
     If no Collection variable is provided or the provided Collection variable is null, the function throws a NullPointerException().
