@@ -1635,6 +1635,41 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 				int newSize = splitSize;
 				int originalSize = remaining;
 				remaining -= newSize;
+
+				return new Spliterator<E>() {
+					private Node<E> subCurrent = current;
+					private int subRemaining = newSize;
+
+					@Override
+					public boolean tryAdvance(Consumer<? super E> action) {
+						if (action == null) {
+							throw new NullPointerException("Action cannot be null");
+						}
+						checkForConcurrentModification();
+						if (subCurrent != null) {
+							action.accept(subCurrent.data);
+							subCurrent = subCurrent.next;
+							subRemaining--;
+							return true;
+						}
+						return false;
+					}
+
+					@Override
+					public Spliterator<E> trySplit() {
+						return null; // No further splitting for this sub-Spliterator
+					}
+
+					@Override
+					public long estimateSize() {
+						return subRemaining;
+					}
+
+					@Override
+					public int characteristics() {
+						return Spliterator.ORDERED | Spliterator.SIZED | Spliterator.SUBSIZED;
+					}
+				};
 			}
 
 			@Override
