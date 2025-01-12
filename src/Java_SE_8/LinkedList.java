@@ -729,7 +729,136 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public ListIterator<E> listIterator()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		return new ListIterator<E>()
+		{
+			private Node<E> current = head;
+			private int currentIndex = 0;
+			private Node<E> lastCalled = null;
+
+			@Override
+			public boolean hasNext()
+			{
+				return currentIndex < size;
+			}
+
+			@Override
+			public E next()
+			{
+				if(!hasNext())
+				{
+					throw new NoSuchElementException("The iterator has reached the end of this list");
+				}
+				lastCalled = current;
+				current = current.next;
+				currentIndex++;
+				return lastCalled.data;
+			}
+
+			@Override
+			public boolean hasPrevious()
+			{
+				return currentIndex > 0;
+			}
+
+			@Override
+			public E previous()
+			{
+				if(!hasPrevious())
+				{
+					throw new NoSuchElementException("The iterator has reached the end of this list");
+				}
+				current = current.previous;
+				currentIndex--;
+				lastCalled = current;
+				return lastCalled.data;
+			}
+
+			@Override
+			public int nextIndex()
+			{
+				return currentIndex;
+			}
+
+			@Override
+			public int previousIndex()
+			{
+				return currentIndex - 1;
+			}
+
+			@Override
+			public void remove()
+			{
+				if(lastCalled == null)
+				{
+					throw new NullPointerException("You MUST call previous() or next() before calling remove()");
+				}
+				else if(lastCalled.previous == null && lastCalled.next == null)
+				{
+					head = null;
+					tail = null;
+				}
+				else if(lastCalled.previous == null)
+				{
+					head = head.next;
+					lastCalled.next = null;
+					head.previous = null;
+				}
+				else if(lastCalled.next == null)
+				{
+					tail = tail.previous;
+					lastCalled.previous = null;
+					tail.next = null;
+				}
+				else
+				{
+					lastCalled.previous.next = lastCalled.next;
+					lastCalled.next.previous = lastCalled.previous;
+					lastCalled.previous = null;
+					lastCalled.next = null;
+				}
+				size--;
+				lastCalled = null;
+			}
+
+			@Override
+			public void set(E e)
+			{
+				if(e == null)
+				{
+					throw new NullPointerException("You MUST provide a replacement value");
+				}
+				current.data = e;
+			}
+
+			@Override
+			public void add(E e)
+			{
+				if(e == null)
+				{
+					throw new NullPointerException("You MUST provide a value to add at the current index");
+				}
+				Node<E> newNode = new Node<>(e);
+				if(head == null)
+				{
+					head = newNode;
+					tail = newNode;
+				}
+				else if(current.next == null)
+				{
+					tail.next = newNode;
+					newNode.previous = tail;
+					tail = tail.next;
+				}
+				else
+				{
+					newNode.previous = current.previous;
+					newNode.next = current;
+					current.previous.next = newNode;
+					current.previous = newNode;
+				}
+				size++;
+			}
+		};
 	}
 
 	/**
@@ -739,7 +868,136 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public ListIterator<E> listIterator(int index)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		return new ListIterator<E>()
+		{
+			private Node<E> current = head;
+			private int currentIndex = index;
+			private Node<E> lastCalled = null;
+
+			@Override
+			public boolean hasNext()
+			{
+				return currentIndex < size;
+			}
+
+			@Override
+			public E next()
+			{
+				if(!hasNext())
+				{
+					throw new NoSuchElementException("The iterator has reached the end of this list");
+				}
+				lastCalled = current;
+				current = current.next;
+				currentIndex++;
+				return lastCalled.data;
+			}
+
+			@Override
+			public boolean hasPrevious()
+			{
+				return currentIndex > 0;
+			}
+
+			@Override
+			public E previous()
+			{
+				if(!hasPrevious())
+				{
+					throw new NoSuchElementException("The iterator has reached the end of this list");
+				}
+				current = current.previous;
+				currentIndex--;
+				lastCalled = current;
+				return lastCalled.data;
+			}
+
+			@Override
+			public int nextIndex()
+			{
+				return currentIndex;
+			}
+
+			@Override
+			public int previousIndex()
+			{
+				return currentIndex - 1;
+			}
+
+			@Override
+			public void remove()
+			{
+				if(lastCalled == null)
+				{
+					throw new NullPointerException("You MUST call previous() or next() before calling remove()");
+				}
+				else if(lastCalled.previous == null && lastCalled.next == null)
+				{
+					head = null;
+					tail = null;
+				}
+				else if(lastCalled.previous == null)
+				{
+					head = head.next;
+					lastCalled.next = null;
+					head.previous = null;
+				}
+				else if(lastCalled.next == null)
+				{
+					tail = tail.previous;
+					lastCalled.previous = null;
+					tail.next = null;
+				}
+				else
+				{
+					lastCalled.previous.next = lastCalled.next;
+					lastCalled.next.previous = lastCalled.previous;
+					lastCalled.previous = null;
+					lastCalled.next = null;
+				}
+				size--;
+				lastCalled = null;
+			}
+
+			@Override
+			public void set(E e)
+			{
+				if(e == null)
+				{
+					throw new NullPointerException("You MUST provide a replacement value");
+				}
+				current.data = e;
+			}
+
+			@Override
+			public void add(E e)
+			{
+				if(e == null)
+				{
+					throw new NullPointerException("You MUST provide a value to add at the current index");
+				}
+				Node<E> newNode = new Node<>(e);
+				if(head == null)
+				{
+					head = newNode;
+					tail = newNode;
+				}
+				else if(current.next == null)
+				{
+					tail.next = newNode;
+					newNode.previous = tail;
+					tail = tail.next;
+				}
+				else
+				{
+					newNode.previous = current.previous;
+					newNode.next = current;
+					current.previous.next = newNode;
+					current.previous = newNode;
+				}
+				size++;
+			}
+		};
 	}
 
 	/**
