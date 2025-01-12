@@ -2,8 +2,9 @@
 
 ## Description
 
-This project is designed to demonstrate the linking between various data structures, and their usage, using Java SE 7.
+This project is designed to demonstrate the linking between various data structures, and their usage, using Java SE 7 and Java SE 8.
 The project will focus on covering the functions for interfaces, and then the functions for the classes themselves.
+This README will also include Java SE 8 specific functions that were added.
 
 ## Instructions for Usage
 
