@@ -1210,6 +1210,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 
 	/**
 	 * @return the value previously at the top of the stack represented by this LinkedList
+	 * @code Removes and returns the value previously at the top of the stack represented by this LinkedList
 	 */
 	@Override
 	public E pop()
