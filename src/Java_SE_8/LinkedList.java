@@ -1269,7 +1269,16 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public E remove()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(head == null)
+		{
+			throw new NoSuchElementException("This LinkedList is empty");
+		}
+		Node<E> removingNode = head;
+		head = head.next;
+		removingNode.next = null;
+		head.previous = null;
+		this.size--;
+		return removingNode.data;
 	}
 
 	/**
@@ -1281,7 +1290,41 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public E remove(int index)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(index < 0 || index >= this.size)
+		{
+			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+		}
+		Node<E> removingNode = head;
+		for(int i = 0; i < index; i++)
+		{
+			removingNode = removingNode.next;
+		}
+		if(removingNode.previous == null && removingNode.next == null)
+		{
+			head = null;
+			tail = null;
+		}
+		else if(removingNode.previous == null)
+		{
+			head = head.next;
+			removingNode.next = null;
+			head.previous = null;
+		}
+		else if(removingNode.next == null)
+		{
+			tail = tail.previous;
+			removingNode.previous = null;
+			tail.next = null;
+		}
+		else
+		{
+			removingNode.previous.next = removingNode.next;
+			removingNode.next.previous = removingNode.previous;
+			removingNode.previous = null;
+			removingNode.next = null;
+		}
+		this.size--;
+		return removingNode.data;
 	}
 
 	/**
@@ -1293,7 +1336,45 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public boolean remove(Object o)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(o == null)
+		{
+			throw new NullPointerException("You MUST provide an Object to remove the first occurrence of from this LinkedList");
+		}
+		Node<E> removingNode = head;
+		while(removingNode != null && !(removingNode.data.equals(o)))
+		{
+			removingNode = removingNode.next;
+		}
+		if(removingNode == null)
+		{
+			return false;
+		}
+		else if(removingNode.previous == null && removingNode.next == null)
+		{
+			head = null;
+			tail = null;
+		}
+		else if(removingNode.previous == null)
+		{
+			head = head.next;
+			removingNode.next = null;
+			head.previous = null;
+		}
+		else if(removingNode.next == null)
+		{
+			tail = tail.previous;
+			removingNode.previous = null;
+			tail.next = null;
+		}
+		else
+		{
+			removingNode.previous.next = removingNode.next;
+			removingNode.next.previous = removingNode.previous;
+			removingNode.previous = null;
+			removingNode.next = null;
+		}
+		this.size--;
+		return true;
 	}
 
 	/**
