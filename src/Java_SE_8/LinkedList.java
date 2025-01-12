@@ -1715,6 +1715,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	 * @throws NullPointerException if no array is provided
 	 * @return the provided array with values from this LinkedList copied into it
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public <T> T[] toArray(T[] a)
 	{
