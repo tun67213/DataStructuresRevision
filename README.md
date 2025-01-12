@@ -48,7 +48,7 @@ Instructions to get access to the files can be found [HERE] ([#instructions](htt
     - [Open Official Documentation for Cloneable] ([#cloneable_documentation](https://docs.oracle.com/javase/7/docs/api//java/lang/Cloneable.html))
     - [Open File] 
 		- ([#cloneable_java_se_7](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Java_SE_7/Cloneable.java))
-		- ([cloneable_java_se_8](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Java_SE_8/Cloneable.java))
+		- ([#cloneable_java_se_8](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Java_SE_8/Cloneable.java))
 - [Iterator] ([#iterator](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#iteratorjava))
     - [Open Official Documentation for Iterator] ([#iterator_documentation](https://docs.oracle.com/javase/7/docs/api/java/util/Iterator.html))
     - [Open File] 
