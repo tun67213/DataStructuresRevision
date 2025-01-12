@@ -1579,7 +1579,83 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public Spliterator<E> spliterator()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		return new Spliterator<>()
+		{
+			private Node<E> current = head;
+			private int expectedModCount = modCount; // Use a modCount variable to track modifications
+			private int remaining = size;
+
+			@Override
+			public boolean tryAdvance(Consumer<? super E> action)
+			{
+				if(action == null)
+				{
+					throw new NullPointerException("Action cannot be null");
+				}
+				checkForConcurrentModification();
+				if(current != null)
+				{
+					action.accept(current.data);
+					current = current.next;
+					remaining--;
+					return true;
+				}
+				return false;
+			}
+
+			@Override
+			public Spliterator<E> trySplit()
+			{
+				checkForConcurrentModification();
+				if(remaining <= 1)
+				{
+					return null;
+				}
+				int splitSize = remaining / 2;
+				Node<E> splitNode = current;
+				for(int i = 0; i < splitSize; i++)
+				{
+					if(splitNode == null)
+					{
+						break;
+					}
+					splitNode = splitNode.next;
+				}
+				if(splitNode == null)
+				{
+					return null;
+				}
+				Node<E> newHead = splitNode.next;
+				splitNode.next = null;
+				if(newHead != null)
+				{
+					newHead.previous = null;
+				}
+				int newSize = splitSize;
+				int originalSize = remaining;
+				remaining -= newSize;
+			}
+
+			@Override
+			public long estimateSize()
+			{
+				return remaining;
+			}
+
+			@Override
+			public int characteristics()
+			{
+				return Spliterator.ORDERED | Spliterator.SIZED | Spliterator.SUBSIZED;
+			}
+
+			private void checkForConcurrentModification()
+			{
+				if(modCount != expectedModCount)
+				{
+					throw new ConcurrentModificationException("The list was modified during Spliterator traversal");
+				}
+			}
+		};
 	}
 
 	/**
