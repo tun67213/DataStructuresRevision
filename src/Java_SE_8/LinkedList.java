@@ -1131,8 +1131,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	}
 
 	/**
-	 * @throws NoSuchElementException if this list is empty
-	 * @return the value in the node previously defined as head
+	 * @return the value in the node previously defined as head, or null if this LinkedList is empty
 	 */
 	@Override
 	public E poll()
