@@ -604,7 +604,91 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public Iterator<E> iterator()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		return new Iterator<E>()
+		{
+			private Node<E> current = head;
+			private Node<E> lastCalled = null;
+
+			/**
+			 * @param action the action to be performed on each value in this LinkedList
+			 */
+			@Override
+			public void forEachRemaining(Consumer<? super E> action)
+			{
+				if(action == null)
+				{
+					throw new NullPointerException("Action cannot be null");
+				}
+				while(current != null)
+				{
+					action.accept(current.data);
+					current = current.next;
+				}
+			}
+
+			/**
+			 * @return true if this iterator has more values to present
+			 */
+			@Override
+			public boolean hasNext()
+			{
+				return current != null;
+			}
+
+			/**
+			 * @throws NoSuchElementException if the iterator has reached the end of this list
+			 * @return the next value to be returned
+			 */
+			@Override
+			public E next()
+			{
+				if(!hasNext())
+				{
+					throw new NoSuchElementException("The iterator has reached the end of this list");
+				}
+				lastCalled = current;
+				E value = lastCalled.data;
+				current = current.next;
+				return value;
+			}
+
+			/**
+			 * @throws NoSuchElementException if next() has not been called yet
+			 */
+			@Override
+			public void remove()
+			{
+				if(lastCalled == null)
+				{
+					throw new NoSuchElementException("You MUST call next() before calling remove()");
+				}
+				if(lastCalled.previous == null && lastCalled.next == null)
+				{
+					head = null;
+					tail = null;
+				}
+				else if(lastCalled.previous == null)
+				{
+					head = head.next;
+					lastCalled.next = null;
+					head.previous = null;
+				}
+				else if(lastCalled.next == null)
+				{
+					tail = tail.previous;
+					lastCalled.previous = null;
+					tail.next = null;
+				}
+				else
+				{
+					lastCalled.previous.next = lastCalled.next;
+					lastCalled.next.previous = lastCalled.previous;
+					lastCalled.previous = null;
+					lastCalled.next = null;
+				}
+				lastCalled = null;
+			}
+		};
 	}
 
 	/**
