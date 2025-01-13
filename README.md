@@ -150,10 +150,23 @@ The three interfaces mentioned above are all empty interfaces, i.e., they contai
 
 #### Functions
 
+##### default void forEach(Consumer<? super T> action)
+
+###### Functionality
+	Perfoms the given action for each of the given variables.
+	This method has intentionally been left empty, since the interface does not manage any data structure, but you may choose to implement it, if that is something you would want to do.
+
+
 ##### Iterator<T> iterator() ([#iterator()](https://github.com/tun67213/DataStructuresRevision/blob/e79b3cba03db1a051efd565e5e7c0fb9eecab392/src/Iterable.java#L13))
 
 ###### Returns
     An iterator over a set of elements of type T
+
+
+##### default Spliterator<T> spliterator()
+###### Returns 
+	A spliterator over the elements of type T described by the iterable that calls this method.
+	This method has intentionally been left empty, since the interface does not manage any data structure, but you may choose to implement it inside of the interface, if that is something you would want to do.
 
 [Return to Table of Contents] ([#table_of_contents](https://github.com/tun67213/DataStructuresRevision/blob/main/README.md#table-of-contents))
 
