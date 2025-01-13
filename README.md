@@ -102,10 +102,10 @@ The three interfaces mentioned above are all empty interfaces, i.e., they contai
 
 [Return to Table of Contents] ([#table_of_contents](https://github.com/tun67213/DataStructuresRevision/blob/main/README.md#table-of-contents))
 
+
 ### Iterator.java
 
-
-#### Functions
+#### Methods Available in both Java SE 7 and Java SE 8
 
 ##### boolean hasNext() ([#hasNext()](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Iterator.java#L13))
 
@@ -129,6 +129,18 @@ The three interfaces mentioned above are all empty interfaces, i.e., they contai
     If current is null, the function throws NoSuchElementException().
 	Otherwise, removes the value pointed to by current and adjusts the iterator's state.
 	After removal, sets current to null to prevent consecutive calls to remove().
+
+
+#### Added Methods Available Exclusively for Java SE 8
+
+##### default void forEachRemaining(Consumer<? super E> action)
+###### Parameters
+	Consumer<? super E> action
+		the action to be perfomed on the values to come from the value currently pointed to by the iterator
+###### Functionality
+	If 'action' is null, the method will throw an exception.
+	Otherwise, it will accept each value in the List and perform the intended action on them.
+
 
 [Return to Table of Contents] ([#table_of_contents](https://github.com/tun67213/DataStructuresRevision/blob/main/README.md#table-of-contents))
 
