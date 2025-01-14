@@ -884,7 +884,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 		{
 			c = (Comparator<? super E>) Comparator.naturalOrder();
 		}
-		E[] sortedArray = (E[]) Arrays.copyOf(this.array, this.size);
+		E[] sortedArray = Arrays.copyOf(this.array, this.size);
 		Arrays.sort(sortedArray, c);
 		System.arraycopy(sortedArray, 0, this.array, 0, this.size);
 	}
