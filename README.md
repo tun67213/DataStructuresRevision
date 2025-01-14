@@ -169,11 +169,12 @@ The three interfaces mentioned above are all empty interfaces, i.e., they contai
 ###### Returns
     An iterator over a set of elements of type T
 
-
-##### default Spliterator<T> spliterator()
-###### Returns 
-	A spliterator over the elements of type T described by the iterable that calls this method.
-	This method has intentionally been left empty, since the interface does not manage any data structure, but you may choose to implement it inside of the interface, if that is something you would want to do.
+#### Added Methods Available Exclusively for Java SE 8
+##### Default Methods
+###### default void forEachRemaining(Consumer<? super E> action)
+	This method will apply the provided action to all values in this Iterator, starting at the current location of this iterator
+###### default void remove()
+	At the moment, the method will simply throw an UnsupportedOperationException() exception.
 
 [Return to Table of Contents] ([#table_of_contents](https://github.com/tun67213/DataStructuresRevision/blob/main/README.md#table-of-contents))
 
