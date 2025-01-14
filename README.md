@@ -141,6 +141,13 @@ The three interfaces mentioned above are all empty interfaces, i.e., they contai
 	If 'action' is null, the method will throw an exception.
 	Otherwise, it will accept each value in the List and perform the intended action on them.
 
+#### Difference between Java SE 7 and Java SE 8
+	There are 2 differences, which are as follows:
+		1. There are default methods, one of which is already existent in Java SE 7:
+			1) The method void remove() in Java SE 7 is declared as default void remove() in Java SE 8, meaning, if no definition is provided a default one is received.
+				1. As a sub-note to this rule, however, since the implementation differs based on the class that is implementing this, the only thing that can really be done is have an exception thrown for this method.
+			2) The next method is a default void forEachRemaining() method, which will conduct the rule imposed as a parameter, to all the functions that have NOT yet been processed by the iterator.
+
 
 [Return to Table of Contents] ([#table_of_contents](https://github.com/tun67213/DataStructuresRevision/blob/main/README.md#table-of-contents))
 
