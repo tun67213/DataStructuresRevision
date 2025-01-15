@@ -1,5 +1,10 @@
 package src.Java_SE_9;
 
+import java.util.Comparator;
+import java.util.Objects;
+import java.util.Spliterator;
+import java.util.function.UnaryOperator;
+
 /**
  * @author arvindhvelrajan
  * @param <E> Generic variable for this interface
