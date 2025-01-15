@@ -8,4 +8,12 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
 {
 	// This variable keeps track of the number of times this list has been structurally modified
 	protected int modCount;
+
+	/**
+	 * @code Sole constructor.
+	 */
+	protected AbstractList()
+	{
+		
+	}
 }
