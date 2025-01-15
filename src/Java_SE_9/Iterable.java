@@ -1,5 +1,8 @@
 package src.Java_SE_9;
 
+import java.util.function.Consumer;
+import java.util.Spliterator;
+
 /**
  * @author arvindhvelrajan
  * @param <T> Generic variable for this interface
