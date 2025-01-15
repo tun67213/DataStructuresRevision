@@ -5,7 +5,7 @@ package src.Java_SE_9;
  * @param <E> Generic variable for this interface
  * @code This interface implements the List Object for Java SE 9.
  */
-public interface List<E>
+public interface List<E> extends Collection<E>
 {
 
 }
