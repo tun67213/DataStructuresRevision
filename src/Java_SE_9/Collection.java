@@ -1,5 +1,9 @@
 package src.Java_SE_9;
 
+import java.util.stream.Stream;
+import java.util.function.Predicate;
+import java.util.Spliterator;
+
 /**
  * @author arvindhvelrajan
  * @param <E> Generic variable for this interface
