@@ -2,7 +2,10 @@ package src.Java_SE_9;
 
 /**
  * @author arvindhvelrajan
+ * @param <E> Generic variable for this interface
  * @code This interface implements the ListIterator Object for Java SE 9.
  */
-public interface List {
+public interface List<E>
+{
+
 }
