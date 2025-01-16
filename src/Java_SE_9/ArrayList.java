@@ -145,4 +145,15 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
+
+	/**
+	 * @param index the location at which to retrieve a value from
+	 * @throws IndexOutOfBoundsException if the provided index is out of bounds
+	 * @return the element at the specified position in this list
+	 */
+	@Override
+	public E get(int index)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }
