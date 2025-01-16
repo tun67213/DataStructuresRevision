@@ -991,7 +991,38 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public Spliterator<E> spliterator()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		return new Spliterator<E>() {
+			private int index = 0;
+
+			@Override
+			public boolean tryAdvance(Consumer<? super E> action)
+			{
+				if(index < size)
+				{
+					action.accept(array[index++]);
+					return true;
+				}
+				return false;
+			}
+
+			@Override
+			public Spliterator<E> trySplit()
+			{
+				return null;
+			}
+
+			@Override
+			public long estimateSize()
+			{
+				return size - index;
+			}
+
+			@Override
+			public int characteristics()
+			{
+				return Spliterator.ORDERED | Spliterator.SIZED | Spliterator.SUBSIZED;
+			}
+		};
 	}
 
 	/**
