@@ -324,4 +324,13 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
+
+	/**
+	 * @return a late-binding and fail-fast Spliterator over the elements in this list.
+	 */
+	@Override
+	public Spliterator<E> spliterator()
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }
