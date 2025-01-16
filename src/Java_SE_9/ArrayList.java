@@ -443,7 +443,20 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public int lastIndexOf(Object o)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(o == null)
+		{
+			return -1;
+		}
+		int i = this.size - 1;
+		while(i >= 0)
+		{
+			if(this.array[i].equals(o))
+			{
+				return i;
+			}
+			i--;
+		}
+		return -1;
 	}
 
 	/**
