@@ -136,4 +136,13 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
+
+	/**
+	 * @return the hash code value for this collection
+	 */
+	@Override
+	public int hashCode()
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }
