@@ -84,4 +84,15 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
+
+	/**
+	 * @param e the value to add to the end of this LinkedList
+	 * @throws NullPointerException if no value is provided
+	 * d@code Appends the specified element to the end of this list.
+	 */
+	@Override
+	public void addLast(E e)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }
