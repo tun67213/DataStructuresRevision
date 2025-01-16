@@ -32,6 +32,31 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	 */
 	public ArrayList(Collection<? extends E> c)
 	{
-		
+
+	}
+
+	/**
+	 * @param e the value to be added to this ArrayList
+	 * @throws NullPointerException if no value is provided or the provided value is 'null'
+	 * @return true if this ArrayList has been modified, false otherwise
+	 * @code Appends the specified element to the end of this list.
+	 */
+	@Override
+	public boolean add(E e)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	/**
+	 * @param index the location at which to add the specified value
+	 * @param element the value ot be added to the specified index in this ArrayList
+	 * @throws NullPointerException if no value is provided or the provided value is 'null'
+	 * @throws IndexOutOfBoundsException if the provided index is out of bounds
+	 * @code Inserts the specified element at the specified position in this list.
+	 */
+	@Override
+	public void add(int index, E element)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 }
