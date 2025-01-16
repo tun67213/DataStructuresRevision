@@ -361,4 +361,80 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
+
+	/**
+	 * @return the value in the Node previously at head
+	 * @throws NoSuchElementException if this LinkedList is empty
+	 * @code Retrieves and removes the head (first element) of this list.
+	 */
+	@Override
+	public E remove()
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	/**
+	 * @param index the location at which to remove a value from
+	 * @throws IndexOutOfBoundsException if the provided index is out of bounds
+	 * @return the value previously at the provided index
+	 * @code Removes the element at the specified position in this list.
+	 */
+	@Override
+	public E remove(int index)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	/**
+	 * @param o the Object to find and remove the first occurrence of
+	 * @return false if the provided Object is 'null' or could not be found in this LinkedList, true if found and removed
+	 * @code Removes the first occurrence of the specified element from this list, if it is present.
+	 */
+	@Override
+	public boolean remove(Object o)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	/**
+	 * @return the value in the Node previously at the top of this LinkedList
+	 * @code Removes and returns the first element from this list.
+	 */
+	@Override
+	public E removeFirst()
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	/**
+	 * @param o the Object to find and remove the first occurrence of
+	 * @return false if the provided Object is null or could not be found in this List, true if found and removed
+	 * @code Removes the first occurrence of the specified element in this list (when traversing the list from head to tail).
+	 */
+	@Override
+	public boolean removeFirstOccurrence(Object o)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	/**
+	 * @return the value in the Node previously at the bottom of this LinkedList
+	 * @code Removes and returns the last element from this list.
+	 */
+	@Override
+	public E removeLast()
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	/**
+	 * @param o the Object to find and remove the last occurrence of
+	 * @return false if the provided Object is null or could not be found in this List, true if found and removed
+	 * @code Removes the last occurrence of the specified element in this list (when traversing the list from head to tail).
+	 */
+	@Override
+	public boolean removeLastOccurrence(Object o)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }
