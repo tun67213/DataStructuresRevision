@@ -1596,6 +1596,34 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public String toString()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		boolean isAString = head.data instanceof String;
+		boolean isACharacter = head.data instanceof Character;
+
+		StringBuilder buff = new StringBuilder();
+		for(Node<E> current = head; current != null; current = current.next)
+		{
+			if(isAString)
+			{
+				buff.append("\"");
+			}
+			else if(isACharacter)
+			{
+				buff.append("'");
+			}
+			buff.append(current.data);
+			if(isAString)
+			{
+				buff.append("\"");
+			}
+			else if(isACharacter)
+			{
+				buff.append("'");
+			}
+			if(current.next != null)
+			{
+				buff.append(" <--> ");
+			}
+		}
+		return buff.toString();
 	}
 }
