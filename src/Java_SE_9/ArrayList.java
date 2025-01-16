@@ -298,4 +298,18 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
+
+	/**
+	 * @param index the location at which to replace an element
+	 * @param element the replacement value for the specified location
+	 * @throws NullPointerException if no replacement value is provided or the provided replacement value is 'null'
+	 * @throws IndexOutOfBoundsException if the provided index is out of bounds
+	 * @return the value previously at the specified index
+	 * @code Replaces the element at the specified position in this list with the specified element.
+	 */
+	@Override
+	public E set(int index, E element)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }
