@@ -873,7 +873,14 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public void replaceAll(UnaryOperator<E> operator)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(operator == null)
+		{
+			throw new NullPointerException("You MUST provide a command to replace all the values in this ArrayList with");
+		}
+		for(int i = 0; i < this.size; i++)
+		{
+			this.array[i] = operator.apply(this.array[i]);
+		}
 	}
 
 	/**
