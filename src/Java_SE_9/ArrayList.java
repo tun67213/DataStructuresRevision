@@ -375,4 +375,13 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
+
+	/**
+	 * @return a readable String of this ArrayList for the user to see
+	 */
+	@Override
+	public String toString()
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }
