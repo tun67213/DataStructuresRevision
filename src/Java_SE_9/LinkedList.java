@@ -13,7 +13,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	/**
 	 * @code This added class will be used to create the Nodes that manage this LinkedList
 	 */
-	private class Node<E>
+	private static class Node<E>
 	{
 		private Node<E> previous;
 		private E data;
@@ -26,7 +26,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 			this.next = null;
 		}
 	}
-	
+
 	/**
 	 * @code Constructs an empty list.
 	 */
