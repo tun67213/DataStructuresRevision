@@ -312,4 +312,15 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
+
+	/**
+	 * @param c Comparator to sort this ArrayList using
+	 * @throws NullPointerException if no Comparator is provided
+	 * @code Sorts this list according to the order induced by the specified Comparator.
+	 */
+	@Override
+	public void sort(Comparator<? super E> c)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }
