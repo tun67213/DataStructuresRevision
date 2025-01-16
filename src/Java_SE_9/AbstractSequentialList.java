@@ -1,7 +1,10 @@
 package src.Java_SE_9;
 
 /**
+ * @param <E> Generic variable for this class
  * @code This class implements the methods involved with AbstractSequentialList for Java SE 9
  */
-public abstract class AbstractSequentialList {
+public abstract class AbstractSequentialList<E>
+{
+
 }
