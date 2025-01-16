@@ -175,4 +175,13 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
+
+	/**
+	 * @return an iterator over the elements in this list in proper sequence
+	 */
+	@Override
+	public Iterator<E> iterator()
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }
