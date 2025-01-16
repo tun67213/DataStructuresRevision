@@ -1,5 +1,6 @@
 package src.Java_SE_9;
 
+import java.util.ConcurrentModificationException;
 import java.util.EmptyStackException;
 import java.util.NoSuchElementException;
 import java.util.Spliterator;
@@ -1506,7 +1507,45 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public Spliterator<E> spliterator()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		return new Spliterator<>()
+		{
+			private Node<E> current = head;
+			private long expectedModCount = modCount;
+
+			@Override
+			public boolean tryAdvance(Consumer<? super E> action)
+			{
+				if(current == null)
+				{
+					return false;
+				}
+				if(modCount != expectedModCount)
+				{
+					throw new ConcurrentModificationException("The list was modified while traversing");
+				}
+				action.accept(current.data);
+				current = current.next;
+				return true;
+			}
+
+			@Override
+			public Spliterator<E> trySplit()
+			{
+				return null;
+			}
+
+			@Override
+			public long estimateSize()
+			{
+				return size;
+			}
+
+			@Override
+			public int characteristics()
+			{
+				return Spliterator.ORDERED | Spliterator.SIZED | Spliterator.NONNULL | Spliterator.IMMUTABLE;
+			}
+		};
 	}
 
 	/**
