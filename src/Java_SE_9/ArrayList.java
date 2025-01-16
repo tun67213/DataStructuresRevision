@@ -367,4 +367,12 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
+
+	/**
+	 * @code Trims the capacity of this ArrayList instance to be the list's current size.
+	 */
+	public void trimToSize()
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }
