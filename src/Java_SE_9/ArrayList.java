@@ -143,7 +143,25 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public boolean addAll(Collection<? extends E> c)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(c == null)
+		{
+			throw new NullPointerException("You MUST provide a non-null collection of elements to add to this ArrayList");
+		}
+		Iterator<? extends E> iterator = c.iterator();
+		Iterator<? extends E> nullChecker = c.iterator();
+		while(nullChecker.hasNext())
+		{
+			if(nullChecker.next() == null)
+			{
+				throw new NullPointerException("You MUST provided a non-null collection of non-null elements to add to this ArrayList");
+			}
+		}
+		while(iterator.hasNext())
+		{
+			ensureCapacity();
+			this.array[this.size++] = iterator.next();
+		}
+		return true;
 	}
 
 	/**
@@ -157,7 +175,45 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public boolean addAll(int index, Collection<? extends E> c)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(c == null)
+		{
+			throw new NullPointerException("You MUST provide a non-null collection of elements to add to this ArrayList");
+		}
+		if(index < 0 || index > this.size)
+		{
+			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+		}
+		Iterator<? extends E> nullChecker = c.iterator();
+		while(nullChecker.hasNext())
+		{
+			if(nullChecker.next() == null)
+			{
+				throw new NullPointerException("You MUST provide a non-null collection of non-null elements to add to this ArrayList");
+			}
+		}
+		Iterator<? extends E> iterator = c.iterator();
+		if(this.size == 0 || index == this.size)
+		{
+			while(iterator.hasNext())
+			{
+				this.array[this.size++] = iterator.next();
+			}
+		}
+		else
+		{
+			int currentIndex = index;
+			while(iterator.hasNext())
+			{
+				for(int i = this.size; i > currentIndex; i--)
+				{
+					this.array[i] = this.array[i - 1];
+				}
+				this.array[currentIndex] = iterator.next();
+				currentIndex++;
+			}
+		}
+		this.size += c.size();
+		return true;
 	}
 
 	/**
