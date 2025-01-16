@@ -163,4 +163,13 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
+
+	/**
+	 * @return a possibly parallel Stream with this collection as its source
+	 */
+	@Override
+	public default Stream<E> parallelStream()
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }
