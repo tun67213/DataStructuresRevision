@@ -132,4 +132,15 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
+
+	/**
+	 * @param action the action to be performed on each value
+	 * @throws NullPointerException if no action is provided
+	 * @code Performs the given action for each element of the Iterable until all elements have been processed or the action throws an exception.
+	 */
+	@Override
+	public void forEach(Consumer<? super E> action)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }
