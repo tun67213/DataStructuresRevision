@@ -286,4 +286,16 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
+
+	/**
+	 * @param c Collection of values to keep if found in this ArrayList
+	 * @throws NullPointerException if no Collection variable is provided or the provided Collection variable is defined as 'null'
+	 * @return true if this ArrayList has been modified in any way
+	 * @code Retains only the elements in this list that are contained in the specified collection.
+	 */
+	@Override
+	public boolean retainAll(Collection<?> c)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }
