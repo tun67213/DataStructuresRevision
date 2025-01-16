@@ -98,7 +98,13 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public boolean add(E e)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(e == null)
+		{
+			throw new NullPointerException("No null values are allowed in this ArrayList");
+		}
+		ensureCapacity();
+		this.array[size++] = e;
+		return true;
 	}
 
 	/**
@@ -111,7 +117,21 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public void add(int index, E element)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(element == null)
+		{
+			throw new NullPointerException("No null values are allowed in this ArrayList");
+		}
+		if(index < 0 || index > this.size)
+		{
+			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+		}
+		ensureCapacity();
+		for(int i = this.size; i > index; i--)
+		{
+			this.array[i] = this.array[i - 1];
+		}
+		this.array[index] = element;
+		this.size++;
 	}
 
 	/**
