@@ -174,14 +174,14 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
         {
             return false;
         }
+        if(c.contains(null))
+        {
+            throw new NullPointerException("You MUST provide a Collection of non-null values to add to this ArrayList");
+        }
         Iterator<? extends E> iterator = c.iterator();
         while(iterator.hasNext())
         {
             E value = iterator.next();
-            if(value == null)
-            {
-                throw new NullPointerException("You are NOT permitted to add NULL values to this ArrayList");
-            }
             this.array[this.size] = value;
             this.size++;
         }
@@ -202,6 +202,10 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
         if(c == null)
         {
             throw new NullPointerException("You MUST provide a Collection of values to add to this ArrayList");
+        }
+        if(c.contains(null))
+        {
+            throw new NullPointerException("You MUST provide a Collection of non-null values to add to this ArrayList");
         }
         checkBounds(index);
         if(c.isEmpty())

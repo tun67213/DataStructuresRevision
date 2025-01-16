@@ -180,15 +180,14 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
         {
             return false;
         }
+        if(c.contains(null))
+        {
+            throw new NullPointerException("You MUST provide a Collection of non-null values to add to this LinkedList");
+        }
         Iterator<? extends E> iterator = c.iterator();
         while(iterator.hasNext())
         {
-            E value = iterator.next();
-            if(value == null)
-            {
-                throw new NullPointerException("Your collection cannot contain null elements");
-            }
-            Node<E> newNode = new Node<>(value);
+            Node<E> newNode = new Node<>(iterator.next());
             if(tail == null)
             {
                 head = newNode;
@@ -223,6 +222,10 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
         if(index < 0 || index > this.size)
         {
             throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+        }
+        if(c.contains(null))
+        {
+            throw new NullPointerException("You MUST provide a Collection of non-null values to add to this LinkedList");
         }
         Iterator<? extends E> iterator = c.iterator();
         Node<E> current;
