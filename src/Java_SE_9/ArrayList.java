@@ -967,7 +967,22 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public void sort(Comparator<? super E> c)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(c == null)
+		{
+			throw new NullPointerException("You MUST provide a non-null Comparator");
+		}
+		for(int i = 0; i < size - 1; i++)
+		{
+			for(int j = 0; j < size - i - 1; j++)
+			{
+				if(c.compare(array[j], array[j + 1]) > 0)
+				{
+					E temp = array[j];
+					array[j] = array[j + 1];
+					array[j + 1] = temp;
+				}
+			}
+		}
 	}
 
 	/**
