@@ -196,4 +196,13 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
+
+	/**
+	 * @return an iterator over the elements in this LinkedList in sequential order
+	 */
+	@Override
+	public Iterator<E> iterator()
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }
