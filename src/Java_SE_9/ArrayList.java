@@ -4,6 +4,7 @@ import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
 import java.util.Comparator;
+import java.util.Spliterator;
 
 /**
  * @author arvindhvelrajan
