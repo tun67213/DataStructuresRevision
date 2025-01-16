@@ -1088,7 +1088,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	 */
 	public void trimToSize()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		this.capacity = this.size;
 	}
 
 	/**
