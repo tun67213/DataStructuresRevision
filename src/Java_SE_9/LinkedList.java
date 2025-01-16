@@ -155,4 +155,35 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
+
+	/**
+	 * @param index the location at which to retrieve a value from
+	 * @throws IndexOutOfBoundsException if the provided index is out of bounds
+	 * @return the value at the specified index in this LinkedList
+	 */
+	@Override
+	public E get(int index)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	/**
+	 * @return the first element in this list
+	 * @throws NoSuchElementException if this LinkedList is empty
+	 */
+	@Override
+	public E getFirst()
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	/**
+	 * @return the last element in this list
+	 * @throws NoSuchElementException if this LinkedList is empty
+	 */
+	@Override
+	public E getLast()
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }
