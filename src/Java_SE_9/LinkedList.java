@@ -461,6 +461,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	 * @param index the location at which to retrieve a value from
 	 * @throws IndexOutOfBoundsException if the provided index is out of bounds
 	 * @return the value at the specified index in this LinkedList
+	 * @implNote This method uses a for-loop that ONLY iterates from the front of the LinkedList in order to avoid computational overhead.
 	 */
 	@Override
 	public E get(int index)
