@@ -26,6 +26,14 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	}
 
 	/**
+	 * @code This method ensures that the array representing this ArrayList has enough space to hold more elements. If space is full, it reallocates to a bigger array.
+	 */
+	private void ensureCapacity()
+	{
+		
+	}
+
+	/**
 	 * @param c Collection of values to initialize this ArrayList with
 	 * @throws NullPointerException if the provided Collection is null
 	 * @code Constructs a list containing the elements of the specified collection, in the order they are returned by the collection's iterator.
