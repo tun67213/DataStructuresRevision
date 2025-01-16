@@ -334,4 +334,17 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
+
+	/**
+	 * @param fromIndex the location from which to create this subList
+	 * @param toIndex the location until, exclusive of, which to create this subList
+	 * @throws IndexOutOfBoundsException if either of the provided indices is out of bounds
+	 * @throws IllegalArgumentException if fromIndex is greater than toIndex
+	 * @return a view of the portion of this list between the specified fromIndex, inclusive, and toIndex, exclusive
+	 */
+	@Override
+	public List<E> subList(int fromIndex, int toIndex)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }
