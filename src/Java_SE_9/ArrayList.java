@@ -184,4 +184,14 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
+
+	/**
+	 * @param o the Object to find the location of the last occurrence of
+	 * @return the location of the last occurrence of the specified Object or -1 if the provided Object is null or not found
+	 */
+	@Override
+	public int lastIndexOf(Object o)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }
