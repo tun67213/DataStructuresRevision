@@ -2,6 +2,7 @@ package src.Java_SE_9;
 
 import java.util.NoSuchElementException;
 import java.util.Spliterator;
+import java.util.function.Consumer;
 
 /**
  * @author arvindhvelrajan
@@ -409,7 +410,37 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public Iterator<E> descendingIterator()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		return new Iterator<>()
+		{
+			private Node<E> current = tail;
+
+			@Override
+			public void forEachRemaining(Consumer<? super E> action)
+			{
+				for(Node<E> update = current; update != null; update = update.previous)
+				{
+					action.accept(update.data);
+				}
+			}
+
+			@Override
+			public boolean hasNext()
+			{
+				return current != null;
+			}
+
+			@Override
+			public E next()
+			{
+				if(!hasNext())
+				{
+					throw new NoSuchElementException("This iterator has reached the end of this list");
+				}
+				E value = current.data;
+				current = current.previous;
+				return value;
+			}
+		};
 	}
 
 	/**
