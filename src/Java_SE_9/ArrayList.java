@@ -20,6 +20,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	/**
 	 * @code Constructs an empty list with an initial capacity of ten.
 	 */
+	@SuppressWarnings("unchecked")
 	public ArrayList()
 	{
 
@@ -30,6 +31,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	 * @throws IllegalArgumentException if the provided initial capacity is negative
 	 * @code Constructs an empty list with the specified initial capacity.
 	 */
+	@SuppressWarnings("unchecked")
 	public ArrayList(int initialCapacity)
 	{
 
@@ -40,6 +42,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	 * @throws NullPointerException if the provided Collection is null
 	 * @code Constructs a list containing the elements of the specified collection, in the order they are returned by the collection's iterator.
 	 */
+	@SuppressWarnings("unchecked")
 	public ArrayList(Collection<? extends E> c)
 	{
 
@@ -48,6 +51,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	/**
 	 * @code This method ensures that the array representing this ArrayList has enough space to hold more elements. If space is full, it reallocates to a bigger array.
 	 */
+	@SuppressWarnings("unchecked")
 	private void ensureCapacity()
 	{
 
@@ -107,6 +111,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	/**
 	 * @code Removes all of the elements from this list.
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void clear()
 	{
