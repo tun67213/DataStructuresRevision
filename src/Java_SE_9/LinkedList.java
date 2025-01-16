@@ -653,7 +653,135 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public ListIterator<E> listIterator()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		return new ListIterator<>()
+		{
+			private Node<E> current = head;
+			private int currentIndex = 0;
+			private Node<E> lastReturned = null;
+
+			@Override
+			public boolean hasNext()
+			{
+				return current != null;
+			}
+
+			@Override
+			public E next()
+			{
+				if(!hasNext())
+				{
+					throw new NoSuchElementException("This iterator has reached the end of this list");
+				}
+				lastReturned = current;
+				current = current.next;
+				currentIndex++;
+				return lastReturned.data;
+			}
+
+			@Override
+			public boolean hasPrevious()
+			{
+				return current.previous != null;
+			}
+
+			@Override
+			public E previous()
+			{
+				if(!hasPrevious())
+				{
+					throw new NoSuchElementException("This iterator has reached the end of this list");
+				}
+				current = current.previous;
+				currentIndex--;
+				lastReturned = current;
+				return lastReturned.data;
+			}
+
+			@Override
+			public int nextIndex()
+			{
+				return currentIndex;
+			}
+
+			@Override
+			public int previousIndex()
+			{
+				return currentIndex - 1;
+			}
+
+			@Override
+			public void remove()
+			{
+				if(lastReturned == null)
+				{
+					throw new NullPointerException("You MUST call next() or previous before calling remove()");
+				}
+				if(lastReturned.previous == null && lastReturned.next == null)
+				{
+					head = null;
+					tail = null;
+				}
+				else if(lastReturned.previous == null)
+				{
+					head = head.next;
+					lastReturned.next = null;
+					head.previous = null;
+				}
+				else if(lastReturned.next == null)
+				{
+					tail = tail.previous;
+					lastReturned.previous = null;
+					tail.next = null;
+				}
+				else
+				{
+					lastReturned.previous.next = lastReturned.next;
+					lastReturned.next.previous = lastReturned.previous;
+					lastReturned.previous = null;
+					lastReturned.next = null;
+				}
+				lastReturned = null;
+			}
+
+			@Override
+			public void add(E e)
+			{
+				if(e == null)
+				{
+					throw new NullPointerException("You MUST provide a value to add to the LinkedList represented by this ListIterator");
+				}
+				Node<E> newNode = new Node<>(e);
+				if(head == null)
+				{
+					head = newNode;
+					tail = newNode;
+				}
+				else if(lastReturned.next == null)
+				{
+					tail.next = newNode;
+					newNode.previous = tail;
+					tail = tail.next;
+				}
+				else
+				{
+					newNode.next = lastReturned.next;
+					newNode.previous = lastReturned;
+					lastReturned.next.previous = newNode;
+					lastReturned.next = newNode;
+				}
+				size++;
+			}
+
+			@Override
+			public void set(E e)
+			{
+				if(e == null)
+				{
+					throw new NullPointerException("You MUST provide a non-null replacement value");
+				}
+				lastReturned.data = e;
+			}
+		};
 	}
 
 	/**
@@ -664,7 +792,139 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public ListIterator<E> listIterator(int index)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(index < 0 || index > this.size)
+		{
+			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+		}
+		return new ListIterator<>()
+		{
+			private Node<E> current = head;
+			private int currentIndex = index;
+			private Node<E> lastReturned = null;
+
+			@Override
+			public boolean hasNext()
+			{
+				return current != null;
+			}
+
+			@Override
+			public E next()
+			{
+				if(!hasNext())
+				{
+					throw new NoSuchElementException("This iterator has reached the end of this list");
+				}
+				lastReturned = current;
+				current = current.next;
+				currentIndex++;
+				return lastReturned.data;
+			}
+
+			@Override
+			public boolean hasPrevious()
+			{
+				return current.previous != null;
+			}
+
+			@Override
+			public E previous()
+			{
+				if(!hasPrevious())
+				{
+					throw new NoSuchElementException("This iterator has reached the end of this list");
+				}
+				current = current.previous;
+				currentIndex--;
+				lastReturned = current;
+				return lastReturned.data;
+			}
+
+			@Override
+			public int nextIndex()
+			{
+				return currentIndex;
+			}
+
+			@Override
+			public int previousIndex()
+			{
+				return currentIndex - 1;
+			}
+
+			@Override
+			public void remove()
+			{
+				if(lastReturned == null)
+				{
+					throw new NullPointerException("You MUST call next() or previous before calling remove()");
+				}
+				if(lastReturned.previous == null && lastReturned.next == null)
+				{
+					head = null;
+					tail = null;
+				}
+				else if(lastReturned.previous == null)
+				{
+					head = head.next;
+					lastReturned.next = null;
+					head.previous = null;
+				}
+				else if(lastReturned.next == null)
+				{
+					tail = tail.previous;
+					lastReturned.previous = null;
+					tail.next = null;
+				}
+				else
+				{
+					lastReturned.previous.next = lastReturned.next;
+					lastReturned.next.previous = lastReturned.previous;
+					lastReturned.previous = null;
+					lastReturned.next = null;
+				}
+				lastReturned = null;
+			}
+
+			@Override
+			public void add(E e)
+			{
+				if(e == null)
+				{
+					throw new NullPointerException("You MUST provide a value to add to the LinkedList represented by this ListIterator");
+				}
+				Node<E> newNode = new Node<>(e);
+				if(head == null)
+				{
+					head = newNode;
+					tail = newNode;
+				}
+				else if(lastReturned.next == null)
+				{
+					tail.next = newNode;
+					newNode.previous = tail;
+					tail = tail.next;
+				}
+				else
+				{
+					newNode.next = lastReturned.next;
+					newNode.previous = lastReturned;
+					lastReturned.next.previous = newNode;
+					lastReturned.next = newNode;
+				}
+				size++;
+			}
+
+			@Override
+			public void set(E e)
+			{
+				if(e == null)
+				{
+					throw new NullPointerException("You MUST provide a non-null replacement value");
+				}
+				lastReturned.data = e;
+			}
+		};
 	}
 
 	/**
