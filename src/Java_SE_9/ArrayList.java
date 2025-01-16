@@ -145,4 +145,13 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
+
+	/**
+	 * @return true if this collection contains no elements, false otherwise
+	 */
+	@Override
+	public boolean isEmpty()
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }
