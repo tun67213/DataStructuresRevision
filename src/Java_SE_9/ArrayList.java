@@ -275,4 +275,14 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
+
+	/**
+	 * @param operator the operation that needs to be performed on each item in this ArrayList
+	 * @code Replaces each element of this list with the result of applying the operator to that element.
+	 */
+	@Override
+	public void replaceAll(UnaryOperator<E> operator)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }
