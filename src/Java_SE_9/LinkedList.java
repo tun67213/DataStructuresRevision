@@ -244,4 +244,40 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
+
+	/**
+	 * @param e the value to be offered to this LinkedList
+	 * @throws NullPointerException if the provided value is 'null'
+	 * @return true if the value is successfully added to this LinkedList
+	 * @code Adds the specified element as the tail (last element) of this list.
+	 */
+	@Override
+	public boolean offer(E e)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	/**
+	 * @param e the value to be offered to this LinkedList
+	 * @throws NullPointerException if the provided value is 'null'
+	 * @return true if the value is successfully added to this LinkedList
+	 * @code Inserts the specified element at the front of this list.
+	 */
+	@Override
+	public boolean offerFirst(E e)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	/**
+	 * @param e the value to be offered to this LinkedList
+	 * @throws NullPointerException if the provided value is 'null'
+	 * @return true if the value is successfully added to this LinkedList
+	 * @code Inserts the specified element at the end of this list.
+	 */
+	@Override
+	public boolean offerLast(E e)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }
