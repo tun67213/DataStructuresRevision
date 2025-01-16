@@ -1,5 +1,6 @@
 package src.Java_SE_9;
 
+import java.util.EmptyStackException;
 import java.util.NoSuchElementException;
 import java.util.Spliterator;
 import java.util.function.Consumer;
@@ -1139,6 +1140,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 
 	/**
 	 * @return the value in the Node previously at head
+	 * @throws EmptyStackException if the stack represented by this LinkedList is empty
 	 * @code Pops an element from the stack represented by this list.
 	 */
 	@Override
