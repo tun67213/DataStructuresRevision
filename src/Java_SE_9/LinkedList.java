@@ -186,4 +186,14 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
+
+	/**
+	 * @param o the Object to find the first occurrence of
+	 * @return the location of the first occurrence of the provided Object or -1 if the provided Object is null or not found
+	 */
+	@Override
+	public int indexOf(Object o)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }
