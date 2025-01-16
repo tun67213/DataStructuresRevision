@@ -1,5 +1,6 @@
 package src.Java_SE_9;
 
+import java.util.NoSuchElementException;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
@@ -372,7 +373,67 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public Iterator<E> iterator()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		return new Iterator<E>()
+		{
+			private int currentIndex = 0;
+			private E lastReturned = null;
+			/**
+			 * @param action the action to be performed for each of the remaining values until all values have been processed
+			 * @throws NullPointerException if no action is provided
+			 * @code Performs the given action for each remaining element until all elements have been processed or the action throws an exception.
+			 */
+			@Override
+			public void forEachRemaining(Consumer<? super E> action)
+			{
+				for(int i = this.currentIndex; i < size; i++)
+				{
+					action.accept(array[i]);
+				}
+			}
+
+			/**
+			 * @return true if the iteration has more elements
+			 */
+			@Override
+			public boolean hasNext()
+			{
+				return this.currentIndex < size;
+			}
+
+			/**
+			 * @return the next element in the iteration
+			 * @throws NoSuchElementException if it has reached the end
+			 */
+			@Override
+			public E next()
+			{
+				if(!hasNext())
+				{
+					throw new NoSuchElementException("The iterator has reached the end of this ArrayList");
+				}
+				this.lastReturned = array[this.currentIndex];
+				this.currentIndex++;
+				return this.lastReturned;
+			}
+
+			/**
+			 * @code Removes from the underlying collection the last element returned by this iterator.
+			 */
+			@Override
+			public void remove()
+			{
+				if(this.lastReturned == null)
+				{
+					throw new IllegalStateException("next() MUST be called before calling remove() again");
+				}
+				for(int i = this.currentIndex; i < size - 1; i++)
+				{
+					array[i] = array[i + 1];
+				}
+				size--;
+				lastReturned = null;
+			}
+		};
 	}
 
 	/**
