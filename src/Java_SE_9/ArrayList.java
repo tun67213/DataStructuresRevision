@@ -1,5 +1,7 @@
 package src.Java_SE_9;
 
+import java.util.stream.Stream;
+
 /**
  * @author arvindhvelrajan
  * @param <E> Generic variable fo this class
@@ -121,54 +123,6 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	 */
 	@Override
 	public boolean containsAll(Collection<?> c)
-	{
-		throw new UnsupportedOperationException("Not supported yet.");
-	}
-
-	/**
-	 * @param o the Object to compare with this list for equality
-	 * @throws NullPointerException if no Object is provided
-	 * @return true if the provided Object is an exact match
-	 * @code Compares the specified object with this collection for equality.
-	 */
-	@Override
-	public boolean equals(Object o)
-	{
-		throw new UnsupportedOperationException("Not supported yet.");
-	}
-
-	/**
-	 * @return the hash code value for this collection
-	 */
-	@Override
-	public int hashCode()
-	{
-		throw new UnsupportedOperationException("Not supported yet.");
-	}
-
-	/**
-	 * @return true if this collection contains no elements, false otherwise
-	 */
-	@Override
-	public boolean isEmpty()
-	{
-		throw new UnsupportedOperationException("Not supported yet.");
-	}
-
-	/**
-	 * @return an iterator over the elements in this collection
-	 */
-	@Override
-	public Iterator<E> iterator()
-	{
-		throw new UnsupportedOperationException("Not supported yet.");
-	}
-
-	/**
-	 * @return a possibly parallel Stream with this collection as its source
-	 */
-	@Override
-	public default Stream<E> parallelStream()
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
