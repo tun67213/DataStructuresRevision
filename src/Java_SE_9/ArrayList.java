@@ -214,4 +214,64 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
+
+	/**
+	 * @param index the location at which to remove a value from
+	 * @throws IndexOutOfBoundsException if the provided index is out of bounds
+	 * @return the value previously at the provided index
+	 * @code Removes the element at the specified position in this list.
+	 */
+	@Override
+	public E remove(int index)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	/**
+	 * @param o the Object to find and remove the first occurrence of
+	 * @return false if the provided Object is 'null', true if at least one value has been removed
+	 * @code Removes the first occurrence of the specified element from this list, if it is present.
+	 */
+	@Override
+	public boolean remove(Object o)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	/**
+	 * @param c Collection of values to remove if contained in this ArrayList
+	 * @throws NullPointerException if no Collection of values is provided
+	 * @return true if this ArrayList has been modified, false otherwise
+	 * @code Removes from this list all of its elements that are contained in the specified collection.
+	 */
+	@Override
+	public boolean removeAll(Collection<?> c)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	/**
+	 * @param filter the condition to satisfy for removal
+	 * @throws NullPointerException if no filter is provided
+	 * @return true if this ArrayList has been structurally modified, false otherwise
+	 * @code Removes all of the elements of this collection that satisfy the given predicate.
+	 */
+	@Override
+	public boolean removeIf(Predicate<? super E> filter)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	/**
+	 * @param fromIndex the index, inclusive of which, to remove from
+	 * @param toIndex the index, exclusive of which, to remove until
+	 * @throws IndexOutOfBoundsException if either of the provided indices is out of bounds
+	 * @throws IllegalArgumentException if fromIndex is greater than toIndex
+	 * @code Removes from this list all of the elements whose index is between fromIndex, inclusive, and toIndex, exclusive.
+	 */
+	@Override
+	protected void removeRange(int fromIndex, int toIndex)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }
