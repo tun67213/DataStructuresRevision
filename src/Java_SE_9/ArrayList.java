@@ -244,7 +244,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 
 	/**
 	 * @param o the Object to find the existence of
-	 * @return true if this list contains the specified element, false if the provided Object is null or not found
+	 * @return true if this list contains the specified element, false if the provided Object is null (since this implementation does not permit null values) or not found
 	 */
 	@Override
 	public boolean contains(Object o)
