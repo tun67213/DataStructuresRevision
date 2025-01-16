@@ -224,4 +224,24 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
+
+	/**
+	 * @return a list iterator over the elements in this list (in sequential order)
+	 */
+	@Override
+	public ListIterator<E> listIterator()
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	/**
+	 * @param index the location at which to start iterating from
+	 * @throws IndexOutOfBoundsException if the provided index is out of bounds
+	 * @return a list iterator over the elements in this list (in sequential order), starting at the specified index
+	 */
+	@Override
+	public ListIterator<E> listIterator(int index)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }
