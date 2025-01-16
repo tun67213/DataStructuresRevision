@@ -316,6 +316,15 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	}
 
 	/**
+	 * @return the number of elements in this ArrayList
+	 */
+	@Override
+	public int size()
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	/**
 	 * @param c Comparator to sort this ArrayList using
 	 * @throws NullPointerException if no Comparator is provided
 	 * @code Sorts this list according to the order induced by the specified Comparator.
