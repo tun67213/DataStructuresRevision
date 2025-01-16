@@ -1,5 +1,7 @@
 package src.Java_SE_9;
 
+import java.util.function.Consumer;
+
 /**
  * @author arvindhvelrajan
  * @param <E> Generic variable fo this class
