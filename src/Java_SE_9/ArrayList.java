@@ -937,7 +937,17 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public E set(int index, E element)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(element == null)
+		{
+			throw new NullPointerException("You are not allowed to add null values to this ArrayList");
+		}
+		if(index < 0 || index >= this.size)
+		{
+			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+		}
+		E oldValue = this.array[index];
+		this.array[index] = element;
+		return oldValue;
 	}
 
 	/**
