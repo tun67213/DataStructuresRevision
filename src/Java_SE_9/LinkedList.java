@@ -143,4 +143,14 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
+
+	/**
+	 * @return the head (first element) of this list
+	 * @throws NoSuchElementException if this LinkedList is empty
+	 */
+	@Override
+	public E element()
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }
