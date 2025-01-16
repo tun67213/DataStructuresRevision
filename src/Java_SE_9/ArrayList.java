@@ -1097,6 +1097,35 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public String toString()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		StringBuilder buff = new StringBuilder();
+		boolean isAString = this.array[0] instanceof String;
+		boolean isACharacter = this.array[0] instanceof Character;
+		buff.append("[");
+		for(int i = 0; i < this.size; i++)
+		{
+			if(isAString)
+			{
+				buff.append("\"");
+			}
+			else if(isACharacter)
+			{
+				buff.append("'");
+			}
+			buff.append(this.array[i]);
+			if(isAString)
+			{
+				buff.append("\"");
+			}
+			else if(isACharacter)
+			{
+				buff.append("'");
+			}
+			if(i != this.size - 1)
+			{
+				buff.append(", ");
+			}
+		}
+		buff.append("]");
+		return buff.toString();
 	}
 }
