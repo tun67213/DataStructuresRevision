@@ -1,6 +1,7 @@
 package src.Java_SE_9;
 
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 /**
  * @author arvindhvelrajan
