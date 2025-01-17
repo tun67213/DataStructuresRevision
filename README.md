@@ -2,7 +2,7 @@
 
 ## Description
 
-This project is designed to demonstrate the linking between various data structures, and their usage, using Java SE 7 and Java SE 8.
+This project is designed to demonstrate the linking between various data structures, and their usage, using Java SE 7, Java SE 8, and Java SE 9.
 The project will focus on covering the functions for interfaces, and then the functions for the classes themselves.
 This README will also include Java SE 8 specific functions that were added.
 
@@ -39,26 +39,31 @@ Instructions to get access to the files can be found [HERE] ([#instructions](htt
     - [Open File] 
 		- ([#random_access_java_se_7](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Java_SE_7/RandomAccess.java))
 		- ([#random_access_java_se_8](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Java_SE_8/RandomAccess.java))
+		- ([#random_access_java_se_9](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Java_SE_9/RandomAccess.java))
 - [Serializable] ([#serializable](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#randomaccessjava-serializablejava-cloneablejava))
     - [Open Official Documentation for Serializable] ([#serializable_documentation](https://docs.oracle.com/javase/7/docs/api//java/io/Serializable.html))
     - [Open File] 
 		- ([#serializable_java_se_7](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Java_SE_7/Serializable.java))
 		- ([#serializable_java_se_8](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Java_SE_8/Serializable.java))
+		- ([#serializable_java_se_9](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Java_SE_9/Serializable.java))
 - [Cloneable] ([#cloneable](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#randomaccessjava-serializablejava-cloneablejava))
     - [Open Official Documentation for Cloneable] ([#cloneable_documentation](https://docs.oracle.com/javase/7/docs/api//java/lang/Cloneable.html))
     - [Open File] 
 		- ([#cloneable_java_se_7](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Java_SE_7/Cloneable.java))
 		- ([#cloneable_java_se_8](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Java_SE_8/Cloneable.java))
+		- ([#cloneable_java_se_9](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Java_SE_9/Cloneable.java))
 - [Iterator] ([#iterator](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#iteratorjava))
     - [Open Official Documentation for Iterator] ([#iterator_documentation](https://docs.oracle.com/javase/7/docs/api/java/util/Iterator.html))
     - [Open File] 
 		- ([#iterator_java_se_7](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Java_SE_7/Iterator.java))
 		- ([#iterator_java_se_8](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Java_SE_8/Iterator.java))
+		- ([#iterator_java_se_9](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Java_SE_9/Iterator.java))
 - [Iterable] ([#iterable](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#iterablejava))
     - [Open Official Documentation for Iterable] ([#iterable_documentation](https://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html))
     - [Open File] 
 		- ([#iterable_java_se_7](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Java_SE_7/Iterable.java))
 		- ([#iterable_java_se_8](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Java_SE_8/Iterable.java))
+		- ([#iterable_java_se_9](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Java_SE_9/Iterable.java))
 - [ListIterator] ([#listIterator](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#listiteratorjava-extends-iterator))
     - [Open Official Documentation for ListIterator] ([#list_iterator_documentation](https://docs.oracle.com/javase/7/docs/api/java/util/ListIterator.html))
     - [Open File] 
