@@ -24,8 +24,14 @@ public interface Iterator<E>
 	boolean hasNext();
 
 	/**
+	 * @return the next element in the iteration
+	 */
+	E next();
+
+	/**
 	 * @code Removes from the underlying collection the last element returned by this iterator.
 	 */
+	
 	default void remove()
 	{
 		throw new UnsupportedOperationException();
