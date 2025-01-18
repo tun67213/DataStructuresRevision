@@ -1,10 +1,33 @@
 package src.Java_SE_10;
 
+import java.util.function.Consumer;
+
 /**
  * @author arvindhvelrajan
  * @param <E> Generic variable for this interface
  */
 public interface Iterator<E>
 {
-	
+	/**
+	 * @param action the action to be performed on each of the remaining elements
+	 * @throws NullPointerException if no action is specified
+	 * @code Performs the given action for each remaining element until all elements have been processed or the action throws an exception.
+	 */
+	default void forEachRemaining(Consumer<? super E> action)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	/**
+	 * @return true if the iteration has more elements, false otherwise
+	 */
+	boolean hasNext();
+
+	/**
+	 * @code Removes from the underlying collection the last element returned by this iterator.
+	 */
+	default void remove()
+	{
+		throw new UnsupportedOperationException();
+	}
 }
