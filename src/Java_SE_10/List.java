@@ -220,6 +220,7 @@ public interface List<E> extends Collection<E>
 	 * @throws NullPointerException if no Collection is provided
 	 * @code Sorts this list according to the order induced by the specified Comparator.
 	 */
+	@SuppressWarnings("unchecked")
 	default void sort(Comparator<? super E> c)
 	{
 		if(c == null)
