@@ -1,7 +1,10 @@
 package src.Java_SE_10;
 
 /**
- * @author arvindhvelrajan 
+ * @author arvindhvelrajan
+ * @param <E> Generic variable for this class
  */
-public class LinkedList {
+public class LinkedList<E>
+{
+
 }
