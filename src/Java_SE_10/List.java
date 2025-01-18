@@ -241,7 +241,67 @@ public interface List<E> extends Collection<E>
 	 */
 	default Spliterator<E> spliterator()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		return new Spliterator<E>() {
+			private int index = 0;
+			private final int end = size();
+			@Override
+			public boolean tryAdvance(Consumer<? super E> action) {
+				if (index < end) {
+					action.accept(get(index++));
+					return true;
+				}
+				return false;
+			}
+
+			@Override
+			public Spliterator<E> trySplit() {
+				int remaining = end - index;
+				if (remaining <= 1) {
+					return null;
+				}
+				int mid = index + remaining / 2;
+				Spliterator<E> split = new Spliterator<E>() {
+					private int start = index;
+					private final int splitEnd = mid;
+
+					@Override
+					public boolean tryAdvance(Consumer<? super E> action) {
+						if (start < splitEnd) {
+							action.accept(get(start++));
+							return true;
+						}
+						return false;
+					}
+
+					@Override
+					public Spliterator<E> trySplit() {
+						return null; // Nested splits are omitted for simplicity
+					}
+
+					@Override
+					public long estimateSize() {
+						return splitEnd - start;
+					}
+
+					@Override
+					public int characteristics() {
+						return Spliterator.ORDERED | Spliterator.SIZED | Spliterator.SUBSIZED;
+					}
+				};
+				index = mid;
+				return split;
+			}
+
+			@Override
+			public long estimateSize() {
+				return end - index;
+			}
+
+			@Override
+			public int characteristics() {
+				return Spliterator.ORDERED | Spliterator.SIZED | Spliterator.SUBSIZED;
+			}
+		};
 	}
 
 	/**
