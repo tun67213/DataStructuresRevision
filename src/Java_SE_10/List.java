@@ -2,6 +2,7 @@ package src.Java_SE_10;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.function.Consumer;
 import java.util.Spliterator;
 import java.util.function.UnaryOperator;
 
@@ -244,7 +245,7 @@ public interface List<E> extends Collection<E>
 		return new Spliterator<E>() {
 			private int index = 0;
 			private final int end = size();
-			
+
 			@Override
 			public boolean tryAdvance(Consumer<? super E> action) {
 				if (index < end) {
