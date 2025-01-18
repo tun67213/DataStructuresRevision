@@ -1,7 +1,8 @@
 package src.Java_SE_10;
 
 /**
- * @author arvindhvelrajan 
+ * @author arvindhvelrajan
+ * @param <E> Generic method for this class
  */
-public class ArrayList {
+public class ArrayList<E> {
 }
