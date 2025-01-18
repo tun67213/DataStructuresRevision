@@ -1,7 +1,10 @@
 package src.Java_SE_10;
 
 /**
- * @author arvindhvelrajan 
+ * @author arvindhvelrajan
+ * @param <E>
  */
-public abstract class AbstractCollection {
+public abstract class AbstractCollection<E>
+{
+	
 }
