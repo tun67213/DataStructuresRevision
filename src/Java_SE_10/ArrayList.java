@@ -1,5 +1,9 @@
 package src.Java_SE_10;
 
+import java.util.Spliterator;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
+
 /**
  * @author arvindhvelrajan
  * @param <E> Generic method for this class
