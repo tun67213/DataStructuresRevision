@@ -1,4 +1,4 @@
 package src.Java_SE_10;
 
-public class AbstractCollection {
+public abstract class AbstractCollection {
 }
