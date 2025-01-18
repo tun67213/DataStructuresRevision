@@ -1,7 +1,9 @@
 package src.Java_SE_10;
 
 /**
- * @author arvindhvelrajan 
+ * @author arvindhvelrajan
  */
-public interface Collection {
+public interface Collection
+{
+	S
 }
