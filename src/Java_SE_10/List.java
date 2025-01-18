@@ -221,7 +221,17 @@ public interface List<E> extends Collection<E>
 	 */
 	default void sort(Comparator<? super E> c)
 	{
-
+		if(c == null)
+		{
+			throw new NullPointerException("Comparator cannot be null");
+		}
+		Object[] array = this.toArray();
+		Arrays.sort(array, (Comparator) c);
+		this.clear();
+		for(Object element : array)
+		{
+			this.add((E) element);
+		}
 	}
 
 	/**
