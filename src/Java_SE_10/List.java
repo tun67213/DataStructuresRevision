@@ -244,6 +244,7 @@ public interface List<E> extends Collection<E>
 		return new Spliterator<E>() {
 			private int index = 0;
 			private final int end = size();
+			
 			@Override
 			public boolean tryAdvance(Consumer<? super E> action) {
 				if (index < end) {
