@@ -71,7 +71,14 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@SuppressWarnings("unchecked")
 	private void ensureCapacity()
 	{
-
+		if(this.size == this.capacity)
+		{
+			int newCapacity = this.capacity + this.capacity / 2;
+			E[] newArray = (E[]) new Object[newCapacity];
+			System.arraycopy(this.array, 0, newArray, 0, this.size);
+			this.capacity = newCapacity;
+			this.array = newArray;
+		}
 	}
 
 	/**
