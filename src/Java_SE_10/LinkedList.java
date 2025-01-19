@@ -1109,7 +1109,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 
 	/**
 	 * @return the previous head (first element) of this list or null if this list is empty
-	 * @code Retrieves, but does not remove, the first element of this list, or returns null if this list is empty.
+	 * @code Retrieves and removes the first element of this list, or returns null if this list is empty.
 	 */
 	@Override
 	public E pollFirst()
@@ -1135,7 +1135,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 
 	/**
 	 * @return the previous tail (last element) of this list or null if this list is empty
-	 * @code Retrieves, but does not remove, the last element of this list, or returns null if this list is empty.
+	 * @code Retrieves and removes the last element of this list, or returns null if this list is empty.
 	 */
 	@Override
 	public E pollLast()
