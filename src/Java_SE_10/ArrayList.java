@@ -1037,6 +1037,10 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 			{
 				buff.append("'").append(this.array[i]).append("'");
 			}
+			else
+			{
+				buff.append(this.array[i]);
+			}
 			if(i != this.size - 1)
 			{
 				buff.append(", ");

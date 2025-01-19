@@ -1676,6 +1676,10 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 			{
 				buff.append("'").append(current.data).append("'");
 			}
+			else
+			{
+				buff.append(current.data);
+			}
 			if(current.next != null)
 			{
 				buff.append(" <--> ");
