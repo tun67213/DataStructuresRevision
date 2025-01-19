@@ -139,7 +139,43 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public boolean addAll(int index, Collection<? extends E> c)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(c == null || c.contains(null))
+		{
+			throw new NullPointerException("You MUST provide a non-null Collection of non-null elements to add to this ArrayList");
+		}
+		if(index < 0 || index > this.size)
+		{
+			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+		}
+		if(c.isEmpty())
+		{
+			return false;
+		}
+		E[] values = (E[]) c.toArray();
+		Iterator<? extends E> iterator = c.iterator();
+		if(index == this.size)
+		{
+			while(iterator.hasNext())
+			{
+				ensureCapacity();
+				this.array[this.size] = iterator.next();
+				this.size++;
+			}
+		}
+		else
+		{
+			for(int i = values.length - 1; i >= 0; i--)
+			{
+				ensureCapacity();
+				for(int j = this.size; j > index; j--)
+				{
+					this.array[j] = this.array[j - 1];
+				}
+				this.array[index] = values[i];
+				this.size++;
+			}
+		}
+		return true;
 	}
 
 	/**
@@ -151,7 +187,22 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public boolean addAll(Collection<? extends E> c)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(c == null || c.contains(null))
+		{
+			throw new NullPointerException("You MUST provide a non-null Collection of non-null elements to add to this ArrayList");
+		}
+		if(c.isEmpty())
+		{
+			return false;
+		}
+		Iterator<? extends E> iterator = c.iterator();
+		while(iterator.hasNext())
+		{
+			ensureCapacity();
+			this.array[this.size] = iterator.next();
+			this.size++;
+		}
+		return true;
 	}
 
 	/**
