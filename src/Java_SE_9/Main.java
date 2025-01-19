@@ -14,7 +14,7 @@ public class Main
 		// To test a method here, simply do the following steps:
 		// 1) Write the class name with the data type (i.e. ArrayList<Integer> list = new ArrayList<>();)
 
-		// Once that is done, write 'list.' with the '.' included to see a list of all the available methods.
+		// 2) Once that is done, write 'list.' with the '.' included to see a list of all the available methods.
 		
 	}
 }
