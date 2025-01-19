@@ -10,6 +10,10 @@ import java.util.function.Predicate;
  */
 public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAccess, Cloneable, Serializable
 {
+	private int size;
+	private int capacity;
+	private E[] array;
+
 	/**
 	 * @code Constructs an empty list with an initial capacity of ten.
 	 */
