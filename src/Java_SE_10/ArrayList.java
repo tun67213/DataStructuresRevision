@@ -866,7 +866,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public int size()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		return this.size;
 	}
 
 	/**
