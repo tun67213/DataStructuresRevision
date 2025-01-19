@@ -1031,20 +1031,11 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 		{
 			if(isString)
 			{
-				buff.append("\"");
+				buff.append("\"").append(this.array[i]).append("\"");
 			}
 			else if(isCharacter)
 			{
-				buff.append("'");
-			}
-			buff.append(this.array[i]);
-			if(isString)
-			{
-				buff.append("\"");
-			}
-			else if(isCharacter)
-			{
-				buff.append("'");
+				buff.append("'").append(this.array[i]).append("'");
 			}
 			if(i != this.size - 1)
 			{
