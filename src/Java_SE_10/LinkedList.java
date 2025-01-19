@@ -676,7 +676,136 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public ListIterator<E> listIterator()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		return new ListIterator<>()
+		{
+			private int currentIndex = 0;
+			private Node<E> current = head;
+			private Node<E> lastReturned = null;
+
+			@Override
+			public boolean hasNext()
+			{
+				return current != null;
+			}
+
+			@Override
+			public E next()
+			{
+				if(!hasNext())
+				{
+					throw new NoSuchElementException("This iterator has reached the end of this LinkedList");
+				}
+				lastReturned = current;
+				current = current.next;
+				currentIndex++;
+				return lastReturned.data;
+			}
+
+			@Override
+			public int nextIndex()
+			{
+				return currentIndex;
+			}
+
+			@Override
+			public boolean hasPrevious()
+			{
+				return current.previous != null;
+			}
+
+			@Override
+			public E previous()
+			{
+				if(!hasPrevious())
+				{
+					throw new NoSuchElementException("This iterator has reached the beginning of this LinkedList");
+				}
+				current = current.previous;
+				currentIndex--;
+				lastReturned = current;
+				return lastReturned.data;
+			}
+
+			@Override
+			public int previousIndex()
+			{
+				return currentIndex - 1;
+			}
+
+			@Override
+			public void remove()
+			{
+				if(lastReturned == null)
+				{
+					throw new IllegalStateException("You MUST call next() or previous() before calling remove()");
+				}
+				else if(lastReturned.previous == null && lastReturned.next == null)
+				{
+					head = null;
+					tail = null;
+				}
+				else if(lastReturned.previous == null)
+				{
+					head = head.next;
+					lastReturned.next = null;
+					head.previous = null;
+				}
+				else if(lastReturned.next == null)
+				{
+					tail = tail.previous;
+					lastReturned.previous = null;
+					tail.next = null;
+				}
+				else
+				{
+					lastReturned.previous.next = lastReturned.next;
+					lastReturned.next.previous = lastReturned.previous;
+					lastReturned.previous = null;
+					lastReturned.next = null;
+				}
+				size--;
+				lastReturned = null;
+			}
+
+			@Override
+			public void add(E e)
+			{
+				if(e == null)
+				{
+					throw new NullPointerException("You MUST provide a value to add into this LinkedList");
+				}
+				Node<E> newNode = new Node<>(e);
+				if(current.previous == null)
+				{
+					head.previous = newNode;
+					newNode.next = head;
+					head = head.previous;
+					current = head;
+				}
+				else
+				{
+					newNode.next = current;
+					newNode.previous = current.previous;
+					current.previous.next = newNode;
+					current.previous = newNode;
+					size++;
+				}
+			}
+
+			@Override
+			public void set(E e)
+			{
+				if(e == null)
+				{
+					throw new NullPointerException("You MUST provide a value to set into this LinkedList");
+				}
+				if(lastReturned == null)
+				{
+					throw new IllegalStateException("You MUST call previous() or next() before calling set()");
+				}
+				lastReturned.data = e;
+			}
+		};
 	}
 
 	/**
@@ -687,7 +816,140 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public ListIterator<E> listIterator(int index)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(index < 0 || index > this.size)
+		{
+			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+		}
+		return new ListIterator<>()
+		{
+			private int currentIndex = index;
+			private Node<E> current = head;
+			private Node<E> lastReturned = null;
+
+			@Override
+			public boolean hasNext()
+			{
+				return current != null;
+			}
+
+			@Override
+			public E next()
+			{
+				if(!hasNext())
+				{
+					throw new NoSuchElementException("This iterator has reached the end of this LinkedList");
+				}
+				lastReturned = current;
+				current = current.next;
+				currentIndex++;
+				return lastReturned.data;
+			}
+
+			@Override
+			public int nextIndex()
+			{
+				return currentIndex;
+			}
+
+			@Override
+			public boolean hasPrevious()
+			{
+				return current.previous != null;
+			}
+
+			@Override
+			public E previous()
+			{
+				if(!hasPrevious())
+				{
+					throw new NoSuchElementException("This iterator has reached the beginning of this LinkedList");
+				}
+				current = current.previous;
+				currentIndex--;
+				lastReturned = current;
+				return lastReturned.data;
+			}
+
+			@Override
+			public int previousIndex()
+			{
+				return currentIndex - 1;
+			}
+
+			@Override
+			public void remove()
+			{
+				if(lastReturned == null)
+				{
+					throw new IllegalStateException("You MUST call next() or previous() before calling remove()");
+				}
+				else if(lastReturned.previous == null && lastReturned.next == null)
+				{
+					head = null;
+					tail = null;
+				}
+				else if(lastReturned.previous == null)
+				{
+					head = head.next;
+					lastReturned.next = null;
+					head.previous = null;
+				}
+				else if(lastReturned.next == null)
+				{
+					tail = tail.previous;
+					lastReturned.previous = null;
+					tail.next = null;
+				}
+				else
+				{
+					lastReturned.previous.next = lastReturned.next;
+					lastReturned.next.previous = lastReturned.previous;
+					lastReturned.previous = null;
+					lastReturned.next = null;
+				}
+				size--;
+				lastReturned = null;
+			}
+
+			@Override
+			public void add(E e)
+			{
+				if(e == null)
+				{
+					throw new NullPointerException("You MUST provide a value to add into this LinkedList");
+				}
+				Node<E> newNode = new Node<>(e);
+				if(current.previous == null)
+				{
+					head.previous = newNode;
+					newNode.next = head;
+					head = head.previous;
+					current = head;
+				}
+				else
+				{
+					newNode.next = current;
+					newNode.previous = current.previous;
+					current.previous.next = newNode;
+					current.previous = newNode;
+					size++;
+				}
+			}
+
+			@Override
+			public void set(E e)
+			{
+				if(e == null)
+				{
+					throw new NullPointerException("You MUST provide a value to set into this LinkedList");
+				}
+				if(lastReturned == null)
+				{
+					throw new IllegalStateException("You MUST call previous() or next() before calling set()");
+				}
+				lastReturned.data = e;
+			}
+		};
 	}
 
 	/**
