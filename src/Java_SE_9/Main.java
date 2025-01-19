@@ -2,7 +2,7 @@ package src.Java_SE_9;
 
 /**
  * @author arvindhvelrajan
- * @code This is the Main function to test any classes that are in Java SE 8
+ * @code This is the Main function to test any classes that are in Java SE 9
  */
 public class Main
 {
