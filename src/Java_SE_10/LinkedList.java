@@ -1046,7 +1046,11 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public E peek()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(head == null)
+		{
+			return null;
+		}
+		return head.data;
 	}
 
 	/**
@@ -1056,7 +1060,11 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public E peekFirst()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(head == null)
+		{
+			return null;
+		}
+		return head.data;
 	}
 
 	/**
@@ -1066,7 +1074,11 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public E peekLast()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(tail == null)
+		{
+			return null;
+		}
+		return tail.data;
 	}
 
 	/**
