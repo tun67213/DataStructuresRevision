@@ -20,7 +20,9 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@SuppressWarnings("unchecked")
 	public ArrayList()
 	{
-
+		this.size = 0;
+		this.capacity = 10;
+		this.array = (E[]) new Object[this.capacity];
 	}
 
 	/**
@@ -31,7 +33,13 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@SuppressWarnings("unchecked")
 	public ArrayList(int initialCapacity)
 	{
-
+		if(initialCapacity <= 0)
+		{
+			throw new IllegalArgumentException("You MUST provide a non-null non-zero capacity to initialize this ArrayList with");
+		}
+		this.size = 0;
+		this.capacity = initialCapacity;
+		this.array = (E[]) new Object[this.capacity];
 	}
 
 	/**
@@ -42,7 +50,19 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@SuppressWarnings("unchecked")
 	public ArrayList(Collection<? extends E> c)
 	{
-
+		if(c == null || c.contains(null))
+		{
+			throw new NullPointerException("You MUST provide a non-null collection of non-null values to initialize this LinkedList with");
+		}
+		Iterator<? extends E> iterator = c.iterator();
+		this.size = 0;
+		this.capacity = c.size() + c.size() / 2;
+		this.array = (E[]) new Object[this.capacity];
+		while(iterator.hasNext())
+		{
+			this.array[this.size] = iterator.next();
+			this.size++;
+		}
 	}
 
 	/**
