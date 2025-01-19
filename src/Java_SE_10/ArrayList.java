@@ -1023,6 +1023,10 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	public String toString()
 	{
 		StringBuilder buff = new StringBuilder();
+		if(this.size == 0)
+		{
+			return "[]";
+		}
 		E element = this.array[0];
 		boolean isString = element instanceof String;
 		boolean isCharacter = element instanceof Character;

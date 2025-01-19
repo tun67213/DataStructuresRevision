@@ -1663,6 +1663,10 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	public String toString()
 	{
 		StringBuilder buff = new StringBuilder();
+		if(this.size == 0)
+		{
+			return buff.toString();
+		}
 		E value = head.data;
 		boolean isString = value instanceof String;
 		boolean isCharacter = value instanceof Character;
