@@ -1,7 +1,9 @@
 package src.Java_SE_11;
 
 /**
- * @author arvindhvelrajan 
+ * @author arvindhvelrajan
  */
-public class AbstractCollection {
+public class AbstractCollection
+{
+
 }
