@@ -9,6 +9,19 @@ import java.util.Spliterator;
  */
 public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>, Deque<E>, Cloneable, Serializable
 {
+	private static class Node<E>
+	{
+		private Node<E> previous;
+		private E data;
+		private Node<E> next;
+
+		public Node(E value)
+		{
+			this.previous = null;
+			this.data = value;
+			this.next = null;
+		}
+	}
 	/**
 	 * @code Constructs an empty list.
 	 */
