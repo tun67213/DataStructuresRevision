@@ -4,7 +4,7 @@ package src.Java_SE_11;
  * @author arvindhvelrajan
  * @param <E> Generic variable for this class
  */
-public interface Collection<E>
+public interface Collection<E> extends Iterable<E>
 {
 
 }
