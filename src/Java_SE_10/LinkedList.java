@@ -547,7 +547,20 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public int indexOf(Object o)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(o == null)
+		{
+			return -1;
+		}
+		int index = 0;
+		for(Node<E> current = head; !(current.data.equals(o)); current = current.next)
+		{
+			index++;
+		}
+		if(index == this.size)
+		{
+			return -1;
+		}
+		return index;
 	}
 
 	/**
