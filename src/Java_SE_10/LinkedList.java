@@ -1527,7 +1527,59 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	 */
 	public Spliterator<E> spliterator()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		return new Spliterator<E>()
+		{
+			private Node<E> current = head;
+			private final int expectedModCount = modCount;
+
+			@Override
+			public boolean tryAdvance(Consumer<? super E> action)
+			{
+				if(current == null)
+				{
+					return false;
+				}
+				action.accept(current.data);
+				current = current.next;
+				return true;
+			}
+
+			@Override
+			public Spliterator<E> trySplit()
+			{
+				return null;
+			}
+
+			@Override
+			public long estimateSize()
+			{
+				return size;
+			}
+
+			@Override
+			public int characteristics()
+			{
+				return Spliterator.ORDERED | Spliterator.SIZED | Spliterator.NONNULL | Spliterator.IMMUTABLE;
+			}
+
+			@Override
+			public void forEachRemaining(Consumer<? super E> action)
+			{
+				while(current != null)
+				{
+					action.accept(current.data);
+					current = current.next;
+				}
+			}
+
+			private void checkForConcurrentModification()
+			{
+				if(modCount != expectedModCount)
+				{
+					throw new ConcurrentModificationException();
+				}
+			}
+		};
 	}
 
 	/**
