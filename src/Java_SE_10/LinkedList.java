@@ -1586,6 +1586,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	/**
 	 * @return an array over the elements in this list in proper sequence (from first to last element)
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public Object[] toArray()
 	{
@@ -1598,6 +1599,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	 * @return an array containing all of the elements in this list in proper sequence (from first to last element)
 	 * @code Returns an array containing all of the elements in this list in proper sequence (from first to last element); the runtime type of the returned array is that of the specified array.
 	 */
+	@SuppressWarnings("unchecked")
 	public <T> T[] toArray(T[] a)
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
