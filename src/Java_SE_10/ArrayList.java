@@ -17,6 +17,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	/**
 	 * @code Constructs an empty list with an initial capacity of ten.
 	 */
+	@SuppressWarnings("unchecked")
 	public ArrayList()
 	{
 
@@ -27,6 +28,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	 * @throws IllegalArgumentException if the provided capacity is less than or equal to 0
 	 * @code Constructs an empty list with the specified initial capacity.
 	 */
+	@SuppressWarnings("unchecked")
 	public ArrayList(int initialCapacity)
 	{
 
@@ -37,6 +39,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	 * @throws NullPointerException if no Collection is provided or the provided Collection contains null values
 	 * @code Constructs a list containing the elements of the specified collection, in the order they are returned by the collection's iterator.
 	 */
+	@SuppressWarnings("unchecked")
 	public ArrayList(Collection<? extends E> c)
 	{
 
@@ -45,6 +48,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	/**
 	 * @code Ensures that the array representing this ArrayList has enough space. If not, a new array with more space is allocated, and values from this array are copied into it.
 	 */
+	@SuppressWarnings("unchecked")
 	private void ensureCapacity()
 	{
 
@@ -83,6 +87,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	 * @return true if all the values have been successfully added, false if the provided Collection is empty
 	 * @code Inserts all of the elements in the specified collection into this list, starting at the specified position.
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public boolean addAll(int index, Collection<? extends E> c)
 	{
@@ -104,6 +109,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	/**
 	 * @code Removes all of the elements from this list.
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void clear()
 	{
@@ -340,6 +346,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	/**
 	 * @return an array containing all of the elements in this list in proper sequence (from first to last element)
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public Object[] toArray()
 	{
@@ -352,6 +359,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	 * @return the provided array with values from this ArrayList accommodated into it
 	 * @code Returns an array containing all of the elements in this list in proper sequence (from first to last element); the runtime type of the returned array is that of the specified array.
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public <T> T[] toArray(T[] a)
 	{
