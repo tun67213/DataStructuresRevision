@@ -2,6 +2,7 @@ package src.Java_SE_10;
 
 import java.util.NoSuchElementException;
 import java.util.Spliterator;
+import java.util.function.Consumer;
 
 /**
  * @author arvindhvelrajan
@@ -578,7 +579,73 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public Iterator<E> iterator()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		return new Iterator<>()
+		{
+			private Node<E> current = head;
+			private Node<E> lastReturned = null;
+
+			@Override
+			public boolean hasNext()
+			{
+				return current != null;
+			}
+
+			@Override
+			public E next()
+			{
+				if(!hasNext())
+				{
+					throw new NoSuchElementException("This iterator has reached the end of this LinkedList");
+				}
+				lastReturned = current;
+				current = current.next;
+				return lastReturned.data;
+			}
+
+			@Override
+			public void remove()
+			{
+				if(lastReturned == null)
+				{
+					throw new IllegalStateException("You MUST call next() before calling remove()");
+				}
+				else if(lastReturned.previous == null && lastReturned.next == null)
+				{
+					head = null;
+					tail = null;
+				}
+				else if(lastReturned.previous == null)
+				{
+					head = head.next;
+					lastReturned.next = null;
+					head.previous = null;
+				}
+				else if(lastReturned.next == null)
+				{
+					tail = tail.previous;
+					lastReturned.previous = null;
+					tail.next = null;
+				}
+				else
+				{
+					lastReturned.previous.next = lastReturned.next;
+					lastReturned.next.previous = lastReturned.previous;
+					lastReturned.previous = null;
+					lastReturned.next = null;
+				}
+				size--;
+				lastReturned = null;
+			}
+
+			@Override
+			public void forEachRemaining(Consumer<? super E> action)
+			{
+				for(Node<E> currentNode = current; currentNode != null; currentNode = currentNode.next)
+				{
+					action.accept(currentNode.data);
+				}
+			}
+		};
 	}
 
 	/**
