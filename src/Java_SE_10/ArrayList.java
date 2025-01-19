@@ -1,5 +1,6 @@
 package src.Java_SE_10;
 
+import java.util.NoSuchElementException;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
@@ -361,7 +362,54 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public Iterator<E> iterator()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		return new Iterator<>()
+		{
+			private int currentIndex = 0;
+			private int lastReturnedIndex = -1;
+
+			@Override
+			public void forEachRemaining(Consumer<? super E> action)
+			{
+				for(int i = currentIndex; i < size; i++)
+				{
+					action.accept(array[i]);
+				}
+			}
+
+			@Override
+			public boolean hasNext()
+			{
+				return currentIndex < size;
+			}
+
+			@Override
+			public E next()
+			{
+				if(!hasNext())
+				{
+					throw new NoSuchElementException("This iterator has reached the end of this ArrayList");
+				}
+				lastReturnedIndex = currentIndex;
+				this.currentIndex++;
+				return array[lastReturnedIndex];
+			}
+
+			@Override
+			public void remove()
+			{
+				if(lastReturnedIndex == -1)
+				{
+					throw new IllegalStateException("You MUST call next() before calling remove()");
+				}
+				for(int i = lastReturnedIndex; i < size - 1; i++)
+				{
+					array[i] = array[i + 1];
+				}
+				array[size - 1] = null;
+				size--;
+				lastReturnedIndex = -1;
+			}
+		};
 	}
 
 	/**
