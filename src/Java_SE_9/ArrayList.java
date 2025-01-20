@@ -468,16 +468,6 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 		return new ListIterator<E>()
 		{
 			/**
-			 * @param e the value to be inserted into the list represented by this ListIterator
-			 * @throws NullPointerException if no value is provided
-			 * @code Inserts the specified element into the list.
-			 */
-			public void add(E e)
-			{
-
-			}
-
-			/**
 			 * @return true if this list iterator has more elements when traversing in the forward direction
 			 */
 			@Override
@@ -545,6 +535,16 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 			 */
 			@Override
 			public void set(E e)
+			{
+
+			}
+
+			/**
+			 * @param e the value to be inserted into the list represented by this ListIterator
+			 * @throws NullPointerException if no value is provided
+			 * @code Inserts the specified element into the list.
+			 */
+			public void add(E e)
 			{
 
 			}
