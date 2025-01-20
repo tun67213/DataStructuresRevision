@@ -691,6 +691,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 				{
 					throw new NullPointerException("You MUST provide a non-null element to add");
 				}
+				ensureCapacity();
 				for(int i = size; i > currentIndex; i--)
 				{
 					array[i] = array[i - 1];
@@ -704,9 +705,9 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 			@Override
 			public void forEachRemaining(Consumer<? super E> action)
 			{
-				while(hasNext())
+				for(int i = currentIndex; i < size; i++)
 				{
-					action.accept(next());
+					action.accept(array[i]);
 				}
 			}
 		};
