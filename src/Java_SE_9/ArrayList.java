@@ -373,7 +373,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public Iterator<E> iterator()
 	{
-		return new Iterator<>()
+		return new Iterator<E>()
 		{
 			private int currentIndex = 0;
 			private E lastReturned = null;
@@ -465,119 +465,88 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public ListIterator<E> listIterator()
 	{
-		return new ListIterator<>()
+		return new ListIterator<E>()
 		{
-			private int currentIndex = 0;
-			private E lastReturned = null;
-			private int lastReturnedIndex = -1;
+			/**
+			 * @param e the value to be inserted into the list represented by this ListIterator
+			 * @throws NullPointerException if no value is provided
+			 * @code Inserts the specified element into the list.
+			 */
+			public void add(E e)
+			{
 
+			}
+
+			/**
+			 * @return true if this list iterator has more elements when traversing in the forward direction
+			 */
 			@Override
 			public boolean hasNext()
 			{
-				return currentIndex < size;
+
 			}
 
+			/**
+			 * @return true if this list iterator has more elements when traversing in the backward direction
+			 */
+			public boolean hasPrevious()
+			{
+
+			}
+
+			/**
+			 * @return the next element in the list
+			 * @code Returns the next element in the list and advances the cursor position.
+			 */
 			@Override
 			public E next()
 			{
-				if(!hasNext())
-				{
-					throw new NoSuchElementException("The iterator has reached the end of this ArrayList");
-				}
-				lastReturnedIndex = currentIndex;
-				lastReturned = array[lastReturnedIndex];
-				currentIndex++;
-				return lastReturned;
+
 			}
 
-			@Override
+			/**
+			 * @return the index of the element that would be returned by a subsequent call to next()
+			 */
 			public int nextIndex()
 			{
-				return currentIndex;
+
 			}
 
-			@Override
-			public boolean hasPrevious()
-			{
-				return currentIndex > 0;
-			}
-
-			@Override
+			/**
+			 * @return the previous element in this list
+			 * @code Returns the previous element in the list and moves the cursor position backwards.
+			 */
 			public E previous()
 			{
-				if(!hasPrevious())
-				{
-					throw new NoSuchElementException("The iterator has reached the beginning of this ArrayList");
-				}
-				currentIndex--;
-				lastReturnedIndex = currentIndex;
-				lastReturned = array[lastReturnedIndex];
-				return lastReturned;
+
 			}
 
-			@Override
+			/**
+			 * @return the index of the element that would be returned by a subsequent call to previous()
+			 */
 			public int previousIndex()
 			{
-				return currentIndex - 1;
+
 			}
 
+			/**
+			 * @code Removes from the list the last element that was returned by next() or previous().
+			 */
 			@Override
 			public void remove()
 			{
-				if(lastReturned == null)
-				{
-					throw new IllegalStateException("next() or previous() MUST be called before calling remove()");
-				}
-				if(lastReturnedIndex < size - 1)
-				{
-					for(int i = lastReturnedIndex; i < size - 1; i++)
-					{
-						array[i] = array[i + 1];
-					}
-				}
-				array[--size] = null;
-				currentIndex = lastReturnedIndex;
-				lastReturned = null;
+
 			}
 
+			/**
+			 * @param e the value to set to the value to be returned by a subsequent call to previous() or next()
+			 * @throws NullPointerException if no value is provided
+			 * @code Replaces the last element returned by next() or previous() with the specified element.
+			 */
 			@Override
 			public void set(E e)
 			{
-				if(lastReturned == null)
-				{
-					throw new IllegalStateException("next() or previous() MUST be called before calling set()");
-				}
-				if(e == null)
-				{
-					throw new NullPointerException("You MUST provide a non-null element to set");
-				}
-				array[lastReturnedIndex] = e;
-			}
 
-			@Override
-			public void add(E e)
-			{
-				if(e == null)
-				{
-					throw new NullPointerException("You MUST provide a non-null element to add");
-				}
-				for(int i = size; i > currentIndex; i--)
-				{
-					array[i] = array[i - 1];
-				}
-				array[currentIndex] = e;
-				size++;
-				currentIndex++;
-				lastReturned = null;
-			}
-
-			@Override
-			public void forEachRemaining(Consumer<? super E> action)
-			{
-				while(hasNext())
-				{
-					action.accept(next());
-				}
 			}
 		};
 	}
