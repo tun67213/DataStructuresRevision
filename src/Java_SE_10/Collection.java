@@ -121,7 +121,7 @@ public interface Collection<E> extends Iterable<E>
 	@Override
 	default Spliterator<E> spliterator()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		throw new UnsupportedOperationException("Not supported.");
 	}
 
 	/**
@@ -129,7 +129,7 @@ public interface Collection<E> extends Iterable<E>
 	 */
 	default Stream<E> stream()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		throw new UnsupportedOperationException("Not supported.");
 	}
 
 	/**
