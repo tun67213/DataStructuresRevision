@@ -362,7 +362,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public Iterator<E> iterator()
 	{
-		return new Iterator<>()
+		return new Iterator<E>()
 		{
 			private int currentIndex = 0;
 			private int lastReturnedIndex = -1;
