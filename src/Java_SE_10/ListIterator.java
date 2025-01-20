@@ -28,6 +28,7 @@ public interface ListIterator<E> extends Iterator<E>
 	 * @return the next element in this list
 	 * @code Returns the next element in the list and advances the cursor position.
 	 */
+	@Override
 	E next();
 
 	/**
