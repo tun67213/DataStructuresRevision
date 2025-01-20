@@ -561,6 +561,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 				{
 					throw new NullPointerException("You MUST provide a non-null element to add");
 				}
+				ensureCapacity();
 				for(int i = size; i > currentIndex; i--)
 				{
 					array[i] = array[i - 1];
