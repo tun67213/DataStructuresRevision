@@ -418,7 +418,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public Iterator<E> descendingIterator()
 	{
-		return new Iterator<>()
+		return new Iterator<E>()
 		{
 			private Node<E> current = tail;
 			private Node<E> lastReturned = null;
@@ -581,7 +581,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public Iterator<E> iterator()
 	{
-		return new Iterator<>()
+		return new Iterator<E>()
 		{
 			private Node<E> current = head;
 			private Node<E> lastReturned = null;
@@ -678,7 +678,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public ListIterator<E> listIterator()
 	{
-		return new ListIterator<>()
+		return new ListIterator<E>()
 		{
 			private int currentIndex = 0;
 			private Node<E> current = head;
@@ -822,7 +822,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 		{
 			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
 		}
-		return new ListIterator<>()
+		return new ListIterator<E>()
 		{
 			private int currentIndex = index;
 			private Node<E> current = head;
