@@ -574,9 +574,9 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 			@Override
 			public void forEachRemaining(Consumer<? super E> action)
 			{
-				while(hasNext())
+				for(int i = currentIndex; i < size; i++)
 				{
-					action.accept(next());
+					action.accept(array[i]);
 				}
 			}
 		};
