@@ -563,7 +563,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 		{
 			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
 		}
-		return new ListIterator<>()
+		return new ListIterator<E>()
 		{
 			private int currentIndex = index;
 			private E lastReturned = null;
