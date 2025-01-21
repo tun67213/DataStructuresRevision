@@ -739,7 +739,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public ListIterator<E> listIterator()
 	{
-		return new ListIterator<>()
+		return new ListIterator<E>()
 		{
 			private Node<E> current = head;
 			private int currentIndex = 0;
@@ -878,7 +878,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public ListIterator<E> listIterator(int index)
 	{
-		return new ListIterator<>()
+		return new ListIterator<E>()
 		{
 			private Node<E> current = head;
 			private int currentIndex = index;
