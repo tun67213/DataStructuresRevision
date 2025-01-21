@@ -429,7 +429,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
     @Override
     public Iterator<E> descendingIterator()
     {
-        return new Iterator<>()
+        return new Iterator<E>()
         {
             private Node<E> current;
             private Node<E> lastReturned = null;
