@@ -1,4 +1,6 @@
 package src.Java_SE_6;
 
-public class ArrayList {
+public class ArrayList
+{
+
 }
