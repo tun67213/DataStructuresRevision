@@ -1588,7 +1588,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public Spliterator<E> spliterator()
 	{
-		return new Spliterator<>()
+		return new Spliterator<E>()
 		{
 			private Node<E> current = head;
 			private int expectedModCount = modCount; // Use a modCount variable to track modifications
