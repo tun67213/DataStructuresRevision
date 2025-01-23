@@ -103,6 +103,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	/**
 	 * @code Removes all of the elements from this list.
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void clear()
 	{
@@ -300,6 +301,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	/**
 	 * @return an array containing all of the elements in this list in proper sequence (from first to last element)
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public Object[] toArray()
 	{
@@ -312,6 +314,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	 * @return the provided array with values from this array allocated into it
 	 * @code Returns an array containing all of the elements in this list in proper sequence (from first to last element); the runtime type of the returned array is that of the specified array.
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public <T> T[] toArray(T[] a)
 	{
