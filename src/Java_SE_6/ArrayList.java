@@ -234,6 +234,18 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	}
 
 	/**
+	 * @param c Collection of values to keep if found in this ArrayList
+	 * @throws NullPointerException if no Collection is provided
+	 * @return true if this LinkedList has been modified, false otherwise
+	 * @code Removes any elements not contained in the provided Collection. Empties the ArrayList if the provided Collection is empty.
+	 */
+	@Override
+	public boolean retainAll(Collection<?> c)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	/**
 	 * @param index the location at which to replace a value
 	 * @param element the replacement value for the specified element
 	 * @throws NullPointerException if no value is provided or the provided value is 'null'
