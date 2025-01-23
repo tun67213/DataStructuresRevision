@@ -116,6 +116,15 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	}
 
 	/**
+	 * @return the hash code value for this ArrayList
+	 */
+	@Override
+	public int hashCode()
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	/**
 	 * @param o the Object to find the existence of in this LinkedList
 	 * @return false if the provided Object is null or not found, true if not null and found
 	 * @code Returns true if this list contains the specified element.

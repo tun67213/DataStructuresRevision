@@ -9,10 +9,11 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	private int size;
 	private int capacity;
 	private E[] array;
-	
+
 	/**
 	 * @code Constructs an empty list with an initial capacity of 10.
 	 */
+	@SuppressWarnings("unchecked")
 	public ArrayList()
 	{
 
@@ -23,6 +24,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	 * @throws NullPointerException if no Collection is provided or the provided Collection contains null values
 	 * @code Constructs a list containing the elements of the specified collection, in the order they are returned by the collection's iterator.
 	 */
+	@SuppressWarnings("unchecked")
 	public ArrayList(Collection<? extends E> c)
 	{
 
@@ -33,6 +35,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	 * @throws IllegalArgumentException if the provided capacity is less than or equal to 0
 	 * @code Constructs an empty list with the specified initial capacity.
 	 */
+	@SuppressWarnings("unchecked")
 	public ArrayList(int initialCapacity)
 	{
 
@@ -41,6 +44,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	/**
 	 * @code This method ensures that the array representing this ArrayList has enough space, and if necessary, allocates more storage for this ArrayList.
 	 */
+	@SuppressWarnings("unchecked")
 	private void ensureCapacity()
 	{
 
@@ -110,6 +114,15 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	 */
 	@Override
 	public Object clone()
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	/**
+	 * @return the hash code value for this ArrayList
+	 */
+	@Override
+	public int hashCode()
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
