@@ -307,7 +307,28 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public boolean equals(Object o)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(o == null || !(o instanceof ArrayList))
+		{
+			return false;
+		}
+		if(o == this)
+		{
+			return true;
+		}
+		ArrayList<?> other = (ArrayList<?>) o;
+		if(this.size != other.size())
+		{
+			return false;
+		}
+		for(int i = 0; i < this.size; i++)
+		{
+			Object value = other.get(i);
+			if(value == null || (!this.array[i].equals(value)))
+			{
+				return false;
+			}
+		}
+		return true;
 	}
 
 	/**
