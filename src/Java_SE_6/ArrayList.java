@@ -157,6 +157,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	 * @return true if this ArrayList has been modified, false otherwise (i.e. the provided Collection is empty)
 	 * @code Inserts all of the elements in the specified collection into this list, starting at the specified position.
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public boolean addAll(int index, Collection<? extends E> c)
 	{
