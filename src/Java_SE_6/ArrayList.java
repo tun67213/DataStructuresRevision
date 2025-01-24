@@ -1,5 +1,7 @@
 package src.Java_SE_6;
 
+import java.util.NoSuchElementException;
+
 /**
  * @author arvindhvelrajan
  * @param <E> Generic variable for this class
@@ -352,7 +354,45 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public Iterator<E> iterator()
 	{
-		throw new UnsupportedOperationException("Not supported.");
+		return new Iterator<E>()
+		{
+			private int currentIndex = 0;
+			private int lastCalled = -1;
+
+			@Override
+			public boolean hasNext()
+			{
+				return this.currentIndex < size;
+			}
+
+			@Override
+			public E next()
+			{
+				if(!hasNext())
+				{
+					throw new NoSuchElementException("This iterator has reached the end of this list");
+				}
+				this.lastCalled = this.currentIndex;
+				this.currentIndex++;
+				return array[this.lastCalled];
+			}
+
+			@Override
+			public void remove()
+			{
+				if(lastCalled == -1)
+				{
+					throw new NoSuchElementException("You MUST call next() before calling remove");
+				}
+				for(int i = lastCalled; i < size - 1; i++)
+				{
+					array[i] = array[i + 1];
+				}
+				array[size - 1] = null;
+				size--;
+				lastCalled = -1;
+			}
+		};
 	}
 
 	/**
