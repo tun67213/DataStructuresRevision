@@ -347,6 +347,35 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	}
 
 	/**
+	 * @return an iterator over the elements in this list (in proper sequence)
+	 */
+	@Override
+	public Iterator<E> iterator()
+	{
+		throw new UnsupportedOperationException("Not supported.");
+	}
+
+	/**
+	 * @return a list iterator over the elements in this list (in proper sequence)
+	 */
+	@Override
+	public ListIterator<E> listIterator()
+	{
+		throw new UnsupportedOperationException("Not supported.");
+	}
+
+	/**
+	 * @param index the location at which to create this List Iterator from
+	 * @throws IndexOutOfBoundsException if the provided index is out of bounds
+	 * @return a list iterator over the elements in this list (in proper sequence), starting at the specified index
+	 */
+	@Override
+	public ListIterator<E> listIterator(int index)
+	{
+		throw new UnsupportedOperationException("Not supported.");
+	}
+
+	/**
 	 * @param o the Object to find the location of the first occurrence of
 	 * @return -1 if the provided value is null or not found, or the location of the first occurrence of the provided Object
 	 * @code Returns the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element.
