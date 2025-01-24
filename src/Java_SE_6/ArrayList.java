@@ -430,7 +430,26 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public boolean remove(Object o)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(o == null)
+		{
+			return false;
+		}
+		int index = 0;
+		while(index < this.size && !(this.array[index].equals(o)))
+		{
+			index++;
+		}
+		if(index >= this.size)
+		{
+			return false;
+		}
+		for(int i = index; i < this.size - 1; i++)
+		{
+			this.array[i] = this.array[i + 1];
+		}
+		this.array[this.size - 1] = null;
+		this.size--;
+		return true;
 	}
 
 	/**
