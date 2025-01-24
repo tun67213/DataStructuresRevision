@@ -461,7 +461,35 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public boolean removeAll(Collection<?> c)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(c == null)
+		{
+			throw new NullPointerException("You MUST provide a non-null Collection of values to remove if found in this ArrayList");
+		}
+		if(c.isEmpty())
+		{
+			return false;
+		}
+		boolean modified = false;
+		int i = 0;
+		while(i < this.size)
+		{
+			E value = this.array[i];
+			if(c.contains(value))
+			{
+				for(int j = i; j < this.size - 1; j++)
+				{
+					this.array[j] = this.array[j + 1];
+				}
+				this.array[this.size - 1] = null;
+				modified = true;
+				this.size--;
+			}
+			else
+			{
+				i++;
+			}
+		}
+		return modified;
 	}
 
 	/**
