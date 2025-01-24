@@ -396,7 +396,64 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public Iterator<E> descendingIterator()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		return new Iterator<E>()
+		{
+			private Node<E> current = tail;
+			private Node<E> lastCalled = null;
+
+			@Override
+			public boolean hasNext()
+			{
+				return current != null;
+			}
+
+			@Override
+			public E next()
+			{
+				if(!hasNext())
+				{
+					throw new NoSuchElementException();
+				}
+				lastCalled = current;
+				current = current.previous;
+				return lastCalled.data;
+			}
+
+			@Override
+			public void remove()
+			{
+				if(lastCalled == null)
+				{
+					throw new NoSuchElementException("You MUST call next() before calling remove() again");
+				}
+				else if(lastCalled.previous == null && lastCalled.next == null)
+				{
+					head = null;
+					tail = null;
+				}
+				else if(lastCalled.previous == null)
+				{
+					head = head.next;
+					lastCalled.next = null;
+					head.previous = null;
+				}
+				else if(lastCalled.next == null)
+				{
+					tail = tail.previous;
+					lastCalled.previous = null;
+					tail.next = null;
+				}
+				else
+				{
+					lastCalled.previous.next = lastCalled.next;
+					lastCalled.next.previous = lastCalled.previous;
+					lastCalled.previous = null;
+					lastCalled.next = null;
+				}
+				size--;
+				lastCalled = null;
+			}
+		};
 	}
 
 	/**
