@@ -502,7 +502,24 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	protected void removeRange(int fromIndex, int toIndex)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(fromIndex < 0 || toIndex > this.size)
+		{
+			throw new IndexOutOfBoundsException("fromIndex " + fromIndex + " and/or toIndex " + toIndex + "is/are out of bounds");
+		}
+		if(fromIndex > toIndex)
+		{
+			throw new IllegalArgumentException("fromIndex " + fromIndex + " cannot be greater than toIndex " + toIndex);
+		}
+		int numberOfShifts = toIndex - fromIndex;
+		for(int i = toIndex; i < this.size; i++)
+		{
+			this.array[i - numberOfShifts] = this.array[i];
+		}
+		for(int i = this.size - numberOfShifts; i < this.size; i++)
+		{
+			this.array[i] = null;
+		}
+		this.size -= numberOfShifts;
 	}
 
 	/**
