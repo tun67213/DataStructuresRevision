@@ -179,6 +179,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	 * @return true if this Collection has been modified, false otherwise
 	 * @code Inserts all of the elements in the specified collection into this list, starting at the specified position.
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public boolean addAll(int index, Collection<? extends E> c)
 	{
