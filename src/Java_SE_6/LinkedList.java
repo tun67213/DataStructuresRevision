@@ -78,7 +78,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	/**
 	 * @param e the value to be added ot the end of this LinkedList
 	 * @throws NullPointerException if no value is provided or the provided value is 'null'
-	 * @return true if the value has successfully been added ot the end of this ArrayList
+	 * @return true if the value has successfully been added to the end of this ArrayList
 	 */
 	@Override
 	public boolean add(E e)
