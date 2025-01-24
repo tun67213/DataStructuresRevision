@@ -330,7 +330,12 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public int hashCode()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		int hashCode = 1;
+		for(Node<E> current = head; current != null; current = current.next)
+		{
+			hashCode = 31 * hashCode + current.data.hashCode();
+		}
+		return hashCode;
 	}
 
 	/**
