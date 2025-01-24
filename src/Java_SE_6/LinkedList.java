@@ -83,7 +83,24 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public boolean add(E e)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(e == null)
+		{
+			throw new NullPointerException("You MUST provide a non-null value to add to this LinkedList");
+		}
+		Node<E> newNode = new Node<>(e);
+		if(tail == null)
+		{
+			head = newNode;
+			tail = newNode;
+		}
+		else
+		{
+			tail.next = newNode;
+			newNode.previous = tail;
+			tail = tail.next;
+		}
+		this.size++;
+		return true;
 	}
 
 	/**
@@ -96,7 +113,25 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public void add(int index, E element)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(element == null)
+		{
+			throw new NullPointerException("You MUST provide a value to add to this LinkedList");
+		}
+		if(index < 0 || index > this.size)
+		{
+			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+		}
+		Node<E> newNode = new Node<>(element);
+		Node<E> current = head;
+		for(int i = 0; i < index - 1; i++)
+		{
+			current = current.next;
+		}
+		newNode.next = current.next;
+		newNode.previous = current;
+		current.next.previous = newNode;
+		current.next = newNode;
+		this.size++;
 	}
 
 	/**
