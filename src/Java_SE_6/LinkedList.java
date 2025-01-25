@@ -1075,7 +1075,18 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public E poll()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(head == null)
+		{
+			return null;
+		}
+		Node<E> removingNode = head;
+		head = head.next;
+		if(head == null)
+		{
+			tail = null;
+		}
+		this.size--;
+		return removingNode.data;
 	}
 
 	/**
@@ -1084,7 +1095,18 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public E pollFirst()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(head == null)
+		{
+			return null;
+		}
+		Node<E> removingNode = head;
+		head = head.next;
+		if(head == null)
+		{
+			tail = null;
+		}
+		this.size--;
+		return removingNode.data;
 	}
 
 	/**
@@ -1093,7 +1115,18 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public E pollLast()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(tail == null)
+		{
+			return null;
+		}
+		Node<E> removingNode = tail;
+		tail = tail.previous;
+		if(tail == null)
+		{
+			head = null;
+		}
+		this.size--;
+		return removingNode.data;
 	}
 
 	/**
