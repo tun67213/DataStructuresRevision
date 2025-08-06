@@ -1,9 +1,4 @@
 *.xml
-<<<<<<< Updated upstream
-.DS_Store
-src/.DS_Store
-*.iml
-=======
 *.iml
 .DS_Store
 src/.DS_Store
