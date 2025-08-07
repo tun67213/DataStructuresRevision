@@ -5,7 +5,7 @@ package Java_SE_5;
  * @param <E> Generic variable for this interface
  * @code This interface implements List for Java SE 5.
  */
-public interface List<E>
+public interface List<E> extends Collection<E>
 {
 	
 }
