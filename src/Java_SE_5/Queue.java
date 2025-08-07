@@ -5,7 +5,7 @@ package Java_SE_5;
  * @param <E> Generic variable for this interface
  * @code This interface implements Queue for Java SE 5.
  */
-public interface Queue<E>
+public interface Queue<E> extends Collection<E>
 {
 	
 }
