@@ -6,7 +6,7 @@ package Java_SE_5;
  * @code This interface implements AbstractList for Java SE 5.
  * @implNote None of the methods here will be implemented. Implement at own will.
  */
-public abstract class AbstractList<E>
+public abstract class AbstractList<E> extends AbstractCollection<E> implements List<E>
 {
 
 }
