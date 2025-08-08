@@ -153,7 +153,7 @@ public interface List<E> extends Collection<E>
 	boolean removeAll(Collection<?> c);
 
 	/**
-	 * @param c Collection of values to retain in contained in this list
+	 * @param c Collection of values to retain if contained in this list
 	 * @throws NullPointerException if no collection variable is provided or the provided variable is defined as null
 	 * @return true if this list has been structurally modified, false otherwise
 	 * @code Retains only the elements in this list that are contained in the specified collection (optional operation).
