@@ -885,7 +885,24 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public List<E> subList(int fromIndex, int toIndex)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(fromIndex < 0 || toIndex > this.size)
+		{
+			throw new IndexOutOfBoundsException("fromIndex (" + fromIndex + ") and/or toIndex (" + toIndex + ") is/are out of bounds");
+		}
+		if(fromIndex > toIndex)
+		{
+			throw new IllegalArgumentException("fromIndex (" + fromIndex + ") > toIndex (" + toIndex + ")");
+		}
+		ArrayList<E> list = new ArrayList<>();
+		if(fromIndex == toIndex)
+		{
+			return list;
+		}
+		for(int i = fromIndex; i < toIndex; i++)
+		{
+			list.add(this.array[i]);
+		}
+		return list;
 	}
 
 	/**
