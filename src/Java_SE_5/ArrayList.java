@@ -634,7 +634,6 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 
 	/**
 	 * @code Trims the capacity of this ArrayList instance to be the list's current size.
-	 * @throws UnsupportedOperationException if this ArrayList's capacity is less than or equal to 1
 	 */
 	@SuppressWarnings("unchecked")
 	public void trimToSize()
