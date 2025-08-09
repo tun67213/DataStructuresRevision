@@ -168,6 +168,15 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	}
 
 	/**
+	 * @return an iterator over the elements in this LinkedLIst
+	 */
+	@Override
+	public Iterator<E> iterator()
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	/**
 	 * @return true if this ArrayList instance is empty, false otherwise
 	 */
 	@Override
