@@ -396,7 +396,16 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public int lastIndexOf(Object elem)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(elem == null)
+		{
+			return -1;
+		}
+		int currentIndex = this.size - 1;
+		while(currentIndex >= 0 && !(this.array[currentIndex].equals(elem)))
+		{
+			currentIndex--;
+		}
+		return currentIndex;
 	}
 
 	/**
