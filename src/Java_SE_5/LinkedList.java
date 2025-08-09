@@ -1290,6 +1290,72 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	}
 
 	/**
+	 * @param fromIndex the location (inclusive of which) to start removing a value from
+	 * @param toIndex the location (exclusive of which) to remove values until
+	 * @throws IndexOutOfBoundsException if either index is out of bounds
+	 * @throws IllegalArgumentException if fromIndex is greater than toIndex
+	 * @code Removes from this List all of the elements whose index is between fromIndex, inclusive and toIndex, exclusive.
+	 */
+	@Override
+	protected void removeRange(int fromIndex, int toIndex)
+	{
+		if(fromIndex < 0 || toIndex > this.size)
+		{
+			throw new IndexOutOfBoundsException("The provided fromIndex and/or toIndex is out of bounds");
+		}
+		if(fromIndex > toIndex)
+		{
+			throw new IllegalArgumentException("The provided fromIndex (" + fromIndex + ") is greater than the provided toIndex (" + toIndex + ")");
+		}
+		Node<E> removingNode;
+		if(fromIndex == 0 && toIndex == this.size)
+		{
+			this.size = 0;
+			head = null;
+			tail = null;
+		}
+		else if(fromIndex == 0)
+		{
+			for(int i = 0; i < toIndex; i++)
+			{
+				removingNode = head;
+				head = head.next;
+				removingNode.next = null;
+				head.previous = null;
+				this.size--;
+			}
+		}
+		else if(toIndex == this.size)
+		{
+			for(int i = fromIndex; i < toIndex; i++)
+			{
+				removingNode = tail;
+				tail = tail.previous;
+				removingNode.previous = null;
+				tail.next = null;
+				this.size--;
+			}
+		}
+		else
+		{
+			Node<E> current = head;
+			for(int i = 0; i < fromIndex - 1; i++)
+			{
+				current = current.next;
+			}
+			for(int i = fromIndex; i < toIndex; i++)
+			{
+				removingNode = current.next;
+				removingNode.previous.next = removingNode.next;
+				removingNode.next.previous = removingNode.previous;
+				removingNode.previous = null;
+				removingNode.next = null;
+				this.size--;
+			}
+		}
+	}
+
+	/**
 	 * @param c Collection of values to retain if contained in this LinkedList
 	 * @throws NullPointerException if no collection is provided
 	 * @return true if this LinkedList has been structurally modified, false otherwise
