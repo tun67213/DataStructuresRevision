@@ -228,7 +228,16 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public boolean contains(Object elem)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(elem == null)
+		{
+			return false;
+		}
+		int i = 0;
+		while(i < this.size && !(this.array[i].equals(elem)))
+		{
+			i++;
+		}
+		return i < this.size;
 	}
 
 	/**
@@ -239,7 +248,34 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public boolean containsAll(Collection<?> c)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(c == null)
+		{
+			throw new NullPointerException("You MUST provide a collection of non-null elements to find the existence of in this ArrayList");
+		}
+		if(c.contains(null))
+		{
+			return false;
+		}
+		if(c.isEmpty())
+		{
+			return true;
+		}
+		Iterator<?> iterator = c.iterator();
+		int i;
+		while(iterator.hasNext())
+		{
+			Object value = iterator.next();
+			i = 0;
+			while(i < this.size && !(this.array[i].equals(value)))
+			{
+				i++;
+			}
+			if(i >= this.size)
+			{
+				return false;
+			}
+		}
+		return true;
 	}
 
 	/**
