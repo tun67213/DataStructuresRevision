@@ -1058,7 +1058,23 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public E remove()
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		if(head == null)
+		{
+			throw new NoSuchElementException("This LinkedList is empty");
+		}
+		Node<E> removingNode = head;
+		head = head.next;
+		removingNode.next = null;
+		if(head != null)
+		{
+			head.previous = null;
+		}
+		else
+		{
+			tail = null;
+		}
+		this.size--;
+		return removingNode.data;
 	}
 
 	/**
@@ -1070,7 +1086,42 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public E remove(int index)
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		if(index < 0 || index >= this.size)
+		{
+			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+		}
+		Node<E> removingNode = head;
+		if(head.next == null)
+		{
+			head = null;
+			tail = null;
+		}
+		else if(index == 0)
+		{
+			head = head.next;
+			removingNode.next = null;
+			head.previous = null;
+		}
+		else if(index == this.size - 1)
+		{
+			removingNode = tail;
+			tail = tail.previous;
+			removingNode.previous = null;
+			tail.next = null;
+		}
+		else
+		{
+			for(int i = 0; i < index; i++)
+			{
+				removingNode = removingNode.next;
+			}
+			removingNode.previous.next = removingNode.next;
+			removingNode.next.previous = removingNode.previous;
+			removingNode.previous = null;
+			removingNode.next = null;
+		}
+		this.size--;
+		return removingNode.data;
 	}
 
 	/**
@@ -1081,7 +1132,47 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public boolean remove(Object o)
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		if(o == null)
+		{
+			return false;
+		}
+		Node<E> removingNode = head;
+		while(removingNode != null && !(removingNode.data.equals(o)))
+		{
+			removingNode = removingNode.next;
+		}
+		if(removingNode == null)
+		{
+			return false;
+		}
+		else if(removingNode.previous == null && removingNode.next == null)
+		{
+			this.size = 0;
+			head = null;
+			tail = null;
+			return true;
+		}
+		else if(removingNode.previous == null)
+		{
+			head = head.next;
+			removingNode.next = null;
+			head.previous = null;
+		}
+		else if(removingNode.next == null)
+		{
+			tail = tail.previous;
+			removingNode.previous = null;
+			tail.next = null;
+		}
+		else
+		{
+			removingNode.previous.next = removingNode.next;
+			removingNode.next.previous = removingNode.previous;
+			removingNode.previous = null;
+			removingNode.next = null;
+		}
+		this.size--;
+		return true;
 	}
 
 	/**
@@ -1091,7 +1182,23 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	 */
 	public E removeFirst()
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		if(head == null)
+		{
+			throw new NoSuchElementException("This LinkedList is empty");
+		}
+		Node<E> removingNode = head;
+		head = head.next;
+		removingNode.next = null;
+		if(head == null)
+		{
+			tail = null;
+		}
+		else
+		{
+			head.previous = null;
+		}
+		this.size--;
+		return removingNode.data;
 	}
 
 	/**
@@ -1101,7 +1208,23 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	 */
 	public E removeLast()
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		if(tail == null)
+		{
+			throw new NoSuchElementException("This LinkedList is empty");
+		}
+		Node<E> removingNode = tail;
+		tail = tail.previous;
+		removingNode.previous = null;
+		if(tail == null)
+		{
+			head = null;
+		}
+		else
+		{
+			tail.next = null;
+		}
+		this.size--;
+		return removingNode.data;
 	}
 
 	/**
@@ -1113,7 +1236,57 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public boolean removeAll(Collection<?> c)
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		if(c == null)
+		{
+			throw new NullPointerException("You MUST provide a collection of values to remove if found in this LinkedList");
+		}
+		if(this.size == 0)
+		{
+			return false;
+		}
+		Node<E> current = head;
+		Node<E> removingNode;
+		boolean modifiedList = false;
+		while(current != null)
+		{
+			if(c.contains(current.data))
+			{
+				modifiedList = true;
+				removingNode = current;
+				if(current.previous == null && current.next == null)
+				{
+					this.size = 0;
+					head = null;
+					tail = null;
+					current = null;
+				}
+				else if(current.previous == null)
+				{
+					head = head.next;
+					removingNode.next = null;
+					head.previous = null;
+					current = head;
+				}
+				else if(current.next == null)
+				{
+					tail = tail.previous;
+					removingNode.previous = null;
+					tail.next = null;
+					current = tail;
+				}
+				else
+				{
+					current = current.previous;
+					removingNode.previous.next = removingNode.next;
+					removingNode.next.previous = removingNode.previous;
+					removingNode.previous = null;
+					removingNode.next = null;
+				}
+				this.size--;
+			}
+			current = current.next;
+		}
+		return modifiedList;
 	}
 
 	/**
