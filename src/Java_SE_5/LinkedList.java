@@ -524,7 +524,80 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public Iterator<E> iterator()
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		return new Iterator<>()
+		{
+			private Node<E> current;
+			private Node<E> lastReturned;
+
+			{
+				this.current = head;
+				this.lastReturned = null;
+			}
+
+			/**
+			 * @return true if the iteration has more elements, false otherwise
+			 * @code Returns true if the iteration has more elements.
+			 */
+			@Override
+			public boolean hasNext()
+			{
+				return this.current != null;
+			}
+
+			/**
+			 * @return the next element in the iteration
+			 * @throws NoSuchElementException if this iterator has reached the end of this list
+			 * @code Returns the next element in the iteration.
+			 */
+			@Override
+			public E next()
+			{
+				if(this.current == null)
+				{
+					throw new NoSuchElementException("This iterator has reached the end of this LinkedList");
+				}
+				lastReturned = current;
+				current = current.next;
+				return lastReturned.data;
+			}
+
+			/**
+			 * @code Removes from the underlying collection the last element returned by the iterator.
+			 * @throws IllegalStateException if called before calling next() or consecutively calling
+			 */
+			@Override
+			public void remove()
+			{
+				if(lastReturned == null)
+				{
+					throw new IllegalStateException("You MUST call next() before calling remove()");
+				}
+				else if(lastReturned.previous == null && lastReturned.next == null)
+				{
+					head = null;
+					tail = null;
+				}
+				else if(lastReturned.previous == null)
+				{
+					head = head.next;
+					lastReturned.next = null;
+					head.previous = null;
+				}
+				else if(lastReturned.next == null)
+				{
+					tail = tail.previous;
+					lastReturned.previous = null;
+					tail.next = null;
+				}
+				else
+				{
+					lastReturned.previous.next = lastReturned.next;
+					lastReturned.next.previous = lastReturned.previous;
+					lastReturned.previous = null;
+					lastReturned.next = null;
+				}
+			}
+		};
 	}
 
 	/**
