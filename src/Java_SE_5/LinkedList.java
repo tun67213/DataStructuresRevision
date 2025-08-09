@@ -1463,6 +1463,19 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	}
 
 	/**
+	 * @param fromIndex the location from which to create this subList
+	 * @param toIndex the location until which to create this subList
+	 * @throws IndexOutOfBoundsException if either or both indices is/are out of bounds
+	 * @throws IllegalArgumentException if fromIndex is greater than toIndex
+	 * @return a view of the portion of this list between the specified fromIndex, inclusive, and toIndex, exclusive
+	 */
+	@Override
+	public List<E> subList(int fromIndex, int toIndex)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	/**
 	 * @return an array containing all of the elements in this list in correct order
 	 */
 	@SuppressWarnings("unchecked")
