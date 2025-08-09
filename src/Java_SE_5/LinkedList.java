@@ -639,7 +639,170 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public ListIterator<E> listIterator()
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		return new ListIterator<>()
+		{
+			private Node<E> current;
+			private Node<E> lastReturned;
+			private int currentIndex;
+
+			{
+				this.current = head;
+				this.lastReturned = null;
+				this.currentIndex = 0;
+			}
+
+			/**
+			 * @param o the element to be added to this List Iterator
+			 * @throws NullPointerException if no element is provided or the provided element is null
+			 * @code Inserts the specified element into the list (optional operation).
+			 */
+			@Override
+			public void add(E o)
+			{
+				if(o == null)
+				{
+					throw new NullPointerException("You MUST provide a non-null value to add to this LinkedList");
+				}
+				Node<E> newNode = new Node<>(o);
+				if(current.previous == null)
+				{
+					head.previous = newNode;
+					newNode.next = head;
+					head = head.previous;
+				}
+				else
+				{
+					newNode.next = current;
+					newNode.previous = current.previous;
+					current.previous.next = newNode;
+					current.previous = newNode;
+				}
+				size++;
+			}
+
+			/**
+			 * @return true if this list iterator has more elements when traversing the list in the forward direction, false otherwise
+			 */
+			@Override
+			public boolean hasNext()
+			{
+				return current != null;
+			}
+
+			/**
+			 * @return true if this list iterator has more elements when traversing the list in the reverse direction, false otherwise
+			 */
+			@Override
+			public boolean hasPrevious()
+			{
+				return current.previous != null;
+			}
+
+			/**
+			 * @return the next element in the list
+			 * @throws NoSuchElementException if hasNext() returns false
+			 */
+			@Override
+			public E next()
+			{
+				if(this.current == null)
+				{
+					throw new NoSuchElementException("This list-iterator has reached the end of this list");
+				}
+				lastReturned = current;
+				current = current.next;
+				currentIndex++;
+				return lastReturned.data;
+			}
+
+			/**
+			 * @return the index of the element that would be returned by a subsequent call to next
+			 */
+			@Override
+			public int nextIndex()
+			{
+				return this.currentIndex;
+			}
+
+			/**
+			 * @return the previous element in the list
+			 * @throws NoSuchElementException if hasPrevious() returns false
+			 */
+			@Override
+			public E previous()
+			{
+				if(current.previous == null)
+				{
+					throw new NoSuchElementException("This list-iterator has reached the end of this list");
+				}
+				currentIndex--;
+				current = current.previous;
+				lastReturned = current;
+				return lastReturned.data;
+			}
+
+			/**
+			 * @return the index of the element that would be returned by a subsequent call to previous
+			 */
+			@Override
+			public int previousIndex()
+			{
+				return this.currentIndex - 1;
+			}
+
+			/**
+			 * @code Removes from the list the last element that was returned by next or previous.
+			 * @throws IllegalStateException if lastReturned is null
+			 */
+			@Override
+			public void remove()
+			{
+				if(lastReturned == null)
+				{
+					throw new IllegalStateException("Call previous() or next() before calling remove()");
+				}
+				else if(lastReturned.previous == null && lastReturned.next == null)
+				{
+					head = null;
+					tail = null;
+				}
+				else if(lastReturned.previous == null)
+				{
+					head = head.next;
+					lastReturned.next = null;
+					head.previous = null;
+				}
+				else if(lastReturned.next == null)
+				{
+					tail = tail.previous;
+					lastReturned.previous = null;
+					tail.next = null;
+				}
+				else
+				{
+					lastReturned.previous.next = lastReturned.next;
+					lastReturned.next.previous = lastReturned.previous;
+					lastReturned.previous = null;
+					lastReturned.next = null;
+				}
+				size--;
+				lastReturned = null;
+			}
+
+			/**
+			 * @param o the replacement element for the last returned value
+			 * @throws NullPointerException if no element is provided or the provided element is null
+			 * @code Replaces the last element returned by next or previous with the specified element (optional operation).
+			 */
+			public void set(E o)
+			{
+				if(o == null)
+				{
+					throw new NullPointerException("You MUST provide a non-null replacement value");
+				}
+				lastReturned.data = o;
+			}
+		};
 	}
 
 	/**
@@ -650,7 +813,174 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public ListIterator<E> listIterator(int index)
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		if(index < 0 || index > this.size)
+		{
+			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+		}
+		return new ListIterator<>()
+		{
+			private Node<E> current;
+			private Node<E> lastReturned;
+			private int currentIndex;
+
+			{
+				this.current = head;
+				this.lastReturned = null;
+				this.currentIndex = index;
+			}
+
+			/**
+			 * @param o the element to be added to this List Iterator
+			 * @throws NullPointerException if no element is provided or the provided element is null
+			 * @code Inserts the specified element into the list (optional operation).
+			 */
+			@Override
+			public void add(E o)
+			{
+				if(o == null)
+				{
+					throw new NullPointerException("You MUST provide a non-null value to add to this LinkedList");
+				}
+				Node<E> newNode = new Node<>(o);
+				if(current.previous == null)
+				{
+					head.previous = newNode;
+					newNode.next = head;
+					head = head.previous;
+				}
+				else
+				{
+					newNode.next = current;
+					newNode.previous = current.previous;
+					current.previous.next = newNode;
+					current.previous = newNode;
+				}
+				size++;
+			}
+
+			/**
+			 * @return true if this list iterator has more elements when traversing the list in the forward direction, false otherwise
+			 */
+			@Override
+			public boolean hasNext()
+			{
+				return current != null;
+			}
+
+			/**
+			 * @return true if this list iterator has more elements when traversing the list in the reverse direction, false otherwise
+			 */
+			@Override
+			public boolean hasPrevious()
+			{
+				return current.previous != null;
+			}
+
+			/**
+			 * @return the next element in the list
+			 * @throws NoSuchElementException if hasNext() returns false
+			 */
+			@Override
+			public E next()
+			{
+				if(this.current == null)
+				{
+					throw new NoSuchElementException("This list-iterator has reached the end of this list");
+				}
+				lastReturned = current;
+				current = current.next;
+				currentIndex++;
+				return lastReturned.data;
+			}
+
+			/**
+			 * @return the index of the element that would be returned by a subsequent call to next
+			 */
+			@Override
+			public int nextIndex()
+			{
+				return this.currentIndex;
+			}
+
+			/**
+			 * @return the previous element in the list
+			 * @throws NoSuchElementException if hasPrevious() returns false
+			 */
+			@Override
+			public E previous()
+			{
+				if(current.previous == null)
+				{
+					throw new NoSuchElementException("This list-iterator has reached the end of this list");
+				}
+				currentIndex--;
+				current = current.previous;
+				lastReturned = current;
+				return lastReturned.data;
+			}
+
+			/**
+			 * @return the index of the element that would be returned by a subsequent call to previous
+			 */
+			@Override
+			public int previousIndex()
+			{
+				return this.currentIndex - 1;
+			}
+
+			/**
+			 * @code Removes from the list the last element that was returned by next or previous.
+			 * @throws IllegalStateException if lastReturned is null
+			 */
+			@Override
+			public void remove()
+			{
+				if(lastReturned == null)
+				{
+					throw new IllegalStateException("Call previous() or next() before calling remove()");
+				}
+				else if(lastReturned.previous == null && lastReturned.next == null)
+				{
+					head = null;
+					tail = null;
+				}
+				else if(lastReturned.previous == null)
+				{
+					head = head.next;
+					lastReturned.next = null;
+					head.previous = null;
+				}
+				else if(lastReturned.next == null)
+				{
+					tail = tail.previous;
+					lastReturned.previous = null;
+					tail.next = null;
+				}
+				else
+				{
+					lastReturned.previous.next = lastReturned.next;
+					lastReturned.next.previous = lastReturned.previous;
+					lastReturned.previous = null;
+					lastReturned.next = null;
+				}
+				size--;
+				lastReturned = null;
+			}
+
+			/**
+			 * @param o the replacement element for the last returned value
+			 * @throws NullPointerException if no element is provided or the provided element is null
+			 * @code Replaces the last element returned by next or previous with the specified element (optional operation).
+			 */
+			public void set(E o)
+			{
+				if(o == null)
+				{
+					throw new NullPointerException("You MUST provide a non-null replacement value");
+				}
+				lastReturned.data = o;
+			}
+		};
 	}
 
 	/**
