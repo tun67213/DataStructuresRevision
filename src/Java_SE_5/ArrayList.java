@@ -122,12 +122,12 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 		}
 		if(index < 0 || index > this.size)
 		{
-			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds")
+			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
 		}
 		ensureCapacity();
 		for(int i = this.size; i > index; i--)
 		{
-			this.array[i] = this.array[i - 1]:
+			this.array[i] = this.array[i - 1];
 		}
 		this.array[index] = element;
 		this.size++;
