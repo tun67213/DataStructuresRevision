@@ -1463,6 +1463,42 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	}
 
 	/**
+	 * @param fromIndex the location from which to create this subList
+	 * @param toIndex the location until which to create this subList
+	 * @throws IndexOutOfBoundsException if either or both indices is/are out of bounds
+	 * @throws IllegalArgumentException if fromIndex is greater than toIndex
+	 * @return a view of the portion of this list between the specified fromIndex, inclusive, and toIndex, exclusive
+	 */
+	@Override
+	public List<E> subList(int fromIndex, int toIndex)
+	{
+		if(fromIndex < 0 || toIndex > this.size)
+		{
+			throw new IndexOutOfBoundsException("fromIndex (" + fromIndex + ") and/or toIndex (" + toIndex + ") is/are out of bounds");
+		}
+		if(fromIndex > toIndex)
+		{
+			throw new IllegalArgumentException("fromIndex (" + fromIndex + ") is greater than toIndex (" + toIndex + ")");
+		}
+		if(fromIndex == toIndex)
+		{
+			return new LinkedList<>();
+		}
+		LinkedList<E> list = new LinkedList<>();
+		Node<E> current = head;
+		for(int i = 0; i < fromIndex; i++)
+		{
+			current = current.next;
+		}
+		for(int i = fromIndex; i < toIndex; i++)
+		{
+			list.add(current.data);
+			current = current.next;
+		}
+		return list;
+	}
+
+	/**
 	 * @return an array containing all of the elements in this list in correct order
 	 */
 	@SuppressWarnings("unchecked")
