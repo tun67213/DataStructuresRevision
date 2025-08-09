@@ -409,6 +409,26 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	}
 
 	/**
+	 * @return a list-iterator of the elements in this list
+	 */
+	@Override
+	public ListIterator<E> listIterator()
+	{
+		throw new UnsupportedOperationException("Not implemented yet");
+	}
+
+	/**
+	 * @param index the location from which to create this ArrayList from
+	 * @throws IndexOutOfBoundsException if the provided index is out of bounds
+	 * @return a list-iterator of the elements in this list (in proper sequence), starting at the specified position in the list
+	 */
+	@Override
+	public ListIterator<E> listIterator(int index)
+	{
+		throw new UnsupportedOperationException("Not implemented yet");
+	}
+
+	/**
 	 * @param index the location at which to remove a value from this ArrayList
 	 * @throws IndexOutOfBoundsException if the provided index is out of bounds
 	 * @return the value previously at the provided index before removal
@@ -657,7 +677,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 		{
 			return "[]";
 		}
-		
+
 		boolean isCharacter = (this.array[0] instanceof Character);
 		boolean isString = (this.array[0] instanceof String);
 
