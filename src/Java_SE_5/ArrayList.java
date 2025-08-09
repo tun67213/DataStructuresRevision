@@ -7,6 +7,11 @@ package Java_SE_5;
  */
 public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAccess, Cloneable, Serializable
 {
+	// Private variables that will manage this ArrayList
+	private int size;
+	private int capacity;
+	private E[] values;
+
 	/**
 	 * @code Constructs an empty list with an initial capacity of ten.
 	 */
