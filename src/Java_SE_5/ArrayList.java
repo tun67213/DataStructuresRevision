@@ -414,7 +414,137 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public ListIterator<E> listIterator()
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		return new ListIterator<>()
+		{
+			private int currentIndex;
+			private int lastReturnedIndex;
+
+			// This is a built-in constructor.
+			{
+				this.currentIndex = 0;
+				this.lastReturnedIndex = -1;
+			}
+
+			/**
+			 * @param o the value to add to this list
+			 * @throws NullPointerException if no value is provided or the provided value is null
+			 * @code Inserts the specified element into the list.
+			 */
+			@Override
+			public void add(E o)
+			{
+				ensureCapacity();
+				for(int i = size; i > this.currentIndex; i--)
+				{
+					array[i] = array[i - 1];
+				}
+				array[this.currentIndex] = o;
+				this.currentIndex++;
+				size++;
+				lastReturnedIndex = -1;
+			}
+
+			/**
+			 * @return true if this list-iterator has more elements when traversing in the forward direction, false otherwise
+			 */
+			@Override
+			public boolean hasNext()
+			{
+				return this.currentIndex < size;
+			}
+
+			/**
+			 * @return true if this list iterator has more elements when traversing the list in the reverse direction, false otherwise
+			 */
+			@Override
+			public boolean hasPrevious()
+			{
+				return this.currentIndex > 0;
+			}
+
+			/**
+			 * @return the next element in the list
+			 * @throws NoSuchElementException if hasNext() returns false
+			 */
+			@Override
+			public E next()
+			{
+				if(this.currentIndex >= size)
+				{
+					throw new NoSuchElementException("This list-iterator has reached the end of this list");
+				}
+				this.lastReturnedIndex = this.currentIndex;
+				this.currentIndex++;
+				return array[this.lastReturnedIndex];
+			}
+
+			/**
+			 * @return the index of the element that would be returned by a subsequent call to next
+			 */
+			@Override
+			public int nextIndex()
+			{
+				return this.currentIndex;
+			}
+
+			/**
+			 * @return the previous element in the list
+			 * @throws NoSuchElementException if hasPrevious() returns false
+			 */
+			@Override
+			public E previous()
+			{
+				if(this.currentIndex <= 0)
+				{
+					throw new NoSuchElementException("This list-iterator has reached the beginning of this list");
+				}
+				this.currentIndex--;
+				this.lastReturnedIndex = this.currentIndex;
+				return array[this.lastReturnedIndex];
+			}
+
+			/**
+			 * @return the index of the element that would be returned by a subsequent call to previous
+			 */
+			@Override
+			public int previousIndex()
+			{
+				return this.currentIndex - 1;
+			}
+
+			/**
+			 * @code Removes from the list the last element that was returned by next or previous.
+			 */
+			@Override
+			public void remove()
+			{
+				if(this.lastReturnedIndex == -1)
+				{
+					throw new IllegalStateException("You MUST call next() or previous() before calling remove()");
+				}
+				for(int i = this.lastReturnedIndex; i < size - 1; i++)
+				{
+					array[i] = array[i + 1];
+				}
+				array[size - 1] = null;
+				size--;
+			}
+
+			/**
+			 * @param o the replacement element for the last returned value
+			 * @throws NullPointerException if no element is provided or the provided element is null
+			 * @code Replaces the last element returned by next or previous with the specified element (optional operation).
+			 */
+			@Override
+			public void set(E o)
+			{
+				if(o == null)
+				{
+					throw new NullPointerException("You MUST provide a non-null replacement value");
+				}
+				array[this.lastReturnedIndex] = o;
+			}
+		};
 	}
 
 	/**
@@ -425,7 +555,141 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public ListIterator<E> listIterator(int index)
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		if(index < 0 || index > this.size)
+		{
+			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+		}
+		return new ListIterator<>()
+		{
+			private int currentIndex;
+			private int lastReturnedIndex;
+
+			// This is a built-in constructor.
+			{
+				this.currentIndex = index;
+				this.lastReturnedIndex = -1;
+			}
+
+			/**
+			 * @param o the value to add to this list
+			 * @throws NullPointerException if no value is provided or the provided value is null
+			 * @code Inserts the specified element into the list.
+			 */
+			@Override
+			public void add(E o)
+			{
+				ensureCapacity();
+				for(int i = size; i > this.currentIndex; i--)
+				{
+					array[i] = array[i - 1];
+				}
+				array[this.currentIndex] = o;
+				this.currentIndex++;
+				size++;
+				lastReturnedIndex = -1;
+			}
+
+			/**
+			 * @return true if this list-iterator has more elements when traversing in the forward direction, false otherwise
+			 */
+			@Override
+			public boolean hasNext()
+			{
+				return this.currentIndex < size;
+			}
+
+			/**
+			 * @return true if this list iterator has more elements when traversing the list in the reverse direction, false otherwise
+			 */
+			@Override
+			public boolean hasPrevious()
+			{
+				return this.currentIndex > 0;
+			}
+
+			/**
+			 * @return the next element in the list
+			 * @throws NoSuchElementException if hasNext() returns false
+			 */
+			@Override
+			public E next()
+			{
+				if(this.currentIndex >= size)
+				{
+					throw new NoSuchElementException("This list-iterator has reached the end of this list");
+				}
+				this.lastReturnedIndex = this.currentIndex;
+				this.currentIndex++;
+				return array[this.lastReturnedIndex];
+			}
+
+			/**
+			 * @return the index of the element that would be returned by a subsequent call to next
+			 */
+			@Override
+			public int nextIndex()
+			{
+				return this.currentIndex;
+			}
+
+			/**
+			 * @return the previous element in the list
+			 * @throws NoSuchElementException if hasPrevious() returns false
+			 */
+			@Override
+			public E previous()
+			{
+				if(this.currentIndex <= 0)
+				{
+					throw new NoSuchElementException("This list-iterator has reached the beginning of this list");
+				}
+				this.currentIndex--;
+				this.lastReturnedIndex = this.currentIndex;
+				return array[this.lastReturnedIndex];
+			}
+
+			/**
+			 * @return the index of the element that would be returned by a subsequent call to previous
+			 */
+			@Override
+			public int previousIndex()
+			{
+				return this.currentIndex - 1;
+			}
+
+			/**
+			 * @code Removes from the list the last element that was returned by next or previous.
+			 */
+			@Override
+			public void remove()
+			{
+				if(this.lastReturnedIndex == -1)
+				{
+					throw new IllegalStateException("You MUST call next() or previous() before calling remove()");
+				}
+				for(int i = this.lastReturnedIndex; i < size - 1; i++)
+				{
+					array[i] = array[i + 1];
+				}
+				array[size - 1] = null;
+				size--;
+			}
+
+			/**
+			 * @param o the replacement element for the last returned value
+			 * @throws NullPointerException if no element is provided or the provided element is null
+			 * @code Replaces the last element returned by next or previous with the specified element (optional operation).
+			 */
+			@Override
+			public void set(E o)
+			{
+				if(o == null)
+				{
+					throw new NullPointerException("You MUST provide a non-null replacement value");
+				}
+				array[this.lastReturnedIndex] = o;
+			}
+		};
 	}
 
 	/**
