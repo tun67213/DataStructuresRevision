@@ -992,7 +992,24 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public boolean offer(E o)
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		if(o == null)
+		{
+			throw new NullPointerException("You MUST provide a non-null value to add to this LinkedList");
+		}
+		Node<E> newNode = new Node<>(o);
+		if(tail == null)
+		{
+			head = newNode;
+			tail = newNode;
+		}
+		else
+		{
+			tail.next = newNode;
+			newNode.previous = tail;
+			tail = tail.next;
+		}
+		this.size++;
+		return true;
 	}
 
 	/**
