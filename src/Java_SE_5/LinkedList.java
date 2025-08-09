@@ -1505,6 +1505,10 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 				a[currentSize] = (T) current.data;
 				currentSize++;
 			}
+			if(a.length > this.size)
+			{
+				a[this.size] = null;
+			}
 		}
 		return a;
 	}
