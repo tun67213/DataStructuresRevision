@@ -1,4 +1,4 @@
 package Java_SE_6;
 
-public class AbstractList {
+public abstract class AbstractList {
 }

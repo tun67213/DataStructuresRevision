@@ -1,4 +1,4 @@
 package Java_SE_6;
 
-public class AbstractCollection {
+public abstract class AbstractCollection {
 }
