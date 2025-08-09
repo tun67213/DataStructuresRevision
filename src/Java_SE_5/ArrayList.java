@@ -301,7 +301,16 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public int indexOf(Object elem)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(elem == null)
+		{
+			return -1;
+		}
+		int i = 0;
+		while(i < this.size && !(this.array[i].equals(elem)))
+		{
+			i++;
+		}
+		return (i < this.size) ? i : -1;
 	}
 
 	/**
