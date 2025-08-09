@@ -1,4 +1,5 @@
 *.xml
+*.iml
 .DS_Store
 src/.DS_Store
-*.iml
+>>>>>>> Stashed changes
