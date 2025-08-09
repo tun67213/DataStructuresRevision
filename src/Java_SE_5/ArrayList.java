@@ -10,7 +10,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	// Private variables that will manage this ArrayList
 	private int size;
 	private int capacity;
-	private E[] values;
+	private E[] array;
 
 	/**
 	 * @code Constructs an empty list with an initial capacity of ten.
