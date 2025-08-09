@@ -86,7 +86,24 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public boolean add(E o)
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		if(o == null)
+		{
+			throw new NullPointerException("You MUST provide a non-null value to add to this LinkedList");
+		}
+		Node<E> newNode = new Node<>(o);
+		if(tail == null)
+		{
+			head = newNode;
+			tail = newNode;
+		}
+		else
+		{
+			tail.next = newNode;
+			newNode.previous = tail;
+			tail = tail.next;
+		}
+		this.size++;
+		return true;
 	}
 
 	/**
@@ -99,7 +116,45 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public void add(int index, E element)
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		if(element == null)
+		{
+			throw new NullPointerException("You MUST provide a non-null value to add to this LinkedList");
+		}
+		if(index < 0 || index > this.size)
+		{
+			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+		}
+		Node<E> newNode = new Node<>(element);
+		if(head == null)
+		{
+			head = newNode;
+			tail = newNode;
+		}
+		else if(index == 0)
+		{
+			head.previous = newNode;
+			newNode.next = head;
+			head = head.previous;
+		}
+		else if(index == this.size)
+		{
+			tail.next = newNode;
+			newNode.previous = tail;
+			tail = tail.next;
+		}
+		else
+		{
+			Node<E> currentNode = head;
+			for(int i = 0; i < index - 1; i++)
+			{
+				currentNode = currentNode.next;
+			}
+			newNode.next = currentNode.next;
+			newNode.previous = currentNode;
+			currentNode.next.previous = newNode;
+			currentNode.next = newNode;
+		}
+		this.size++;
 	}
 
 	/**
