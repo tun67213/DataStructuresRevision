@@ -300,7 +300,23 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	 */
 	public void addFirst(E o)
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		if(o == null)
+		{
+			throw new NullPointerException("You MUST provide a non-null value to add into this LinkedList");
+		}
+		Node<E> newNode = new Node<>(o);
+		if(head == null)
+		{
+			head = newNode;
+			tail = newNode;
+		}
+		else
+		{
+			head.previous = newNode;
+			newNode.next = head;
+			head = head.previous;
+		}
+		this.size++;
 	}
 
 	/**
