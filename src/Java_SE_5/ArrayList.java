@@ -18,7 +18,9 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@SuppressWarnings("unchecked")
 	public ArrayList()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		this.size = 0;
+		this.capacity = 10;
+		this.array = (E[]) new Object[this.capacity];
 	}
 
 	/**
@@ -29,7 +31,23 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@SuppressWarnings("unchecked")
 	public ArrayList(Collection<? extends E> c)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(c == null || c.contains(null))
+		{
+			throw new NullPointerException("You MUST provide a non-null collection of non-null elements to initialize this ArrayList with");
+		}
+		this.size = 0;
+		this.capacity = 10;
+		if(!(c.isEmpty()))
+		{
+			this.capacity = c.size() + c.size() / 2;
+		}
+		this.array = (E[]) new Object[this.capacity];
+		Iterator<? extends E> iterator = c.iterator();
+		while(iterator.hasNext())
+		{
+			this.array[this.size] = iterator.next();
+			this.size++;
+		}
 	}
 
 	/**
@@ -40,7 +58,17 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@SuppressWarnings("unchecked")
 	public ArrayList(int initialCapacity)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		if(initialCapacity < 1)
+		{
+			throw new IllegalArgumentException("You MUST provide a non-negative non-zero value as the initial capacity");
+		}
+		if(initialCapacity == 1)
+		{
+			throw new IllegalArgumentException("For this class, it is recommended to have the initial capacity as at least 2, as it allows for expansion.");
+		}
+		this.size = 0;
+		this.capacity = initialCapacity;
+		this.array = (E[]) new Object[this.capacity];
 	}
 
 	/**
