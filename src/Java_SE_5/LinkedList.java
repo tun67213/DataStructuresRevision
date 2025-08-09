@@ -426,6 +426,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 
 	/**
 	 * @return the head (first element) of this LinkedList
+	 * @throws NoSuchElementException if this LinkedList is empty
 	 * @code Retrieves, but does not remove, the head (first element) of this list.
 	 */
 	@Override
