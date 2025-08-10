@@ -7,5 +7,8 @@ package Java_SE_6;
  */
 public interface Iterable<T>
 {
-
+	/**
+	 * @return an iterator over a set of elements of type t
+	 */
+	Iterator<T> iterator();
 }
