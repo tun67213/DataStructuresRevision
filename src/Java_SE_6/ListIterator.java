@@ -4,5 +4,7 @@ package Java_SE_6;
  * @author arvindhvelrajan
  * @code This interface adds all methods associated with ListIterator for Java SE 6.
  */
-public interface ListIterator {
+public interface ListIterator
+{
+
 }
