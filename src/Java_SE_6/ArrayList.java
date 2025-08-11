@@ -10,6 +10,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	/**
 	 * @code Constructs an empty list with an initial capacity of ten.
 	 */
+	@SuppressWarnings("unchecked")
 	public ArrayList()
 	{
 		throw new UnsupportedOperationException("Not implemented yet.");
@@ -20,6 +21,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	 * @throws NullPointerException if no collection is provided or the provided collection contains null values
 	 * @code Constructs a list containing the elements of the specified collection, in the order they are returned by the collection's iterator. If the collection is empty, this constructor will call the basic constructor instead.
 	 */
+	@SuppressWarnings("unchecked")
 	public ArrayList(Collection<? extends E> c)
 	{
 		throw new UnsupportedOperationException("Not implemented yet.");
@@ -30,6 +32,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	 * @throws IllegalArgumentException if the provided index is less than 0
 	 * @code Constructs an empty list with the specified initial capacity.
 	 */
+	@SuppressWarnings("unchecked")
 	public ArrayList(int initialCapacity)
 	{
 		throw new UnsupportedOperationException("Not implemented yet.");
@@ -38,6 +41,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	/**
 	 * @code This is a helper method that will ensure that this ArrayList has enough space so that the code does not break.
 	 */
+	@SuppressWarnings("unchecked")
 	private void ensureCapacity()
 	{
 		throw new UnsupportedOperationException("Not implemented yet.");
@@ -88,6 +92,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	 * @return true if this ArrayList has been structurally modified, false otherwise
 	 * @code Inserts all of the elements in the specified collection into this list, starting at the specified position.
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public boolean addAll(int index, Collection<? extends E> c)
 	{
@@ -97,6 +102,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	/**
 	 * @code Removes all of the elements from this list.
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void clear()
 	{
