@@ -862,6 +862,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	 * @return true if thi slist has been structurally modified, false otherwise
 	 * @code Retains only values in this list that are contained in the specified collection.
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public boolean retainAll(Collection<?> c)
 	{
