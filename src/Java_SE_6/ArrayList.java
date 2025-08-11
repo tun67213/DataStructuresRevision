@@ -204,6 +204,26 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	}
 
 	/**
+	 * @return a list iterator over the elements in this list
+	 */
+	@Override
+	public ListIterator<E> listIterator()
+	{
+		throw new UnsupportedOperationException("Not implemented yet.");
+	}
+
+	/**
+	 * @param index the location from which to create this list iterator
+	 * @throws IndexOutOfBoundsException if the provided index is out of bounds
+	 * @return a list iterator over the elements in this list, starting at the specified index
+	 */
+	@Override
+	public ListIterator<E> listIterator(int index)
+	{
+		throw new UnsupportedOperationException("Not implemented yet.");
+	}
+
+	/**
 	 * @param index the location at which to remove a value from
 	 * @throws IndexOutOfBoundsException if the provided index is out of bounds
 	 * @return the value previously at the specified index
