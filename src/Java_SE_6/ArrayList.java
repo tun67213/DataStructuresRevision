@@ -10,7 +10,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	private int size;		// Used to track the number of elements currently in this ArrayList
 	private int capacity; 	// Used to track the number of elements the current array can hold
 	private E[] array;		// Used to keep track of the values currently in this ArrayList
-	
+
 	/**
 	 * @code Constructs an empty list with an initial capacity of ten.
 	 */
@@ -152,7 +152,22 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public boolean addAll(Collection<? extends E> c)
 	{
-		throw new UnsupportedOperationException("Not implemented yet.");
+		if(c == null || c.contains(null))
+		{
+			throw new NullPointerException("You MUST provide a non-null collection of non-null elements to add to this ArrayList");
+		}
+		if(c.isEmpty())
+		{
+			return false;
+		}
+		Iterator<? extends E> iterator = c.iterator();
+		while(iterator.hasNext())
+		{
+			ensureCapacity();
+			this.array[this.size] = iterator.next();
+			this.size++;
+		}
+		return true;
 	}
 
 	/**
@@ -167,7 +182,43 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public boolean addAll(int index, Collection<? extends E> c)
 	{
-		throw new UnsupportedOperationException("Not implemented yet.");
+		if(c == null || c.contains(null))
+		{
+			throw new NullPointerException("You MUST provide a non-null collection of non-null elements to add to this list");
+		}
+		if(index < 0 || index > this.size)
+		{
+			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+		}
+		if(c.isEmpty())
+		{
+			return false;
+		}
+		E[] values = (E[]) c.toArray();
+		if(index == this.size)
+		{
+			Iterator<? extends E> iterator = c.iterator();
+			while(iterator.hasNext())
+			{
+				ensureCapacity();
+				this.array[this.size] = iterator.next();
+				this.size++;
+			}
+		}
+		else
+		{
+			for(int i = values.length - 1; i >= 0; i--)
+			{
+				ensureCapacity();
+				for(int j = this.size; j > index; j--)
+				{
+					this.array[j] = this.array[j - 1];
+				}
+				this.array[index] = values[i];
+				this.size++;
+			}
+		}
+		return true;
 	}
 
 	/**
