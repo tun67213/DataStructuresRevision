@@ -5,7 +5,7 @@ package Java_SE_6;
  * @param <E> Generic variable for this interface
  * @code This interface adds all methods associated with ListIterator for Java SE 6.
  */
-public interface ListIterator<E>
+public interface ListIterator<E> extends Iterator<E>
 {
 
 }
