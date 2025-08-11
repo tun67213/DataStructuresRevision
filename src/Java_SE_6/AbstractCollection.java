@@ -5,7 +5,7 @@ package Java_SE_6;
  * @param <E> Generic variable for this class
  * @code This class adds all methods associated with Abstract Collection for Java SE 6.
  */
-public abstract class AbstractCollection<E>
+public abstract class AbstractCollection<E> extends Object implements Collection<E>
 {
 
 }
