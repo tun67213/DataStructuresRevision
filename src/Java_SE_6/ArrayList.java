@@ -386,7 +386,16 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public int indexOf(Object o)
 	{
-		throw new UnsupportedOperationException("Not implemented yet.");
+		if(o == null)
+		{
+			return -1;
+		}
+		int index = 0;
+		while(index < this.size && !(this.array[index].equals(o)))
+		{
+			index++;
+		}
+		return (index >= this.size) ? -1 : index;
 	}
 
 	/**
