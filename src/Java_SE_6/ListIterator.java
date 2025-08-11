@@ -1,5 +1,7 @@
 package Java_SE_6;
 
+import java.util.NoSuchElementException;
+
 /**
  * @author arvindhvelrajan
  * @param <E> Generic variable for this interface
