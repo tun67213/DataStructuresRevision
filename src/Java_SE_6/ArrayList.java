@@ -468,7 +468,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public boolean isEmpty()
 	{
-		throw new UnsupportedOperationException("Not implemented yet.");
+		return this.size == 0;
 	}
 
 	/**
