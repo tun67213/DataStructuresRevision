@@ -9,7 +9,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 {
 	private int size;		// Used to track the number of elements currently in this ArrayList
 	private int capacity; 	// Used to track the number of elements the current array can hold
-	private E[] values;		// Used to keep track of the values currently in this ArrayList
+	private E[] array;		// Used to keep track of the values currently in this ArrayList
 	
 	/**
 	 * @code Constructs an empty list with an initial capacity of ten.
