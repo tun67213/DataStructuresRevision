@@ -830,6 +830,10 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 		{
 			throw new NullPointerException("You MUST provide a non-null collection of values to remove if contained in this list");
 		}
+		if(c.isEmpty())
+		{
+			return false;
+		}
 		boolean listModified = false;
 		int i = 0;
 		while(i < this.size)
