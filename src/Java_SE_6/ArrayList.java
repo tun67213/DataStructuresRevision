@@ -404,7 +404,60 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public Iterator<E> iterator()
 	{
-		throw new UnsupportedOperationException("Not implemented yet.");
+		return new Iterator<>()
+		{
+			private int currentIndex;
+			private int lastReturnedIndex;
+
+			{
+				this.currentIndex = 0;
+				this.lastReturnedIndex = -1;
+			}
+
+			/**
+			 * @return true if the iteration has more elements, false otherwise
+			 */
+			@Override
+			public boolean hasNext()
+			{
+				return this.currentIndex < size;
+			}
+
+			/**
+			 * @return the next element in the iteration
+			 * @throws NoSuchElementException if hasNext() returns false
+			 */
+			@Override
+			public E next()
+			{
+				if(this.currentIndex >= size)
+				{
+					throw new NoSuchElementException("This iterator has reached the end of this list");
+				}
+				this.lastReturnedIndex = this.currentIndex;
+				this.currentIndex++;
+				return array[this.lastReturnedIndex];
+			}
+
+			/**
+			 * @code Removes from the underlying collection the last element returned by the iterator.
+			 * @throws IllegalStateException if called multiple times
+			 */
+			@Override
+			public void remove()
+			{
+				if(lastReturnedIndex == -1)
+				{
+					throw new IllegalStateException("You MUST call next() once before calling remove()");
+				}
+				for(int i = lastReturnedIndex; i < size - 1; i++)
+				{
+					array[i] = array[i + 1];
+				}
+				size--;
+				lastReturnedIndex = -1;
+			}
+		};
 	}
 
 	/**
