@@ -759,7 +759,147 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public ListIterator<E> listIterator()
 	{
-		throw new UnsupportedOperationException("Not implemented yet.");
+		return new ListIterator<>()
+		{
+			private Node<E> current;
+			private Node<E> lastReturned;
+			private int currentIndex;
+
+			{
+				this.current = head;
+				this.lastReturned = null;
+				this.currentIndex = 0;
+			}
+
+			@Override
+			public void add(E e)
+			{
+				if(e == null)
+				{
+					throw new NullPointerException("You MUST provide a non-null element to add");
+				}
+				Node<E> newNode = new Node<>(e);
+				if(head == null)
+				{
+					head = newNode;
+					tail = newNode;
+				}
+				else if(current.previous == null)
+				{
+					head.previous = newNode;
+					newNode.next = head;
+					head = head.previous;
+				}
+				else
+				{
+					newNode.next = current;
+					newNode.previous = current.previous;
+					current.previous.next = newNode;
+					current.previous = newNode;
+				}
+				lastReturned = null;
+				size++;
+				currentIndex++;
+			}
+
+			@Override
+			public boolean hasNext()
+			{
+				return current != null;
+			}
+
+			@Override
+			public E next()
+			{
+				if(current == null)
+				{
+					throw new NoSuchElementException("This list-iterator has reached the end of this list");
+				}
+				lastReturned = current;
+				current = current.next;
+				currentIndex++;
+				return lastReturned.data;
+			}
+
+			@Override
+			public int nextIndex()
+			{
+				return currentIndex;
+			}
+
+			@Override
+			public boolean hasPrevious()
+			{
+				return current.previous != null;
+			}
+
+			@Override
+			public E previous()
+			{
+				if(current.previous == null)
+				{
+					throw new NoSuchElementException("This list-iterator has reached the beginning of this list");
+				}
+				current = current.previous;
+				currentIndex--;
+				lastReturned = current;
+				return lastReturned.data;
+			}
+
+			@Override
+			public int previousIndex()
+			{
+				return currentIndex - 1;
+			}
+
+			@Override
+			public void set(E e)
+			{
+				if(e == null)
+				{
+					throw new NullPointerException("You MUST provide a non-null element to set");
+				}
+				if(lastReturned == null)
+				{
+					throw new IllegalStateException("You MUST call next() or previous() before calling set()");
+				}
+				lastReturned.data = e;
+			}
+
+			@Override
+			public void remove()
+			{
+				if(lastReturned == null)
+				{
+					throw new IllegalStateException("You MUST call next() or previous() before calling remove()");
+				}
+				else if(lastReturned.previous == null && lastReturned.next == null)
+				{
+					head = null;
+					tail = null;
+				}
+				else if(lastReturned.previous == null)
+				{
+					head = head.next;
+					lastReturned.next = null;
+					head.previous = null;
+				}
+				else if(lastReturned.next == null)
+				{
+					tail = tail.previous;
+					lastReturned.previous = null;
+					tail.next = null;
+				}
+				else
+				{
+					lastReturned.previous.next = lastReturned.next;
+					lastReturned.next.previous = lastReturned.previous;
+					lastReturned.previous = null;
+					lastReturned.next = null;
+				}
+				size--;
+			}
+		};
 	}
 
 	/**
@@ -770,7 +910,151 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public ListIterator<E> listIterator(int index)
 	{
-		throw new UnsupportedOperationException("Not implemented yet.");
+		if(index < 0 || index > this.size)
+		{
+			throw new IndexOutOfBoundsException("Index (" + index + ") is out of bounds");
+		}
+		return new ListIterator<>()
+		{
+			private Node<E> current;
+			private Node<E> lastReturned;
+			private int currentIndex;
+
+			{
+				this.current = head;
+				this.lastReturned = null;
+				this.currentIndex = index;
+			}
+
+			@Override
+			public void add(E e)
+			{
+				if(e == null)
+				{
+					throw new NullPointerException("You MUST provide a non-null element to add");
+				}
+				Node<E> newNode = new Node<>(e);
+				if(head == null)
+				{
+					head = newNode;
+					tail = newNode;
+				}
+				else if(current.previous == null)
+				{
+					head.previous = newNode;
+					newNode.next = head;
+					head = head.previous;
+				}
+				else
+				{
+					newNode.next = current;
+					newNode.previous = current.previous;
+					current.previous.next = newNode;
+					current.previous = newNode;
+				}
+				lastReturned = null;
+				size++;
+				currentIndex++;
+			}
+
+			@Override
+			public boolean hasNext()
+			{
+				return current != null;
+			}
+
+			@Override
+			public E next()
+			{
+				if(current == null)
+				{
+					throw new NoSuchElementException("This list-iterator has reached the end of this list");
+				}
+				lastReturned = current;
+				current = current.next;
+				currentIndex++;
+				return lastReturned.data;
+			}
+
+			@Override
+			public int nextIndex()
+			{
+				return currentIndex;
+			}
+
+			@Override
+			public boolean hasPrevious()
+			{
+				return current.previous != null;
+			}
+
+			@Override
+			public E previous()
+			{
+				if(current.previous == null)
+				{
+					throw new NoSuchElementException("This list-iterator has reached the beginning of this list");
+				}
+				current = current.previous;
+				currentIndex--;
+				lastReturned = current;
+				return lastReturned.data;
+			}
+
+			@Override
+			public int previousIndex()
+			{
+				return currentIndex - 1;
+			}
+
+			@Override
+			public void set(E e)
+			{
+				if(e == null)
+				{
+					throw new NullPointerException("You MUST provide a non-null element to set");
+				}
+				if(lastReturned == null)
+				{
+					throw new IllegalStateException("You MUST call next() or previous() before calling set()");
+				}
+				lastReturned.data = e;
+			}
+
+			@Override
+			public void remove()
+			{
+				if(lastReturned == null)
+				{
+					throw new IllegalStateException("You MUST call next() or previous() before calling remove()");
+				}
+				else if(lastReturned.previous == null && lastReturned.next == null)
+				{
+					head = null;
+					tail = null;
+				}
+				else if(lastReturned.previous == null)
+				{
+					head = head.next;
+					lastReturned.next = null;
+					head.previous = null;
+				}
+				else if(lastReturned.next == null)
+				{
+					tail = tail.previous;
+					lastReturned.previous = null;
+					tail.next = null;
+				}
+				else
+				{
+					lastReturned.previous.next = lastReturned.next;
+					lastReturned.next.previous = lastReturned.previous;
+					lastReturned.previous = null;
+					lastReturned.next = null;
+				}
+				size--;
+			}
+		};
 	}
 
 	/**
