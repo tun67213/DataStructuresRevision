@@ -373,7 +373,16 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public boolean contains(Object o)
 	{
-		throw new UnsupportedOperationException("Not implemented yet.");
+		if(o == null)
+		{
+			return false;
+		}
+		Node<E> current = head;
+		while(current != null && !(current.data.equals(o)))
+		{
+			current = current.next;
+		}
+		return current != null;
 	}
 
 	/**
@@ -384,7 +393,30 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public boolean containsAll(Collection<?> c)
 	{
-		throw new UnsupportedOperationException("Not implemented yet.");
+		if(c == null)
+		{
+			throw new NullPointerException("You MUST provide a non-null collection of values to find the existence of");
+		}
+		if(c.contains(null))
+		{
+			return false;
+		}
+		Iterator<?> iterator = c.iterator();
+		Node<E> current;
+		while(iterator.hasNext())
+		{
+			Object value = iterator.next();
+			current = head;
+			while(current != null && !(current.data.equals(value)))
+			{
+				current = current.next;
+			}
+			if(current == null)
+			{
+				return false;
+			}
+		}
+		return true;
 	}
 
 	/**
