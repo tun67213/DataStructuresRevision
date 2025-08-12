@@ -650,7 +650,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 		{
 			private Node<E> current;
 			private Node<E> lastReturned;
-			
+
 			{
 				this.current = head;
 				this.lastReturned = null;
@@ -738,7 +738,19 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public int lastIndexOf(Object o)
 	{
-		throw new UnsupportedOperationException("Not implemented yet.");
+		if(o == null)
+		{
+			return -1;
+		}
+		Node<E> current = tail;
+		for(int i = this.size - 1; i >= 0; i--)
+		{
+			if(current.data.equals(o))
+			{
+				return i;
+			}
+		}
+		return -1;
 	}
 
 	/**
