@@ -1066,7 +1066,24 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public boolean offer(E e)
 	{
-		throw new UnsupportedOperationException("Not implemented yet.");
+		if(e == null)
+		{
+			throw new NullPointerException("You MUST provide a non-null element to offer");
+		}
+		Node<E> newNode = new Node<>(e);
+		if(tail == null)
+		{
+			head = newNode;
+			tail = newNode;
+		}
+		else
+		{
+			tail.next = newNode;
+			newNode.previous = tail;
+			tail = tail.next;
+		}
+		this.size++;
+		return true;
 	}
 
 	/**
@@ -1078,7 +1095,24 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public boolean offerFirst(E e)
 	{
-		throw new UnsupportedOperationException("Not implemented yet.");
+		if(e == null)
+		{
+			throw new NullPointerException("You MUST provide a non-null element to offerFirst");
+		}
+		Node<E> newNode = new Node<>(e);
+		if(head == null)
+		{
+			head = newNode;
+			tail = newNode;
+		}
+		else
+		{
+			head.previous = newNode;
+			newNode.next = head;
+			head = head.previous;
+		}
+		this.size++;
+		return true;
 	}
 
 	/**
@@ -1090,7 +1124,24 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public boolean offerLast(E e)
 	{
-		throw new UnsupportedOperationException("Not implemented yet.");
+		if(e == null)
+		{
+			throw new NullPointerException("You MUST provide a non-null element to offer");
+		}
+		Node<E> newNode = new Node<>(e);
+		if(tail == null)
+		{
+			head = newNode;
+			tail = newNode;
+		}
+		else
+		{
+			tail.next = newNode;
+			newNode.previous = tail;
+			tail = tail.next;
+		}
+		this.size++;
+		return true;
 	}
 
 	/**
