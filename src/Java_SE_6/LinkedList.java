@@ -26,6 +26,11 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 		}
 	}
 
+	// The following private variables will manage this LinkedList class
+	private int size;		// Used to track the number of elements in this LinkedList
+	private Node<E> head;	// Used to track the beginning of this LinkedList
+	private Node<E> tail;	// Used to track the end of this LinkedList
+
 	/**
 	 * @code Constructs an empty list.
 	 */
