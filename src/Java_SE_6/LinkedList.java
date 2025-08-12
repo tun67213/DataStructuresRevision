@@ -1204,6 +1204,10 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 		{
 			head.previous = null;
 		}
+		else
+		{
+			tail = null;
+		}
 		this.size--;
 		return removingNode.data;
 	}
@@ -1226,6 +1230,10 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 		{
 			head.previous = null;
 		}
+		else
+		{
+			tail = null;
+		}
 		this.size--;
 		return removingNode.data;
 	}
@@ -1247,6 +1255,10 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 		if(tail != null)
 		{
 			tail.next = null;
+		}
+		else
+		{
+			head = null;
 		}
 		this.size--;
 		return removingNode.data;
