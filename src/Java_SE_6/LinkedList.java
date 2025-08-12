@@ -650,7 +650,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 		{
 			private Node<E> current;
 			private Node<E> lastReturned;
-I
+			
 			{
 				this.current = head;
 				this.lastReturned = null;
