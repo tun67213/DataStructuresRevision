@@ -1009,7 +1009,14 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@SuppressWarnings("unchecked")
 	public void trimToSize()
 	{
-		throw new UnsupportedOperationException("Not implemented yet.");
+		if(this.capacity > this.size)
+		{
+			int newCapacity = this.size;
+			E[] values = (E[]) new Object[newCapacity];
+			System.arraycopy(this.array, 0, values, 0, this.size);
+			this.capacity = newCapacity;
+			this.array = values;
+		}
 	}
 
 	/**
