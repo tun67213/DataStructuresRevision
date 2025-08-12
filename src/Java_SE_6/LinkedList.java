@@ -422,7 +422,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	/**
 	 * @param o the Object to compare with this list for equality
 	 * @return true if this list matches the provided Object, false otherwise
-	 * @code Compares the specified object with this list for equality/
+	 * @code Compares the specified object with this list for equality.
 	 */
 	@Override
 	public boolean equals(Object o)
