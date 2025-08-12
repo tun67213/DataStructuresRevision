@@ -347,7 +347,9 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public void clear()
 	{
-		throw new UnsupportedOperationException("Not implemented yet.");
+		this.size = 0;
+		head = null;
+		tail = null;
 	}
 
 	/**
