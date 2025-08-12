@@ -1283,7 +1283,23 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public void push(E e)
 	{
-		throw new UnsupportedOperationException("Not implemented yet.");
+		if(e == null)
+		{
+			throw new NullPointerException("You MUST provide a non-null value to push onto the stack represented by this LinkedList");
+		}
+		Node<E> newNode = new Node<>(e);
+		if(head == null)
+		{
+			head = newNode;
+			tail = newNode;
+		}
+		else
+		{
+			head.previous = newNode;
+			newNode.next = head;
+			head = head.previous;
+		}
+		this.size++;
 	}
 
 	/**
