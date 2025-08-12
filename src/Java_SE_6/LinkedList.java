@@ -1677,6 +1677,10 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 		{
 			throw new NullPointerException("You MUST provide a non-null collection of values to remove if contained in this LinkedList");
 		}
+		if(c.isEmpty())
+		{
+			return false;
+		}
 		Node<E> current = head, removingNode;
 		boolean modified = false;
 		while(current != null)
