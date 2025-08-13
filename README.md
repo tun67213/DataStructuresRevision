@@ -1,8 +1,11 @@
 # Data Structures Revision
-## Instructions to use this README
+## Instructions
+### Instructions for using this Repository
     This README, along with the rest of this repository, will not be modifiable unless you as the user clone it onto your local device.
     Any changes made on your cloned repository will not impact this repository, and this repository cannot be modified in any way.
-    Unlike standard README files, this one is a bit unique:
+### Instructions to use this README
+    Unlike standard README files, this one is a bit unique.
+    Follow the instructions below on the Table of Contents:
         To view the description for a certain file in this README, click on the name that is before the portion surrounded by [].
         To view the official description as per what is on the website, select '[Click Here for Description]'
         To view the file itself on GitHub, select [Click Here to View File]
