@@ -896,7 +896,13 @@
                 true if the provided Object is non-null and contained in this ArrayList
                 false if the provided Object is null or not contained in this ArrayList
             Code:
-                Returns true if the provided Object is contained in this ArrayList, false otherwise
+                Returns true if this collection contains the specified element.
+        5. boolean containsAll(Collection<?> c):
+            Parameters:
+                Collection<?> c:
+                    Collection of values to find the existence of in this collection
+            Returns:
+                true if the provided collection contains non-null and existent values, false if a value is either null or not contained in this collection
         9. boolean containsAll(Collection<?> c)
             Parameters:
                 Collection<?> c:
