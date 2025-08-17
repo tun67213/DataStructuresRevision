@@ -1566,3 +1566,115 @@
         1. Iterator<T> iterator()
             Returns:
                 an iterator over the elements of type T
+##### Collection<E> extends Iterable<E>
+###### Methods
+    The following are the methods for Java SE 6:
+        1. boolean add(E e)
+            Parameters:
+                E e:
+                    The value to add to this collection
+            Throws:
+                NullPointerException if no value is provided or the provided value is null
+            Returns:
+                true if the value has been successfully added
+            Code:
+                Ensures that this collection contains the specified element (optional operation).
+        2. boolean addAll(Collection<? extends E> c)
+            Parameters:
+                Collection<? extends E> c:
+                    Collection of values to add to the end of this collection
+            Throws:
+                NullPointerException if no collection is provided or the provided collection contains null values
+            Returns:
+                true if this collection has been modified
+                false otherwise
+            Code:
+                Adds all of the elements in the specified collection to this collection (optional operation).
+        3. void clear()
+            Code:
+                Removes all of the elements from this collection (optional operation).
+        4. boolean contains(Object o)
+            Parameters:
+                Object o:
+                    the Object to find the existence of in this collection
+            Returns:
+                true if the provided Object is non-null and existent
+                false otherwise
+            Code:
+                Returns true if this collection contains the specified element.
+        5. boolean containsAll(Collection<?> c)
+            Parameters:
+                Collection<?> c:
+                    Collection of values to find the existence of in this collection
+            Returns:
+                true if the provided collection contains non-null and existent values
+                false if a value is either null or not contained in this collection
+            Code:
+                Returns true if this collection contains all of the elements in the specified collection.
+        6. boolean equals(Object o)
+            Parameters:
+                Object o:
+                    the Object to compare with this for equality
+            Returns:
+                true if both are an exact match
+                false otherwise
+            Code:
+                Compares the specified object with this collection for equality.
+        7. int hashCode()
+            Returns:
+                the hash code value for this collection
+        8. boolean isEmpty()
+            Returns:
+                true if this collection contains no elements
+                false otherwise
+        9. Iterator<E> iterator()
+            Returns:
+                an iterator over the elements in this list
+        10. boolean remove(Object o)
+            Parameters:
+                Object o:
+                    The Object to find the first occurrence of
+            Returns:
+                true if this collection has been structurally modified,
+                false otherwise
+            Code:
+                Removes a single instance of the specified element from this collection, if it is present (optional operation).
+        11. boolean removeAll(Collection<?> c)
+            Parameters:
+                Collection<?> c:
+                    Collection of values to find and remove if existent in 
+                    this collection
+            Throws:
+                NullPointerException if no collection is provided
+            Returns:
+                true if this collection has been structurally modified
+                false otherwise
+            Code:
+                Removes all of this collection's elements that are also contained in the specified collection (optional operation).
+        12. boolean retainAll(Collection<?> c)
+            Parameters:
+                Collection<?> c:
+                    Collection of values to retain if contained in this list
+            Throws:
+                NullPointerException if no collection is provided
+            Returns:
+                true if this collection has been structurally modified
+                false otherwise
+            Code:
+                Retains only the elements in this collection that are contained in the specified collection (optional operation).
+        13. int size()
+            Returns:
+                the number of elements in this collection
+        14. Object[] toArray()
+            Returns:
+                an array containing all of the elements in this collection
+        15. <T> T[] toArray(T[] a)
+            Parameters:
+                T[] a:
+                    an array of type T whose runtime the returning array should mimic
+            Throws:
+                NullPointerException if no array is provided
+            Returns:
+                an array containing all of the elements in this collection
+            Code:
+                Returns an array containing all of the elements in this collection; the runtime type of the returned array is that of the specified array.
