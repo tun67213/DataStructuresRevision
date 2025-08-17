@@ -1560,3 +1560,9 @@
                     remove() is called before next() is called to begin with,
                     OR 
                     remove() is called right after a previous call to remove()
+##### Iterable<T>
+###### Methods
+    The following are the methods for Java SE 6:
+        1. Iterator<T> iterator()
+            Returns:
+                an iterator over the elements of type T
