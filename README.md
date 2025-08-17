@@ -1559,4 +1559,4 @@
                 IllegalStateException if...
                     remove() is called before next() is called to begin with,
                     OR 
-                    remove() is called right after a previous call to remove(
+                    remove() is called right after a previous call to remove()
