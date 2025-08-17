@@ -1531,4 +1531,10 @@
                 Returns an array containing all of the elements in this list in the correct order; the runtime type of the returned array is that of the specified array.
         39. String toString()
             Returns:
-                a readable String representation of this LinkedList
+                a readable String representation of this LinkedList### Java SE 6
+### Interfaces
+#### Empty Interfaces
+    The interfaces, as mentioned in the table of contents, are the following:
+        1. Cloneable
+        2. RandomAccess
+        3. Serializable
