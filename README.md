@@ -1538,3 +1538,25 @@
         1. Cloneable
         2. RandomAccess
         3. Serializable
+#### Other Interfaces
+##### Iterator
+###### Methods
+    The following are the methods for Java SE 6:
+        1. boolean hasNext()
+            Returns:
+                true if the iteration has more elements
+                false otherwise
+        2. E next()
+            Returns:
+                the next value in the iteration
+            Throws:
+                NoSuchElementException() if hasNext() returns false
+        3. void remove()
+            Code:
+                Removes the value returned by the last call to next(), and 
+                resets that variable to null. 
+            Throws:
+                IllegalStateException if...
+                    remove() is called before next() is called to begin with,
+                    OR 
+                    remove() is called right after a previous call to remove(
