@@ -6,7 +6,7 @@ package Java_SE_6;
  * @code This class adds all methods associated with Abstract Collection for Java SE 6.
  * @implNote None of the methods in this class will be implemented. Feel free to implement it at your own interest.
  */
-public abstract class AbstractCollection<E> extends Object implements Collection<E>
+public abstract class AbstractCollection<E> implements Collection<E>
 {
 	/**
 	 * @code Sole constructor.
