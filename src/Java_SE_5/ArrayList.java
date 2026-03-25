@@ -1,0 +1,1004 @@
+package Java_SE_5;
+
+import java.util.NoSuchElementException;
+
+/**
+ * @author arvindhvelrajan
+ * @param <E> Generic variable for this class
+ * @code This interface implements ArrayList for Java SE 5.
+ */
+public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAccess, Cloneable, Serializable
+{
+	// Private variables that will manage this ArrayList
+	private int size;
+	private int capacity;
+	private E[] array;
+
+	/**
+	 * @code Constructs an empty list with an initial capacity of ten.
+	 */
+	@SuppressWarnings("unchecked")
+	public ArrayList()
+	{
+		this.size = 0;
+		this.capacity = 10;
+		this.array = (E[]) new Object[this.capacity];
+	}
+
+	/**
+	 * @param c Collection of values to initialize this ArrayList with
+	 * @throws NullPointerException if no collection is provided, the provided collection is defined as null, or the provided collection contains null values
+	 * @code Constructs a list containing the elements of the specified collection, in the order they are returned by the collection's iterator.
+	 */
+	@SuppressWarnings("unchecked")
+	public ArrayList(Collection<? extends E> c)
+	{
+		if(c == null || c.contains(null))
+		{
+			throw new NullPointerException("You MUST provide a non-null collection of non-null elements to initialize this ArrayList with");
+		}
+		this.size = 0;
+		this.capacity = 10;
+		if(!(c.isEmpty()))
+		{
+			this.capacity = c.size() + c.size() / 2;
+		}
+		this.array = (E[]) new Object[this.capacity];
+		Iterator<? extends E> iterator = c.iterator();
+		while(iterator.hasNext())
+		{
+			this.array[this.size] = iterator.next();
+			this.size++;
+		}
+	}
+
+	/**
+	 * @param initialCapacity The capacity to initialize this ArrayList with
+	 * @throws IllegalArgumentException if the provided capacity is less than or equal to 1
+	 * @code Constructs an empty list with the specified initial capacity.
+	 */
+	@SuppressWarnings("unchecked")
+	public ArrayList(int initialCapacity)
+	{
+		if(initialCapacity < 1)
+		{
+			throw new IllegalArgumentException("You MUST provide a non-negative non-zero value as the initial capacity");
+		}
+		if(initialCapacity == 1)
+		{
+			throw new IllegalArgumentException("For this class, it is recommended to have the initial capacity as at least 2, as it allows for expansion.");
+		}
+		this.size = 0;
+		this.capacity = initialCapacity;
+		this.array = (E[]) new Object[this.capacity];
+	}
+
+	/**
+	 * @code This private method ensures that this array managing this ArrayList has enough space, allocating space if necessary.
+	 */
+	@SuppressWarnings("unchecked")
+	private void ensureCapacity()
+	{
+		if(this.size == this.capacity)
+		{
+			int newCapacity = this.capacity + this.capacity / 2;
+			E[] newArray = (E[]) new Object[newCapacity];
+			System.arraycopy(this.array, 0, newArray, 0, this.size);
+			this.capacity = newCapacity;
+			this.array = newArray;
+		}
+	}
+
+	/**
+	 * @param o the value to be added to the end of this ArrayList
+	 * @throws NullPointerException if no value is provided or the provided value is null
+	 * @return true if the value has successfully been added
+	 * @code Appends the specified element to the end of this list.
+	 */
+	@Override
+	public boolean add(E o)
+	{
+		if(o == null)
+		{
+			throw new NullPointerException("You MUST provide a non-null value to add to this ArrayList");
+		}
+		ensureCapacity();
+		this.array[this.size] = o;
+		this.size++;
+		return true;
+	}
+
+	/**
+	 * @param index the location at which to add a value into this ArrayList
+	 * @param element the value to be added to the specified location in this ArrayList
+	 * @throws NullPointerException if no value is provided or the provided value is null
+	 * @throws IndexOutOfBoundsException if the provided index is out of bounds
+	 * @code Inserts the specified element at the specified position in this list.
+	 */
+	@Override
+	public void add(int index, E element)
+	{
+		if(element == null)
+		{
+			throw new NullPointerException("You MUST provide a non-null value to add to this ArrayList");
+		}
+		if(index < 0 || index > this.size)
+		{
+			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+		}
+		ensureCapacity();
+		for(int i = this.size; i > index; i--)
+		{
+			this.array[i] = this.array[i - 1];
+		}
+		this.array[index] = element;
+		this.size++;
+	}
+
+	/**
+	 * @param c Collection of values to add to the end of this ArrayList
+	 * @throws NullPointerException if no collection variable is provided, the provided collection variable is defined as null, or the provided collection contains null values
+	 * @return true if the provided collection's values are added, false if the provided collection is empty
+	 * @code Appends all of the elements in the specified Collection to the end of this list, in the order that they are returned by the specified Collection's Iterator.
+	 */
+	@Override
+	public boolean addAll(Collection<? extends E> c)
+	{
+		if(c == null || c.contains(null))
+		{
+			throw new NullPointerException("You MUST provide a non-null value to add to this ArrayList");
+		}
+		if(c.isEmpty())
+		{
+			return false;
+		}
+		Iterator<? extends E> iterator = c.iterator();
+		while(iterator.hasNext())
+		{
+			ensureCapacity();
+			this.array[this.size] = iterator.next();
+			this.size++;
+		}
+		return true;
+	}
+
+	/**
+	 * @param index the location at which to start adding values from this collection into
+	 * @param c Collection of values to add to this ArrayList, starting at the specified index
+	 * @throws NullPointerException if no collection is provided, the provided collection variable is defined as null, or the provided collection contains null values
+	 * @throws IndexOutOfBoundsException if the provided index is out of bounds
+	 * @return true if the provided collection's values are added, false if the provided collection is empty
+	 * @code Inserts all of the elements in the specified Collection into this list, starting at the specified position.
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public boolean addAll(int index, Collection<? extends E> c)
+	{
+		if(c == null || c.contains(null))
+		{
+			throw new NullPointerException("You MUST provide a non-null collection of non-null elements to be added to this ArrayList");
+		}
+		if(index < 0 || index > this.size)
+		{
+			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+		}
+		E[] values = (E[]) c.toArray();
+		for(int i = values.length - 1; i >= 0; i--)
+		{
+			ensureCapacity();
+			for(int j = this.size; j > index; j--)
+			{
+				this.array[j] = this.array[j - 1];
+			}
+			this.array[index] = values[i];
+			this.size++;
+		}
+		return true;
+	}
+
+	/**
+	 * @code Removes all of the elements from this list.
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void clear()
+	{
+		this.size = 0;
+		this.capacity = 10;
+		this.array = (E[]) new Object[this.capacity];
+	}
+
+	/**
+	 * @return a shallow copy of this ArrayList instance
+	 */
+	@Override
+	public Object clone()
+	{
+		ArrayList<E> list = new ArrayList<>();
+		for(int i = 0; i < this.size; i++)
+		{
+			list.add(this.array[i]);
+		}
+		return list;
+	}
+
+	/**
+	 * @param elem the Object to find the existence of
+	 * @return true if the provided Object is non-null and found, false if null or not found in this ArrayList
+	 * @code Returns true if this list contains the specified element.
+	 */
+	@Override
+	public boolean contains(Object elem)
+	{
+		if(elem == null)
+		{
+			return false;
+		}
+		int i = 0;
+		while(i < this.size && !(this.array[i].equals(elem)))
+		{
+			i++;
+		}
+		return i < this.size;
+	}
+
+	/**
+	 * @param c Collection of values to find the existence of in this ArrayList
+	 * @throws NullPointerException if no collection is provided or the provided collection variable is defined as null
+	 * @return true if the provided collection is empty or all values in the collection are contained in this ArrayList, false if the collection contains null values or values not contained in this ArrayList
+	 */
+	@Override
+	public boolean containsAll(Collection<?> c)
+	{
+		if(c == null)
+		{
+			throw new NullPointerException("You MUST provide a collection of non-null elements to find the existence of in this ArrayList");
+		}
+		if(c.contains(null))
+		{
+			return false;
+		}
+		if(c.isEmpty())
+		{
+			return true;
+		}
+		Iterator<?> iterator = c.iterator();
+		int i;
+		while(iterator.hasNext())
+		{
+			Object value = iterator.next();
+			i = 0;
+			while(i < this.size && !(this.array[i].equals(value)))
+			{
+				i++;
+			}
+			if(i >= this.size)
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * @param index the location at which to retrieve a value from this ArrayList
+	 * @throws IndexOutOfBoundsException if the provided index is out of bounds
+	 * @return the element at the specified position in this list
+	 */
+	@Override
+	public E get(int index)
+	{
+		if(index < 0 || index >= this.size)
+		{
+			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+		}
+		return this.array[index];
+	}
+
+	/**
+	 * @param elem the Object to find the first occurrence of
+	 * @return the location of the first occurrence of the specified Object or -1 if the provided Object is null or not contained in this ArrayList
+	 * @code Searches for the first occurrence of the given argument, testing for equality using the equals method.
+	 */
+	@Override
+	public int indexOf(Object elem)
+	{
+		if(elem == null)
+		{
+			return -1;
+		}
+		int i = 0;
+		while(i < this.size && !(this.array[i].equals(elem)))
+		{
+			i++;
+		}
+		return (i < this.size) ? i : -1;
+	}
+
+	/**
+	 * @return an iterator over the elements in this LinkedLIst
+	 */
+	@Override
+	public Iterator<E> iterator()
+	{
+		return new Iterator<>()
+		{
+			private int currentIndex;
+			private int lastReturnedIndex;
+
+			{
+				this.currentIndex = 0;
+				this.lastReturnedIndex = -1;
+			}
+
+			/**
+			 * @return true if the iteration has more elements, false otherwise
+			 * @code Returns true if the iteration has more elements.
+			 */
+			@Override
+			public boolean hasNext()
+			{
+				return this.currentIndex <= size;
+			}
+
+			/**
+			 * @return the next element in the iteration
+			 * @throws NoSuchElementException if this iterator has reached the end of this list
+			 * @code Returns the next element in the iteration.
+			 */
+			@Override
+			public E next()
+			{
+				if(this.currentIndex > size)
+				{
+					throw new NoSuchElementException("This iterator has reached the end of this list");
+				}
+				this.lastReturnedIndex = this.currentIndex;
+				this.currentIndex++;
+				return array[this.lastReturnedIndex];
+			}
+
+			/**
+			 * @code Removes from the underlying collection the last element returned by the iterator.
+			 * @throws IllegalStateException if lastReturnedIndex is -1
+			 */
+			@Override
+			public void remove()
+			{
+				if(this.lastReturnedIndex == -1)
+				{
+					throw new IllegalStateException("You MUST call next() before calling remove()");
+				}
+				for(int i = lastReturnedIndex; i < size - 1; i++)
+				{
+					array[i] = array[i + 1];
+				}
+				size--;
+				array[size] = null;
+			}
+		};
+	}
+
+	/**
+	 * @return true if this ArrayList instance is empty, false otherwise
+	 */
+	@Override
+	public boolean isEmpty()
+	{
+		return this.size == 0;
+	}
+
+	/**
+	 * @param elem the Object to find the last occurrence of
+	 * @return the location of the last occurrence of the specified Object or -1 if the provided Object is null or not contained in this ArrayList
+	 * @code Searches for the last occurrence of the given argument, testing for equality using the equals method.
+	 */
+	@Override
+	public int lastIndexOf(Object elem)
+	{
+		if(elem == null)
+		{
+			return -1;
+		}
+		int currentIndex = this.size - 1;
+		while(currentIndex >= 0 && !(this.array[currentIndex].equals(elem)))
+		{
+			currentIndex--;
+		}
+		return currentIndex;
+	}
+
+	/**
+	 * @return a list-iterator of the elements in this list
+	 */
+	@Override
+	public ListIterator<E> listIterator()
+	{
+		return new ListIterator<>()
+		{
+			private int currentIndex;
+			private int lastReturnedIndex;
+
+			// This is a built-in constructor.
+			{
+				this.currentIndex = 0;
+				this.lastReturnedIndex = -1;
+			}
+
+			/**
+			 * @param o the value to add to this list
+			 * @throws NullPointerException if no value is provided or the provided value is null
+			 * @code Inserts the specified element into the list.
+			 */
+			@Override
+			public void add(E o)
+			{
+				ensureCapacity();
+				for(int i = size; i > this.currentIndex; i--)
+				{
+					array[i] = array[i - 1];
+				}
+				array[this.currentIndex] = o;
+				this.currentIndex++;
+				size++;
+				lastReturnedIndex = -1;
+			}
+
+			/**
+			 * @return true if this list-iterator has more elements when traversing in the forward direction, false otherwise
+			 */
+			@Override
+			public boolean hasNext()
+			{
+				return this.currentIndex < size;
+			}
+
+			/**
+			 * @return true if this list iterator has more elements when traversing the list in the reverse direction, false otherwise
+			 */
+			@Override
+			public boolean hasPrevious()
+			{
+				return this.currentIndex > 0;
+			}
+
+			/**
+			 * @return the next element in the list
+			 * @throws NoSuchElementException if hasNext() returns false
+			 */
+			@Override
+			public E next()
+			{
+				if(this.currentIndex >= size)
+				{
+					throw new NoSuchElementException("This list-iterator has reached the end of this list");
+				}
+				this.lastReturnedIndex = this.currentIndex;
+				this.currentIndex++;
+				return array[this.lastReturnedIndex];
+			}
+
+			/**
+			 * @return the index of the element that would be returned by a subsequent call to next
+			 */
+			@Override
+			public int nextIndex()
+			{
+				return this.currentIndex;
+			}
+
+			/**
+			 * @return the previous element in the list
+			 * @throws NoSuchElementException if hasPrevious() returns false
+			 */
+			@Override
+			public E previous()
+			{
+				if(this.currentIndex <= 0)
+				{
+					throw new NoSuchElementException("This list-iterator has reached the beginning of this list");
+				}
+				this.currentIndex--;
+				this.lastReturnedIndex = this.currentIndex;
+				return array[this.lastReturnedIndex];
+			}
+
+			/**
+			 * @return the index of the element that would be returned by a subsequent call to previous
+			 */
+			@Override
+			public int previousIndex()
+			{
+				return this.currentIndex - 1;
+			}
+
+			/**
+			 * @code Removes from the list the last element that was returned by next or previous.
+			 */
+			@Override
+			public void remove()
+			{
+				if(this.lastReturnedIndex == -1)
+				{
+					throw new IllegalStateException("You MUST call next() or previous() before calling remove()");
+				}
+				for(int i = this.lastReturnedIndex; i < size - 1; i++)
+				{
+					array[i] = array[i + 1];
+				}
+				array[size - 1] = null;
+				size--;
+			}
+
+			/**
+			 * @param o the replacement element for the last returned value
+			 * @throws NullPointerException if no element is provided or the provided element is null
+			 * @code Replaces the last element returned by next or previous with the specified element (optional operation).
+			 */
+			@Override
+			public void set(E o)
+			{
+				if(o == null)
+				{
+					throw new NullPointerException("You MUST provide a non-null replacement value");
+				}
+				array[this.lastReturnedIndex] = o;
+			}
+		};
+	}
+
+	/**
+	 * @param index the location from which to create this ArrayList from
+	 * @throws IndexOutOfBoundsException if the provided index is out of bounds
+	 * @return a list-iterator of the elements in this list (in proper sequence), starting at the specified position in the list
+	 */
+	@Override
+	public ListIterator<E> listIterator(int index)
+	{
+		if(index < 0 || index > this.size)
+		{
+			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+		}
+		return new ListIterator<>()
+		{
+			private int currentIndex;
+			private int lastReturnedIndex;
+
+			// This is a built-in constructor.
+			{
+				this.currentIndex = index;
+				this.lastReturnedIndex = -1;
+			}
+
+			/**
+			 * @param o the value to add to this list
+			 * @throws NullPointerException if no value is provided or the provided value is null
+			 * @code Inserts the specified element into the list.
+			 */
+			@Override
+			public void add(E o)
+			{
+				ensureCapacity();
+				for(int i = size; i > this.currentIndex; i--)
+				{
+					array[i] = array[i - 1];
+				}
+				array[this.currentIndex] = o;
+				this.currentIndex++;
+				size++;
+				lastReturnedIndex = -1;
+			}
+
+			/**
+			 * @return true if this list-iterator has more elements when traversing in the forward direction, false otherwise
+			 */
+			@Override
+			public boolean hasNext()
+			{
+				return this.currentIndex < size;
+			}
+
+			/**
+			 * @return true if this list iterator has more elements when traversing the list in the reverse direction, false otherwise
+			 */
+			@Override
+			public boolean hasPrevious()
+			{
+				return this.currentIndex > 0;
+			}
+
+			/**
+			 * @return the next element in the list
+			 * @throws NoSuchElementException if hasNext() returns false
+			 */
+			@Override
+			public E next()
+			{
+				if(this.currentIndex >= size)
+				{
+					throw new NoSuchElementException("This list-iterator has reached the end of this list");
+				}
+				this.lastReturnedIndex = this.currentIndex;
+				this.currentIndex++;
+				return array[this.lastReturnedIndex];
+			}
+
+			/**
+			 * @return the index of the element that would be returned by a subsequent call to next
+			 */
+			@Override
+			public int nextIndex()
+			{
+				return this.currentIndex;
+			}
+
+			/**
+			 * @return the previous element in the list
+			 * @throws NoSuchElementException if hasPrevious() returns false
+			 */
+			@Override
+			public E previous()
+			{
+				if(this.currentIndex <= 0)
+				{
+					throw new NoSuchElementException("This list-iterator has reached the beginning of this list");
+				}
+				this.currentIndex--;
+				this.lastReturnedIndex = this.currentIndex;
+				return array[this.lastReturnedIndex];
+			}
+
+			/**
+			 * @return the index of the element that would be returned by a subsequent call to previous
+			 */
+			@Override
+			public int previousIndex()
+			{
+				return this.currentIndex - 1;
+			}
+
+			/**
+			 * @code Removes from the list the last element that was returned by next or previous.
+			 */
+			@Override
+			public void remove()
+			{
+				if(this.lastReturnedIndex == -1)
+				{
+					throw new IllegalStateException("You MUST call next() or previous() before calling remove()");
+				}
+				for(int i = this.lastReturnedIndex; i < size - 1; i++)
+				{
+					array[i] = array[i + 1];
+				}
+				array[size - 1] = null;
+				size--;
+			}
+
+			/**
+			 * @param o the replacement element for the last returned value
+			 * @throws NullPointerException if no element is provided or the provided element is null
+			 * @code Replaces the last element returned by next or previous with the specified element (optional operation).
+			 */
+			@Override
+			public void set(E o)
+			{
+				if(o == null)
+				{
+					throw new NullPointerException("You MUST provide a non-null replacement value");
+				}
+				array[this.lastReturnedIndex] = o;
+			}
+		};
+	}
+
+	/**
+	 * @param index the location at which to remove a value from this ArrayList
+	 * @throws IndexOutOfBoundsException if the provided index is out of bounds
+	 * @return the value previously at the provided index before removal
+	 * @code Removes te element at the specified position in this list.
+	 */
+	@Override
+	public E remove(int index)
+	{
+		if(index < 0 || index >= this.size)
+		{
+			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+		}
+		E value = this.array[index];
+		for(int i = index; i < this.size - 1; i++)
+		{
+			this.array[i] = this.array[i + 1];
+		}
+		this.array[this.size - 1] = null;
+		this.size--;
+		return value;
+	}
+
+	/**
+	 * @param o the Object to find and remove the first occurrence of
+	 * @return true if the provided Object is non-null, contained in this ArrayList, and removed, false if the provided Object is null and/or not found in this ArrayList
+	 * @code Removes a single instance of the specified element from this list, if it is present.
+	 */
+	@Override
+	public boolean remove(Object o)
+	{
+		if(o == null)
+		{
+			return false;
+		}
+		int removingIndex = 0;
+		while(removingIndex < this.size && !(this.array[removingIndex].equals(o)))
+		{
+			removingIndex++;
+		}
+		if(removingIndex >= this.size)
+		{
+			return false;
+		}
+		for(int i = removingIndex; i < this.size - 1; i++)
+		{
+			this.array[i] = this.array[i + 1];
+		}
+		this.array[this.size - 1] = null;
+		this.size--;
+		return true;
+	}
+
+	/**
+	 * @param fromIndex the location (inclusive of which) to start removing a value from
+	 * @param toIndex the location (exclusive of which) to remove values until
+	 * @throws IndexOutOfBoundsException if either index is out of bounds
+	 * @throws IllegalArgumentException if fromIndex is greater than toIndex
+	 * @code Removes from this List all of the elements whose index is between fromIndex, inclusive and toIndex, exclusive.
+	 */
+	@Override
+	protected void removeRange(int fromIndex, int toIndex)
+	{
+		if(fromIndex < 0 || toIndex > this.size)
+		{
+			throw new IndexOutOfBoundsException("fromIndex " + fromIndex + " and/or toIndex " + toIndex + " is/are out of bounds");
+		}
+		// This method of removal is better for understanding, but not the most optimal solution.
+		for(int i = fromIndex; i < toIndex; i++)
+		{
+			for(int j = fromIndex; j < this.size - 1; j++)
+			{
+				this.array[j] = this.array[j + 1];
+			}
+			this.array[this.size - 1] = null;
+			this.size--;
+		}
+	}
+
+	/**
+	 * @param c Collection of values to remove if contained in this ArrayList
+	 * @throws NullPointerException if no collection variable is provided or the provided variable is defined as null
+	 * @return true if this ArrayList has been structurally modified, false otherwise
+	 * @code Removes from this ArrayList all the elements that are contained in the specified collection (optional operation).
+	 */
+	@Override
+	public boolean removeAll(Collection<?> c)
+	{
+		if(c == null)
+		{
+			throw new NullPointerException("You MUST provide a non-null collection of values to remove if contained in this ArrayList");
+		}
+		if(c.isEmpty())
+		{
+			return false;
+		}
+		boolean modifiedList = false;
+		Iterator<?> iterator = c.iterator();
+		int i = 0;
+		while(i < this.size)
+		{
+			if(c.contains(this.array[i]))
+			{
+				for(int j = i; j < this.size - 1; j++)
+				{
+					this.array[j] = this.array[j + 1];
+				}
+				this.array[this.size - 1] = null;
+				modifiedList = true;
+				this.size--;
+			}
+			else
+			{
+				i++;
+			}
+		}
+		return modifiedList;
+	}
+
+	/**
+	 * @param c Collection of values to retain if contained in this list
+	 * @throws NullPointerException if no collection variable is provided or the provided variable is defined as null
+	 * @return true if this list has been structurally modified, false otherwise
+	 * @code Retains only the elements in this list that are contained in the specified collection (optional operation).
+	 */
+	@Override
+	public boolean retainAll(Collection<?> c)
+	{
+		if(c == null)
+		{
+			throw new NullPointerException("You MUST provide a non-null collection of elements to retain in this ArrayList");
+		}
+		int i = 0;
+		boolean modifiedList = false;
+		while(i < this.size)
+		{
+			if(!c.contains(this.array[i]))
+			{
+				for(int j = i; j < this.size - 1; j++)
+				{
+					this.array[j] = this.array[j + 1];
+				}
+				this.array[this.size - 1] = null;
+				this.size--;
+				modifiedList = true;
+			}
+		}
+		return modifiedList;
+	}
+
+	/**
+	 * @param index the location at which to perform a replacement
+	 * @param element the replacement value for the specified location
+	 * @throws IllegalArgumentException if no replacement value is provided or the provided replacement value is null
+	 * @throws IndexOutOfBoundsException if the provided index is out of bounds
+	 * @return the value previously at the specified index in this ArrayList
+	 * @code Replaces the element at the specified position in this list with the specified element.
+	 */
+	@Override
+	public E set(int index, E element)
+	{
+		if(element == null)
+		{
+			throw new NullPointerException("You MUST provide a non-null replacement value");
+		}
+		if(index < 0 || index >= this.size)
+		{
+			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+		}
+		E value = this.array[index];
+		this.array[index] = element;
+		return value;
+	}
+
+	/**
+	 * @return the number of elements in this ArrayList
+	 */
+	@Override
+	public int size()
+	{
+		return this.size;
+	}
+
+	/**
+	 * @param fromIndex the location from which to create this subList
+	 * @param toIndex the location until which to create this subList
+	 * @throws IndexOutOfBoundsException if either or both indices is/are out of bounds
+	 * @throws IllegalArgumentException if fromIndex is greater than toIndex
+	 * @return a view of the portion of this list between the specified fromIndex, inclusive, and toIndex, exclusive
+	 */
+	@Override
+	public List<E> subList(int fromIndex, int toIndex)
+	{
+		if(fromIndex < 0 || toIndex > this.size)
+		{
+			throw new IndexOutOfBoundsException("fromIndex (" + fromIndex + ") and/or toIndex (" + toIndex + ") is/are out of bounds");
+		}
+		if(fromIndex > toIndex)
+		{
+			throw new IllegalArgumentException("fromIndex (" + fromIndex + ") > toIndex (" + toIndex + ")");
+		}
+		ArrayList<E> list = new ArrayList<>();
+		if(fromIndex == toIndex)
+		{
+			return list;
+		}
+		for(int i = fromIndex; i < toIndex; i++)
+		{
+			list.add(this.array[i]);
+		}
+		return list;
+	}
+
+	/**
+	 * @return an array containing all of the elements in this list in the correct order
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public Object[] toArray()
+	{
+		E[] values = (E[]) new Object[this.size];
+		System.arraycopy(this.array, 0, values, 0, this.size);
+		return values;
+	}
+
+	/**
+	 * @param a an array of type T whose runtime must be mimicked for the returning array
+	 * @throws NullPointerException if no array is provided or the variable provided is null
+	 * @return an array containing all of the elements in this list in the correct order
+	 * @code Returns an array containing all of the elements in this list in the correct order; the runtime type of the returned array is that of the specified array.
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public <T> T[] toArray(T[] a)
+	{
+		if(a == null)
+		{
+			throw new NullPointerException("You MUST provide a non-null array to copy values from this ArrayList into");
+		}
+		if(a.length < this.size)
+		{
+			a = (T[]) java.lang.reflect.Array.newInstance(a.getClass().getComponentType(), this.size);
+		}
+		else
+		{
+			System.arraycopy(this.array, 0, a, 0, this.size);
+			if(a.length > this.size)
+			{
+				a[this.size] = null;
+			}
+		}
+		return a;
+	}
+
+	/**
+	 * @code Trims the capacity of this ArrayList instance to be the list's current size.
+	 */
+	@SuppressWarnings("unchecked")
+	public void trimToSize()
+	{
+		if(this.size < this.capacity)
+		{
+			this.capacity = this.size;
+			E[] newArray = (E[]) new Object[this.capacity];
+			System.arraycopy(this.array, 0, newArray, 0, this.size);
+			this.array = newArray;
+		}
+	}
+
+	/**
+	 * @return a String representation of this ArrayList
+	 */
+	@Override
+	public String toString()
+	{
+		if(this.size == 0)
+		{
+			return "[]";
+		}
+
+		boolean isCharacter = (this.array[0] instanceof Character);
+		boolean isString = (this.array[0] instanceof String);
+
+		StringBuilder buff = new StringBuilder();
+
+		buff.append("[");
+		for(int i = 0; i < this.size; i++)
+		{
+			if(isCharacter)
+			{
+				buff.append("'").append(this.array[i]).append("'");
+			}
+			else if(isString)
+			{
+				buff.append("\"").append(this.array[i]).append("\"");
+			}
+			else
+			{
+				buff.append(this.array[i]);
+			}
+			if(i != this.size - 1)
+			{
+				buff.append(", ");
+			}
+		}
+		buff.append("]");
+
+		return buff.toString();
+	}
+}

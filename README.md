@@ -1,8 +1,11 @@
 # Data Structures Revision
-## Instructions to use this README
+## Instructions
+### Instructions for using this Repository
     This README, along with the rest of this repository, will not be modifiable unless you as the user clone it onto your local device.
     Any changes made on your cloned repository will not impact this repository, and this repository cannot be modified in any way.
-    Unlike standard README files, this one is a bit unique:
+### Instructions to use this README
+    Unlike standard README files, this one is a bit unique.
+    Follow the instructions below on the Table of Contents:
         To view the description for a certain file in this README, click on the name that is before the portion surrounded by [].
         To view the official description as per what is on the website, select '[Click Here for Description]'
         To view the file itself on GitHub, select [Click Here to View File]
@@ -18,7 +21,7 @@
     > ###### [Serializable](https://github.com/tun67213/DataStructuresRevision/blob/f54aadbbb9b3bd6519a897ddc12375941df547b5/README.md#empty-interfaces) [[Click Here for Description]](https://docs.oracle.com/javase/1.5.0/docs/api/java/io/Serializable.html) [[Click Here to View File]](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Java_SE_5/Serializable.java)
 - ##### [Other Interfaces](https://github.com/tun67213/DataStructuresRevision#other-interfaces)
     > ###### [Iterator](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#iterator) [[Click Here for Description]](https://docs.oracle.com/javase/1.5.0/docs/api/java/util/Iterator.html) [[Click Here to View File]](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Java_SE_5/Iterator.java)
-    > ###### [Iterable](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#iterable) (Description Unavailable) [[Click Here to View File]](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Java_SE_5/Iterable.java)
+    > ###### [Iterable](https://github.com/tun67213/DataStructuresRevision?tab=readme-ov-file#iterable) [[Click Here for Description]](https://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Iterable.html) [[Click Here to View File]](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Java_SE_5/Iterable.java)
     > ###### [ListIterator](https://github.com/tun67213/DataStructuresRevision/blob/60d812221825344b49c79af4484d3d8d1c9b9a0a/README.md#listiterator) [[Click Here for Description]](https://docs.oracle.com/javase/1.5.0/docs/api/java/util/ListIterator.html) [[Click Here to View File]](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Java_SE_5/ListIterator.java)
     > ###### [Collection](https://github.com/tun67213/DataStructuresRevision/blob/b7c39bbe4e7503fdf247ef86835698103f149e77/README.md#collection) [[Click Here for Description]](https://docs.oracle.com/javase/1.5.0/docs/api/java/util/Collection.html) [[Click Here to View File]](https://github.com/tun67213/DataStructuresRevision/blob/main/src/Java_SE_5/Collection.java)
     > ###### [Queue](https://github.com/tun67213/DataStructuresRevision/blob/60d812221825344b49c79af4484d3d8d1c9b9a0a/README.md#queue-1) [[Click Here for Description]](https://docs.oracle.com/javase/1.5.0/docs/api/java/util/Queue.html) [[Click Here to View File]](https://github.com/tun67213/DataStructuresRevision/blob/9e406f84b9397686530def731531863eea6d4f56/src/Java_SE_5/Queue.java)
@@ -893,7 +896,13 @@
                 true if the provided Object is non-null and contained in this ArrayList
                 false if the provided Object is null or not contained in this ArrayList
             Code:
-                Returns true if the provided Object is contained in this ArrayList, false otherwise
+                Returns true if this collection contains the specified element.
+        5. boolean containsAll(Collection<?> c):
+            Parameters:
+                Collection<?> c:
+                    Collection of values to find the existence of in this collection
+            Returns:
+                true if the provided collection contains non-null and existent values, false if a value is either null or not contained in this collection
         9. boolean containsAll(Collection<?> c)
             Parameters:
                 Collection<?> c:
@@ -1523,3 +1532,150 @@
         39. String toString()
             Returns:
                 a readable String representation of this LinkedList
+## Java SE 6
+### Interfaces
+#### Empty Interfaces
+    The interfaces, as mentioned in the table of contents, are the following:
+        1. Cloneable
+        2. RandomAccess
+        3. Serializable
+#### Other Interfaces
+##### Iterator
+###### Methods
+    The following are the methods for Java SE 6:
+        1. boolean hasNext()
+            Returns:
+                true if the iteration has more elements
+                false otherwise
+        2. E next()
+            Returns:
+                the next value in the iteration
+            Throws:
+                NoSuchElementException() if hasNext() returns false
+        3. void remove()
+            Code:
+                Removes the value returned by the last call to next(), and 
+                resets that variable to null. 
+            Throws:
+                IllegalStateException if...
+                    remove() is called before next() is called to begin with,
+                    OR 
+                    remove() is called right after a previous call to remove()
+##### Iterable<T>
+###### Methods
+    The following are the methods for Java SE 6:
+        1. Iterator<T> iterator()
+            Returns:
+                an iterator over the elements of type T
+##### Collection<E> extends Iterable<E>
+###### Methods
+    The following are the methods for Java SE 6:
+        1. boolean add(E e)
+            Parameters:
+                E e:
+                    The value to add to this collection
+            Throws:
+                NullPointerException if no value is provided or the provided value is null
+            Returns:
+                true if the value has been successfully added
+            Code:
+                Ensures that this collection contains the specified element (optional operation).
+        2. boolean addAll(Collection<? extends E> c)
+            Parameters:
+                Collection<? extends E> c:
+                    Collection of values to add to the end of this collection
+            Throws:
+                NullPointerException if no collection is provided or the provided collection contains null values
+            Returns:
+                true if this collection has been modified
+                false otherwise
+            Code:
+                Adds all of the elements in the specified collection to this collection (optional operation).
+        3. void clear()
+            Code:
+                Removes all of the elements from this collection (optional operation).
+        4. boolean contains(Object o)
+            Parameters:
+                Object o:
+                    the Object to find the existence of in this collection
+            Returns:
+                true if the provided Object is non-null and existent
+                false otherwise
+            Code:
+                Returns true if this collection contains the specified element.
+        5. boolean containsAll(Collection<?> c)
+            Parameters:
+                Collection<?> c:
+                    Collection of values to find the existence of in this collection
+            Returns:
+                true if the provided collection contains non-null and existent values
+                false if a value is either null or not contained in this collection
+            Code:
+                Returns true if this collection contains all of the elements in the specified collection.
+        6. boolean equals(Object o)
+            Parameters:
+                Object o:
+                    the Object to compare with this for equality
+            Returns:
+                true if both are an exact match
+                false otherwise
+            Code:
+                Compares the specified object with this collection for equality.
+        7. int hashCode()
+            Returns:
+                the hash code value for this collection
+        8. boolean isEmpty()
+            Returns:
+                true if this collection contains no elements
+                false otherwise
+        9. Iterator<E> iterator()
+            Returns:
+                an iterator over the elements in this list
+        10. boolean remove(Object o)
+            Parameters:
+                Object o:
+                    The Object to find the first occurrence of
+            Returns:
+                true if this collection has been structurally modified,
+                false otherwise
+            Code:
+                Removes a single instance of the specified element from this collection, if it is present (optional operation).
+        11. boolean removeAll(Collection<?> c)
+            Parameters:
+                Collection<?> c:
+                    Collection of values to find and remove if existent in 
+                    this collection
+            Throws:
+                NullPointerException if no collection is provided
+            Returns:
+                true if this collection has been structurally modified
+                false otherwise
+            Code:
+                Removes all of this collection's elements that are also contained in the specified collection (optional operation).
+        12. boolean retainAll(Collection<?> c)
+            Parameters:
+                Collection<?> c:
+                    Collection of values to retain if contained in this list
+            Throws:
+                NullPointerException if no collection is provided
+            Returns:
+                true if this collection has been structurally modified
+                false otherwise
+            Code:
+                Retains only the elements in this collection that are contained in the specified collection (optional operation).
+        13. int size()
+            Returns:
+                the number of elements in this collection
+        14. Object[] toArray()
+            Returns:
+                an array containing all of the elements in this collection
+        15. <T> T[] toArray(T[] a)
+            Parameters:
+                T[] a:
+                    an array of type T whose runtime the returning array should mimic
+            Throws:
+                NullPointerException if no array is provided
+            Returns:
+                an array containing all of the elements in this collection
+            Code:
+                Returns an array containing all of the elements in this collection; the runtime type of the returned array is that of the specified array.
