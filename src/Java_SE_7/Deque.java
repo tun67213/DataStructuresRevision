@@ -5,6 +5,6 @@ package Java_SE_7;
  * @param <E> Generic variable for this interface
  * @code This interface adds all methods associated with Deque for Java SE 7.
  */
-public interface Deque<E>
+public interface Deque<E> extends Queue<E>
 {
 }
