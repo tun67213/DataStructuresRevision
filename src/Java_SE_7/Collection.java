@@ -5,6 +5,6 @@ package Java_SE_7;
  * @param <E> Generic variable for this interface
  * @code This interface adds all methods associated with Collection for Java SE 7.
  */
-public interface Collection<E>
+public interface Collection<E> extends Iterable<E>
 {
 }
