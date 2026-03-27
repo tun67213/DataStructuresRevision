@@ -6,7 +6,7 @@ package Java_SE_7;
  * @code This class adds all methods associated with Abstract Sequential List for Java SE 7.
  * @implNote None of the methods in this class will be implemented. Please feel free to implement them at your own interest if necessary.
  */
-public abstract class AbstractSequentialList<E> extends AbstractCollection<E> implements List<E>
+public abstract class AbstractSequentialList<E> extends AbstractList<E>
 {
 	
 }
