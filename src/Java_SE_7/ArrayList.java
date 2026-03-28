@@ -100,7 +100,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	 * @param e the value to be added to this list
 	 * @throws NullPointerException if no value is provided or the provided value is null
 	 * @return true if the value has successfully been added
-	 * @code Appends all of the elements in the specified collection to the end of this list, in the order that they are returned by the specified collection's Iterator.
+	 * @code Appends the specified element to the end of this list.
 	 */
 	@Override
 	public boolean add(E e)
