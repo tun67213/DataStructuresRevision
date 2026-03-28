@@ -10,6 +10,23 @@ import java.util.NoSuchElementException;
 public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>, Deque<E>, Cloneable, Serializable
 {
 	/**
+	 * @code The following internal class is a structure used to maintain this linked list
+	 */
+	private class Node<E>
+	{
+		private Node<E> previous;
+		private E data;
+		private Node<E> next;
+
+		public Node(E value)
+		{
+			this.previous = null;
+			this.data = value;
+			this.next = null;
+		}
+	}
+
+	/**
 	 * @code Constructs an empty list.
 	 */
 	public LinkedList()
