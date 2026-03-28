@@ -12,11 +12,11 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	/**
 	 * @code The following internal class is a structure used to maintain this linked list
 	 */
-	private class Node<E>
+	private class Node
 	{
-		private Node<E> previous;
+		private Node previous;
 		private E data;
-		private Node<E> next;
+		private Node next;
 
 		public Node(E value)
 		{
