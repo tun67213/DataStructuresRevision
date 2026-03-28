@@ -215,7 +215,9 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public void clear()
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		this.size = 0;
+		this.capacity = 10;
+		this.array = (E[]) new Object[this.capacity];
 	}
 
 	/**
