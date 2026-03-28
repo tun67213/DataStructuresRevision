@@ -35,14 +35,23 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 		{
 			throw new NullPointerException("Please provide a non-null collection of non-null elements");
 		}
-		Iterator<? extends E> iterator = c.iterator();
-		this.size = 0;
-		this.capacity = c.size() + c.size() / 2;
-		this.array = (E[]) new Object[this.capacity];
-		while(iterator.hasNext())
+		if(c.isEmpty())
 		{
-			this.array[this.size] = iterator.next();
-			this.size++;
+			this.size = 0;
+			this.capacity = 10;
+			this.array = (E[]) new Object[this.capacity];
+		}
+		else
+		{
+			Iterator<? extends E> iterator = c.iterator();
+			this.size = 0;
+			this.capacity = c.size() + c.size() / 2;
+			this.array = (E[]) new Object[this.capacity];
+			while(iterator.hasNext())
+			{
+				this.array[this.size] = iterator.next();
+				this.size++;
+			}
 		}
 	}
 
