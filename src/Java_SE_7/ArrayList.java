@@ -433,7 +433,122 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public ListIterator<E> listIterator()
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		return new ListIterator<>() {
+			private int currentIndex;
+			private int lastReturnedIndex;
+
+			{
+				this.currentIndex = 0;
+				this.lastReturnedIndex = -1;
+			}
+
+			@Override
+			public boolean hasNext()
+			{
+				return currentIndex < size;
+			}
+
+			@Override
+			public E next()
+			{
+				if(currentIndex >= size)
+				{
+					throw new NoSuchElementException("This list-iterator has reached the end of this ArrayList");
+				}
+				this.lastReturnedIndex = this.currentIndex;
+				this.currentIndex++;
+				return array[this.lastReturnedIndex];
+			}
+
+			@Override
+			public int nextIndex()
+			{
+				return this.currentIndex;
+			}
+
+			@Override
+			public boolean hasPrevious()
+			{
+				return currentIndex > 0;
+			}
+
+			@Override
+			public E previous()
+			{
+				if(currentIndex <= 0)
+				{
+					throw new NoSuchElementException("This list-iterator has reached the beginning of this ArrayList");
+				}
+				this.currentIndex--;
+				this.lastReturnedIndex = this.currentIndex;
+				return array[this.lastReturnedIndex];
+			}
+
+			@Override
+			public int previousIndex()
+			{
+				return this.currentIndex - 1;
+			}
+
+			@Override
+			public void set(E e)
+			{
+				if(e == null)
+				{
+					throw new NullPointerException("You MUST provide a non-null value to set into this ArrayList");
+				}
+				if(this.lastReturnedIndex == -1)
+				{
+					throw new IllegalStateException("You MUST call next() or previous() before calling set()");
+				}
+				array[this.lastReturnedIndex] = e;
+			}
+
+			@Override
+			public void add(E e)
+			{
+				if(e == null)
+				{
+					throw new NullPointerException("You MUST provide a non-null value to add into this ArrayList");
+				}
+
+				ensureCapacity();
+
+				for(int i = size; i > this.currentIndex; i--)
+				{
+					array[i] = array[i - 1];
+				}
+
+				array[this.currentIndex] = e;
+				size++;
+				this.currentIndex++;
+				this.lastReturnedIndex = -1;
+			}
+
+			@Override
+			public void remove()
+			{
+				if(this.lastReturnedIndex == -1)
+				{
+					throw new IllegalStateException("You MUST call next() or previous() before calling remove()");
+				}
+
+				for(int i = this.lastReturnedIndex; i < size - 1; i++)
+				{
+					array[i] = array[i + 1];
+				}
+
+				array[size - 1] = null;
+				size--;
+
+				if(this.lastReturnedIndex < this.currentIndex)
+				{
+					this.currentIndex--;
+				}
+
+				this.lastReturnedIndex = -1;
+			}
+		};
 	}
 
 	/**
@@ -444,7 +559,126 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public ListIterator<E> listIterator(int index)
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		if(index < 0 || index > this.size)
+		{
+			throw new IndexOutOfBoundsException("Index (" + index + ") is out of bounds");
+		}
+		return new ListIterator<>() {
+			private int currentIndex;
+			private int lastReturnedIndex;
+
+			{
+				this.currentIndex = index;
+				this.lastReturnedIndex = -1;
+			}
+
+			@Override
+			public boolean hasNext()
+			{
+				return currentIndex < size;
+			}
+
+			@Override
+			public E next()
+			{
+				if(currentIndex >= size)
+				{
+					throw new NoSuchElementException("This list-iterator has reached the end of this ArrayList");
+				}
+				this.lastReturnedIndex = this.currentIndex;
+				this.currentIndex++;
+				return array[this.lastReturnedIndex];
+			}
+
+			@Override
+			public int nextIndex()
+			{
+				return this.currentIndex;
+			}
+
+			@Override
+			public boolean hasPrevious()
+			{
+				return currentIndex > 0;
+			}
+
+			@Override
+			public E previous()
+			{
+				if(currentIndex <= 0)
+				{
+					throw new NoSuchElementException("This list-iterator has reached the beginning of this ArrayList");
+				}
+				this.currentIndex--;
+				this.lastReturnedIndex = this.currentIndex;
+				return array[this.lastReturnedIndex];
+			}
+
+			@Override
+			public int previousIndex()
+			{
+				return this.currentIndex - 1;
+			}
+
+			@Override
+			public void set(E e)
+			{
+				if(e == null)
+				{
+					throw new NullPointerException("You MUST provide a non-null value to set into this ArrayList");
+				}
+				if(this.lastReturnedIndex == -1)
+				{
+					throw new IllegalStateException("You MUST call next() or previous() before calling set()");
+				}
+				array[this.lastReturnedIndex] = e;
+			}
+
+			@Override
+			public void add(E e)
+			{
+				if(e == null)
+				{
+					throw new NullPointerException("You MUST provide a non-null value to add into this ArrayList");
+				}
+
+				ensureCapacity();
+
+				for(int i = size; i > this.currentIndex; i--)
+				{
+					array[i] = array[i - 1];
+				}
+
+				array[this.currentIndex] = e;
+				size++;
+				this.currentIndex++;
+				this.lastReturnedIndex = -1;
+			}
+
+			@Override
+			public void remove()
+			{
+				if(this.lastReturnedIndex == -1)
+				{
+					throw new IllegalStateException("You MUST call next() or previous() before calling remove()");
+				}
+
+				for(int i = this.lastReturnedIndex; i < size - 1; i++)
+				{
+					array[i] = array[i + 1];
+				}
+
+				array[size - 1] = null;
+				size--;
+
+				if(this.lastReturnedIndex < this.currentIndex)
+				{
+					this.currentIndex--;
+				}
+
+				this.lastReturnedIndex = -1;
+			}
+		};
 	}
 
 	/**
