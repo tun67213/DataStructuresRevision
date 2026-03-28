@@ -49,8 +49,8 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 			this.array = (E[]) new Object[this.capacity];
 			while(iterator.hasNext())
 			{
-				this.array[size] = iterator.next();
-				size++;
+				this.array[this.size] = iterator.next();
+				this.size++;
 			}
 		}
 	}
