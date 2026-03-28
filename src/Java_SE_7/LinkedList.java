@@ -5,6 +5,6 @@ package Java_SE_7;
  * @param <E> Generic variable for this class
  * @code This class adds all methods associated with LinkedList for Java SE 7.
  */
-public class LinkedList
+public class LinkedList<E>
 {
 }
