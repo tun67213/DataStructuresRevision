@@ -915,7 +915,12 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public Object[] toArray()
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		E[] newArray = (E[]) new Object[this.size];
+		for(int i = 0; i < this.size; i++)
+		{
+			newArray[i] = this.array[i];
+		}
+		return newArray;
 	}
 
 	/**
@@ -928,7 +933,23 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public <T> T[] toArray(T[] a)
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		if(a == null)
+		{
+			throw new NullPointerException("You MUST provide a non-null array to copy values from this ArrayList into");
+		}
+		if(a.length < this.size)
+		{
+			a = (T[]) java.lang.reflect.Array.newInstance(a.getClass().getComponentType(), this.size);
+		}
+		else
+		{
+			System.arraycopy(this.array, 0, a, 0, this.size);
+			if(a.length > this.size)
+			{
+				a[this.size] = null;
+			}
+		}
+		return a;
 	}
 
 	/**
