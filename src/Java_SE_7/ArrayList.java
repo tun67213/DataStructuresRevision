@@ -211,6 +211,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	/**
 	 * @code Removes all of the elements from this list.
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void clear()
 	{
