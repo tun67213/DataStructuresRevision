@@ -7,9 +7,15 @@ package Java_SE_7;
  */
 public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAccess, Cloneable, Serializable
 {
+	// Define variables that will manage this ArrayList
+	private int size;
+	private int capacity;
+	private E[] array;
+
 	/**
 	 * @code Constructs an empty list with an initial capacity of ten.
 	 */
+	@SuppressWarnings("unchecked")
 	public ArrayList()
 	{
 
@@ -20,6 +26,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	 * @throws NullPointerException if the provided variable is null
 	 * @code Constructs a list containing the elements of the specified collection, in the order they are returned by the collection's iterator.
 	 */
+	@SuppressWarnings("unchecked")
 	public ArrayList(Collection<? extends E> c)
 	{
 
@@ -30,6 +37,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	 * @throws IllegalArgumentException if the provided index is not appropriate
 	 * @code Constructs an empty list with the specified initial capacity.
 	 */
+	@SuppressWarnings("unchecked")
 	public ArrayList(int initialCapacity)
 	{
 
@@ -38,6 +46,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	/**
 	 * @code Checks if the array handling this ArrayList has enough space. If not, it creates a new array, copies old values over, and reassigns with more capacity.
 	 */
+	@SuppressWarnings("unchecked")
 	private void ensureCapacity()
 	{
 		throw new UnsupportedOperationException("Not implemented yet");
@@ -309,6 +318,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	/**
 	 * @return an array containing all of the elements in this list in proper sequence (from first to last element)
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public Object[] toArray()
 	{
@@ -321,6 +331,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	 * @throws NullPointerException if no array is provided
 	 * @code Returns an array containing all of the elements in this list in proper sequence (from first to last element); the runtime type of the returned array is that of the specified array.
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public <T> T[] toArray(T[] a)
 	{
