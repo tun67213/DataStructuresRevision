@@ -414,7 +414,17 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	@Override
 	public int hashCode()
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		int hash = 1;
+		for(int i = 0; i < this.size; i++)
+		{
+			E value = this.array[i];
+			hash *= 31;
+			if(value != null)
+			{
+				hash += value.hashCode();
+			}
+		}
+		return hash;
 	}
 
 	/**
