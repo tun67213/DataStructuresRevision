@@ -418,7 +418,71 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public Iterator<E> descendingIterator()
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		return new Iterator<>()
+		{
+			Node current;
+			Node previouslyReturned;
+
+			{
+				current = tail;
+				previouslyReturned = null;
+			}
+
+			@Override
+			public boolean hasNext()
+			{
+				return current != null;
+			}
+
+			@Override
+			public E next()
+			{
+				if(current == null)
+				{
+					throw new NoSuchElementException("This iterator has no more elements to iterate through");
+				}
+				previouslyReturned = current;
+				current = current.previous;
+				return previouslyReturned.data;
+			}
+
+			@Override
+			public void remove()
+			{
+				if(previouslyReturned == null)
+				{
+					throw new IllegalStateException("You must call next() once before calling remove");
+				}
+
+				if(previouslyReturned.previous == null && previouslyReturned.next == null)
+				{
+					head = null;
+					tail = null;
+				}
+				else if(previouslyReturned.previous == null)
+				{
+					head = previouslyReturned.next;
+					head.previous = null;
+					previouslyReturned.next = null;
+				}
+				else if(previouslyReturned.next == null)
+				{
+					tail = previouslyReturned.previous;
+					tail.next = null;
+					previouslyReturned.previous = null;
+				}
+				else
+				{
+					previouslyReturned.previous.next = previouslyReturned.next;
+					previouslyReturned.next.previous = previouslyReturned.previous;
+					previouslyReturned.previous = null;
+					previouslyReturned.next = null;
+				}
+
+				size--;
+				previouslyReturned = null;
+			}
+		};
 	}
 
 	/**
