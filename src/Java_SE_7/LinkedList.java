@@ -507,7 +507,39 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public boolean equals(Object o)
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		if(this == o)
+		{
+			return true;
+		}
+
+		if(!(o instanceof List<?>))
+		{
+			return false;
+		}
+
+		List<?> other = (List<?>) o;
+
+		if(this.size != other.size())
+		{
+			return false;
+		}
+
+		Node current = head;
+		Iterator<?> iterator = other.iterator();
+
+		while(current != null)
+		{
+			Object otherValue = iterator.next();
+
+			if(!current.data.equals(otherValue))
+			{
+				return false;
+			}
+
+			current = current.next;
+		}
+
+		return true;
 	}
 
 	/**
