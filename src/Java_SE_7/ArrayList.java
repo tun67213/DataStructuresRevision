@@ -428,6 +428,27 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
 	}
 
 	/**
+	 * @param o the Object to compare with this list
+	 * @return true if the hash code for this list matches the hash code for the provided Object, false otherwise
+	 * @code Compares the specified object with this list for equality.
+	 */
+	@Override
+	public boolean equals(Object o)
+	{
+		if(o == null)
+		{
+			return false;
+		}
+		int hashCode = 1;
+		for(int i = 0; i < this.size; i++)
+		{
+			E value = this.array[i];
+			hashCode = 31 * hashCode + value.hashCode();
+		}
+		return hashCode == o.hashCode();
+	}
+
+	/**
 	 * @return a list iterator over the elements in this list (in proper sequence)
 	 */
 	@Override
