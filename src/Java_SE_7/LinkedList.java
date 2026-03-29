@@ -169,7 +169,32 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public boolean addAll(Collection<? extends E> c)
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		if(c == null || c.contains(null))
+		{
+			throw new NullPointerException("Please provide a collection with non-null elements to add into this linked list");
+		}
+		if(c.isEmpty())
+		{
+			return false;
+		}
+		Iterator<? extends E> iterator = c.iterator();
+		while(iterator.hasNext())
+		{
+			Node newNode = new Node(iterator.next());
+			if(tail == null)
+			{
+				head = newNode;
+				tail = newNode;
+			}
+			else
+			{
+				tail.next = newNode;
+				newNode.previous = tail;
+				tail = tail.next;
+			}
+			this.size++;
+		}
+		return true;
 	}
 
 	/**
@@ -183,7 +208,80 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public boolean addAll(int index, Collection<? extends E> c)
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		if(c == null || c.contains(null))
+		{
+			throw new NullPointerException("Please provide a collection with non-null elements to add into this linked list");
+		}
+		if(index < 0 || index > this.size)
+		{
+			throw new IndexOutOfBoundsException("Index (" + index + ") is out of bounds");
+		}
+		Node currentNode, newNode;
+		boolean addedValue = false;
+		Iterator<? extends E> iterator = c.iterator();
+		if(head == null || index == this.size)
+		{
+			while(iterator.hasNext())
+			{
+				newNode = new Node(iterator.next());
+				if(head == null)
+				{
+					head = newNode;
+					tail = newNode;
+				}
+				else
+				{
+					tail.next = newNode;
+					newNode.previous = tail;
+					tail = tail.next;
+				}
+				this.size++;
+			}
+		}
+		else if(index == 0)
+		{
+			boolean oneAdded = false;
+			currentNode = head;
+			while(iterator.hasNext())
+			{
+				newNode = new Node(iterator.next());
+				if(!oneAdded)
+				{
+					head.previous = newNode;
+					newNode.next = head;
+					head = head.previous;
+					currentNode = head;
+				}
+				else
+				{
+					newNode.previous = currentNode;
+					newNode.next = currentNode.next;
+					currentNode.next.previous = newNode;
+					currentNode.next = newNode;
+					currentNode = currentNode.next;
+				}
+				this.size++;
+			}
+		}
+		else
+		{
+			currentNode = head;
+			for(int i = 0; i < index - 1; i++)
+			{
+				currentNode = currentNode.next;
+			}
+			while(iterator.hasNext())
+			{
+				newNode = new Node(iterator.next());
+				newNode.next = currentNode.next;
+				newNode.previous = currentNode;
+				currentNode.next.previous = newNode;
+				currentNode.next = newNode;
+				currentNode = currentNode.next;
+				this.size++;
+			}
+		}
+		return true;
 	}
 
 	/**
