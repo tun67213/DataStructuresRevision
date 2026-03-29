@@ -355,7 +355,12 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public Object clone()
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		LinkedList<E> list = new LinkedList<>();
+		for(Node current = head; current != null; current = current.next)
+		{
+			list.add(current.data);
+		}
+		return list;
 	}
 
 	/**
