@@ -635,7 +635,84 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public Iterator<E> iterator()
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		return new Iterator<>()
+		{
+			private Node current;
+			private Node previouslyCalled;
+
+			{
+				this.current = head;
+				this.previouslyCalled = null;
+			}
+
+			/**
+			 * @return true if the iteration has more elements
+			 * false otherwise
+			 * @code Returns true if the iteration has more elements.
+			 */
+			@Override
+			public boolean hasNext()
+			{
+				return current != null;
+			}
+
+			/**
+			 * @return the next element in the iteration
+			 */
+			@Override
+			public E next()
+			{
+				if(current == null)
+				{
+					throw new NoSuchElementException("This iterator has reached the end of this linked list");
+				}
+				previouslyCalled = current;
+				current = current.next;
+				return previouslyCalled.data;
+			}
+
+			/**
+			 * @code Removes from the underlying collection the last element returned by this iterator.
+			 */
+			@Override
+			public void remove()
+			{
+				if(previouslyCalled == null)
+				{
+					throw new NullPointerException("You must call next() before calling remove()");
+				}
+				else if(previouslyCalled.previous == null && previouslyCalled.next == null)
+				{
+					size = 0;
+					head = null;
+					tail = null;
+				}
+				else
+				{
+					if(previouslyCalled.previous == null)
+					{
+						head = head.next;
+						previouslyCalled.next = null;
+						head.previous = null;
+					}
+					else if(previouslyCalled.next == null)
+					{
+						tail = tail.previous;
+						previouslyCalled.previous = null;
+						tail.next = null;
+					}
+					else
+					{
+						previouslyCalled.previous.next = previouslyCalled.next;
+						previouslyCalled.next.previous = previouslyCalled.previous;
+						previouslyCalled.previous = null;
+						previouslyCalled.next = null;
+					}
+					size--;
+					previouslyCalled = null;
+				}
+			}
+		};
 	}
 
 	/**
