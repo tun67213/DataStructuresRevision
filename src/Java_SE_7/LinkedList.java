@@ -722,7 +722,18 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public int lastIndexOf(Object o)
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		if(o == null)
+		{
+			return -1;
+		}
+		Node currentNode = tail;
+		int currentIndex = this.size - 1;
+		while(currentNode != null && !(currentNode.data.equals(o)))
+		{
+			currentNode = currentNode.previous;
+			currentIndex--;
+		}
+		return currentIndex;
 	}
 
 	/**
