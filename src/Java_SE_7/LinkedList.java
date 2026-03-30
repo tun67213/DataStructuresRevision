@@ -1,5 +1,6 @@
 package Java_SE_7;
 
+import java.util.EmptyStackException;
 import java.util.NoSuchElementException;
 
 /**
@@ -1240,6 +1241,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 
 	/**
 	 * @return the value previously at the top of the stack, or null if this list is empty
+	 * @throws EmptyStackException if this linked list is empty
 	 * @code Pops an element from the stack represented by this list.
 	 */
 	@Override
