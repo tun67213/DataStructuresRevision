@@ -1247,7 +1247,23 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public E pop()
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		if(head == null)
+		{
+			throw new EmptyStackException();
+		}
+		Node removingNode = head;
+		head = head.next;
+		removingNode.next = null;
+		if(head == null)
+		{
+			tail = null;
+		}
+		else
+		{
+			head.previous = null;
+		}
+		this.size--;
+		return removingNode.data;
 	}
 
 	/**
@@ -1258,7 +1274,23 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public void push(E e)
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		if(e == null)
+		{
+			throw new NullPointerException("Please provide a non-null value to add onto the stack");
+		}
+		Node newNode = new Node(e);
+		if(head == null)
+		{
+			head = newNode;
+			tail = newNode;
+		}
+		else
+		{
+			head.previous = newNode;
+			newNode.next = head;
+			head = head.previous;
+		}
+		this.size++;
 	}
 
 	/**
