@@ -1301,7 +1301,23 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public E remove()
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		if(head == null)
+		{
+			throw new NoSuchElementException("This linked list is empty");
+		}
+		Node removingNode = head;
+		head = head.next;
+		removingNode.next = null;
+		if(head == null)
+		{
+			tail = null;
+		}
+		else
+		{
+			head.previous = null;
+		}
+		this.size--;
+		return removingNode.data;
 	}
 
 	/**
@@ -1313,7 +1329,41 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public E remove(int index)
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		if(index < 0 || index >= this.size)
+		{
+			throw new IndexOutOfBoundsException("Index (" + index + ") is out of bounds");
+		}
+		Node removingNode = head;
+		for(int i = 0; i < index; i++)
+		{
+			removingNode = removingNode.next;
+		}
+		if(removingNode.previous == null && removingNode.next == null)
+		{
+			head = null;
+			tail = null;
+		}
+		else if(removingNode.previous == null)
+		{
+			head = head.next;
+			removingNode.next = null;
+			head.previous = null;
+		}
+		else if(removingNode.next == null)
+		{
+			tail = tail.previous;
+			removingNode.previous = null;
+			tail.next = null;
+		}
+		else
+		{
+			removingNode.previous.next = removingNode.next;
+			removingNode.next.previous = removingNode.previous;
+			removingNode.previous = null;
+			removingNode.next = null;
+		}
+		this.size--;
+		return removingNode.data;
 	}
 
 	/**
@@ -1324,7 +1374,45 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public boolean remove(Object o)
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		if(o == null)
+		{
+			return false;
+		}
+		Node removingNode = head;
+		while(removingNode != null && !(removingNode.data.equals(o)))
+		{
+			removingNode = removingNode.next;
+		}
+		if(removingNode == null)
+		{
+			return false;
+		}
+		else if(removingNode.previous == null && removingNode.next == null)
+		{
+			head = null;
+			tail = null;
+		}
+		else if(removingNode.previous == null)
+		{
+			head = head.next;
+			removingNode.next = null;
+			head.previous = null;
+		}
+		else if(removingNode.next == null)
+		{
+			tail = tail.previous;
+			removingNode.previous = null;
+			tail.next = null;
+		}
+		else
+		{
+			removingNode.previous.next = removingNode.next;
+			removingNode.next.previous = removingNode.previous;
+			removingNode.previous = null;
+			removingNode.next = null;
+		}
+		this.size--;
+		return true;
 	}
 
 	/**
@@ -1335,7 +1423,23 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public E removeFirst()
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		if(head == null)
+		{
+			throw new NoSuchElementException("This list is empty");
+		}
+		Node removingNode = head;
+		head = head.next;
+		removingNode.next = null;
+		if(head == null)
+		{
+			tail = null;
+		}
+		else
+		{
+			head.previous = null;
+		}
+		this.size--;
+		return removingNode.data;
 	}
 
 	/**
@@ -1346,7 +1450,45 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public boolean removeFirstOccurrence(Object o)
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		if(o == null)
+		{
+			return false;
+		}
+		Node removingNode = head;
+		while(removingNode != null && !(removingNode.data.equals(o)))
+		{
+			removingNode = removingNode.next;
+		}
+		if(removingNode == null)
+		{
+			return false;
+		}
+		else if(removingNode.previous == null && removingNode.next == null)
+		{
+			head = null;
+			tail = null;
+		}
+		else if(removingNode.previous == null)
+		{
+			head = head.next;
+			removingNode.next = null;
+			head.previous = null;
+		}
+		else if(removingNode.next == null)
+		{
+			tail = tail.previous;
+			removingNode.previous = null;
+			tail.next = null;
+		}
+		else
+		{
+			removingNode.previous.next = removingNode.next;
+			removingNode.next.previous = removingNode.previous;
+			removingNode.previous = null;
+			removingNode.next = null;
+		}
+		this.size--;
+		return true;
 	}
 
 	/**
@@ -1357,7 +1499,23 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public E removeLast()
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		if(tail == null)
+		{
+			throw new NoSuchElementException("This list is empty");
+		}
+		Node removingNode = tail;
+		tail = tail.previous;
+		removingNode.previous = null;
+		if(tail == null)
+		{
+			head = null;
+		}
+		else
+		{
+			tail.next = null;
+		}
+		this.size--;
+		return removingNode.data;
 	}
 
 	/**
@@ -1368,7 +1526,45 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public boolean removeLastOccurrence(Object o)
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		if(o == null)
+		{
+			return false;
+		}
+		Node removingNode = tail;
+		while(removingNode != null && !(removingNode.data.equals(o)))
+		{
+			removingNode = removingNode.previous;
+		}
+		if(removingNode == null)
+		{
+			return false;
+		}
+		else if(removingNode.previous == null && removingNode.next == null)
+		{
+			head = null;
+			tail = null;
+		}
+		else if(removingNode.previous == null)
+		{
+			head = head.next;
+			removingNode.next = null;
+			head.previous = null;
+		}
+		else if(removingNode.next == null)
+		{
+			tail = tail.previous;
+			removingNode.previous = null;
+			tail.next = null;
+		}
+		else
+		{
+			removingNode.previous.next = removingNode.next;
+			removingNode.next.previous = removingNode.previous;
+			removingNode.previous = null;
+			removingNode.next = null;
+		}
+		this.size--;
+		return true;
 	}
 
 	/**
@@ -1379,7 +1575,63 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public boolean removeAll(Collection<?> c)
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		if(c == null)
+		{
+			throw new NullPointerException("You MUST provide a collection of values to remove if contained in this list");
+		}
+		if(c.isEmpty())
+		{
+			return false;
+		}
+		boolean listModified = false;
+		Node currentNode = head;
+		Node removingNode;
+		while(currentNode != null)
+		{
+			if(c.contains(currentNode.data))
+			{
+				if(currentNode.previous == null && currentNode.next == null)
+				{
+					this.size = 0;
+					head = null;
+					tail = null;
+					return true;
+				}
+				else if(currentNode.previous == null)
+				{
+					removingNode = head;
+					head = head.next;
+					removingNode.next = null;
+					head.previous = null;
+					currentNode = head;
+				}
+				else if(currentNode.next == null)
+				{
+					removingNode = tail;
+					tail = tail.previous;
+					removingNode.previous = null;
+					tail.next = null;
+					currentNode = tail;
+				}
+				else
+				{
+					removingNode = currentNode;
+					currentNode = currentNode.previous;
+					removingNode.previous.next = removingNode.next;
+					removingNode.next.previous = removingNode.previous;
+					removingNode.previous = null;
+					removingNode.next = null;
+				}
+				this.size--;
+				listModified = true;
+				removingNode = null;
+			}
+			else
+			{
+				currentNode = currentNode.next;
+			}
+		}
+		return listModified;
 	}
 
 	/**
@@ -1392,7 +1644,73 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public void removeRange(int fromIndex, int toIndex)
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		if(fromIndex < 0 || toIndex > this.size)
+		{
+			throw new IndexOutOfBoundsException("fromIndex (" + fromIndex + ") and/or toIndex (" + toIndex + ") is/are out of bounds");
+		}
+		if(fromIndex > toIndex)
+		{
+			throw new IllegalArgumentException("fromIndex (" + fromIndex + ") cannot be greater than toIndex (" + toIndex + ")");
+		}
+		int numberOfRemovals = toIndex - fromIndex;
+		Node removingNode;
+		if(fromIndex == 0 && toIndex == this.size)
+		{
+			this.size = 0;
+			head = null;
+			tail = null;
+		}
+		else if(fromIndex == 0)
+		{
+			for(int i = fromIndex; i < toIndex; i++)
+			{
+				removingNode = head;
+				head = head.next;
+				removingNode.next = null;
+				head.previous = null;
+			}
+		}
+		else if(toIndex == this.size)
+		{
+			for(int i = fromIndex; i < toIndex; i++)
+			{
+				removingNode = tail;
+				tail = tail.previous;
+				removingNode.previous = null;
+				tail.next = null;
+			}
+		}
+		else
+		{
+			removingNode = head;
+			for (int i = 0; i < fromIndex; i++)
+			{
+				removingNode = removingNode.next;
+			}
+
+			Node beforeRemovingNode = removingNode.previous;
+			Node firstRemovingNode = removingNode;
+
+			for (int i = fromIndex; i < toIndex - 1; i++)
+			{
+				removingNode = removingNode.next;
+			}
+
+			Node afterRemovingNode = removingNode.next;
+
+			beforeRemovingNode.next = afterRemovingNode;
+			afterRemovingNode.previous = beforeRemovingNode;
+
+			removingNode = firstRemovingNode;
+			for (int i = fromIndex; i < toIndex; i++)
+			{
+				Node nextRemovingNode = removingNode.next;
+				removingNode.previous = null;
+				removingNode.next = null;
+				removingNode = nextRemovingNode;
+				this.size--;
+			}
+		}
 	}
 
 	/**
