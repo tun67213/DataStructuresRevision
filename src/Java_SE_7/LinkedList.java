@@ -1383,6 +1383,19 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	}
 
 	/**
+	 * @param fromIndex the location, inclusive of which, to remove values from
+	 * @param toIndex the location, exclusive of which, to remove values until
+	 * @throws IndexOutOfBoundsException if either index is out of bounds
+	 * @throws IllegalArgumentException if fromIndex is greater than toIndex
+	 * @code Removes from this list the values contained within the specified indices.
+	 */
+	@Override
+	public void removeRange(int fromIndex, int toIndex)
+	{
+		throw new UnsupportedOperationException("Not implemented yet");
+	}
+
+	/**
 	 * @param c Collection of values to keep if found in this list
 	 * @throws NullPointerException if no collection is provided
 	 * @return true if this list has been structurally modified, false otherwise
