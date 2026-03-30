@@ -1820,12 +1820,13 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	@Override
 	public int size()
 	{
-		throw new UnsupportedOperationException("Not implemented yet");
+		return this.size;
 	}
 
 	/**
 	 * @return an array containing all of the elements in this list
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public Object[] toArray()
 	{
@@ -1838,6 +1839,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>,
 	 * @throws NullPointerException if no array is provided
 	 * @code Returns an array containing all of the elements in this list in proper sequence (from first to last element); the runtime type of the returned array is that of the specified array.
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public <T> T[] toArray(T[] a)
 	{
